@@ -1,0 +1,1 @@
+Please copy the sgd_dynamic.dll Ver 17.1 in these folder
