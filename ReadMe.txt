@@ -1,3 +1,5 @@
+Hello, bad news. I sadly have to announce that Mark Sibly has died after an illness in December 2024, rest in peace...
+
 Welcome to LibSGD
 
 LibSGD is a simple game development library that provides a high level, easy to use 'scene graph' style API for writing games and apps.
@@ -12,9 +14,9 @@ Note that Pull Requests are not currently being accepted for this repository.
 
 LibSGD is licensed under the Zlib/PNG license.
 
-Joins the LibSFD discussion at https://skirmish-dev.net/forum
+( no longer online) Joins the LibSFD discussion at https://skirmish-dev.net/forum
 
-Help support LibSGD at https://patreon.com/libsgd
+( no longer online) Help support LibSGD at https://patreon.com/libsgd
 
 Hello 
 
@@ -24,10 +26,7 @@ Procedure to work with the libsgd under Purebasic 6.12 x64:
 
 1) https://github.com/blitz-research/libsgd source code and instructions to create a dll yourself. Please copy the dll file into the "examples" directory. 
 
-2) You can become a Patreon and always get the latest compiled version from here
-Help support LibSGD at https://patreon.com/libsgd 
-
-3) I took all demos from the "LibSGD-windows-v0.17.1.zip" file from the Patreon page and adapted them. Greetings Michael
+2) I took all demos from the "LibSGD-windows-v0.17.1.zip" file from the Patreon page and adapted them. Greetings Michael
 
 German translation
 
@@ -43,9 +42,9 @@ Beachten Sie, dass Pull Requests für dieses Repository derzeit nicht akzeptiert
 
 LibSGD ist lizenziert unter der Zlib/PNG Lizenz. 
 
-Beteiligt euch an der LibSFD-Diskussion auf https://skirmish-dev.net/forum 
+server offline - Beteiligt euch an der LibSFD-Diskussion auf https://skirmish-dev.net/forum 
 
-Helft, LibSGD auf https://patreon.com/libsgd zu unterstützen.
+server offline - Helft, LibSGD auf https://patreon.com/libsgd zu unterstützen.
 
 Hello,
 
@@ -56,9 +55,6 @@ Vorgehensweise um unter Purebasic 6.12 x64 mit der libsgd zu arbeiten:
 1) https://github.com/blitz-research/libsgd
 Quellcode und Anleitung um eine dll selber zu erstellen. Diese wird dann in das "examples" Verzeichnis kopiert.
 
-2) Man kann Patreon werden und immer die neuste compilierten Version von hier 
-Help support LibSGD at https://patreon.com/libsgd
-
-3) Alle Demos habe ich der "LibSGD-windows-v0.17.1.zip" Datei von der Patreon Seite entnommen und angepasst. 
+2) Alle Demos habe ich der "LibSGD-windows-v0.17.1.zip" Datei von der Patreon Seite entnommen und angepasst. 
 
 Gruss Michael
