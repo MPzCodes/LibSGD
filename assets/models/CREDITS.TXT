@@ -1,0 +1,99 @@
+# File: blendtest.glb
+
+## Author: Mark Sibly
+
+## Webpage: https://skirmish-dev.net
+
+## License: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0)
+
+--------------------------------------------------------------------------------
+
+# File: landscape_free.glb
+
+## Author: Kwinto
+
+## Webpage: https://kwinto.artstation.com
+
+## License: [Sketchfab Free Standard](https://sketchfab.com/licenses)
+
+--------------------------------------------------------------------------------
+
+# File: eiffel_tower.glb
+
+## Author: ArtAmin
+
+## Webpage: https://ddami.artstation.com
+
+## License: Royalty free.
+
+Also check out https://www.blenderkit.com/asset-gallery?query=author_id:60200
+
+--------------------------------------------------------------------------------
+
+# Files: palm_tree1.glb, birch_tree1.glb, tree1.glb
+
+## Author: Quaternius 
+
+## Webpage: https://quaternius.com
+
+## License: [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0)
+
+Visit https://quaternius.com/ for *tons* of great free 3d stuff!
+
+--------------------------------------------------------------------------------
+
+# File: ManurewaDuplex.glb
+
+## Author: MyStudioNZ  
+
+## Webpage: https://mystudionz.com
+
+## License: [Creative Commons Attribution 4.0 International](http://creativecommons.org/licenses/by/4.0/).
+
+--------------------------------------------------------------------------------
+
+# File: larry_walk.glb
+
+## Author: Chaduke
+
+## License information:
+
+Cowboy boots by Poly by Google [CC-BY] via Poly Pizza
+
+--------------------------------------------------------------------------------
+
+# File: cesiumman.glb
+
+## License: [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/)
+
+## Notes: 
+
+Donated by Cesium for glTF testing.  Please follow the [Cesium Trademark Terms and Conditions](https://github.com/AnalyticalGraphicsInc/cesium/wiki/CesiumTrademark.pdf).
+
+--------------------------------------------------------------------------------
+
+# File: Duck.glb
+
+## License: SCEA Shared Source License, Version 1.0
+
+## Notes:
+
+Copyright 2006 Sony Computer Entertainment Inc.
+
+You may obtain a copy of the License at: https://web.archive.org/web/20160320123355/http://research.scea.com/scea_shared_source_license.html
+
+--------------------------------------------------------------------------------
+
+# File: helmet.glb
+
+## Author: [theblueturtle_](https://sketchfab.com/theblueturtle_)
+
+## License: [Create Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/deed.en)
+
+## Notes:
+
+Battle Damaged Sci-fi Helmet.
+
+https://sketchfab.com/models/b81008d513954189a063ff901f7abfe4
+
+The original model was built on an early draft of glTF 2.0 that did not become final.  This new model has been imported and re-exported from Blender to bring it into alignment with the final release glTF 2.0 specification.
