@@ -1,5 +1,9 @@
 Hello, bad news. I sadly have to announce that Mark Sibly has died after an illness in December 2024, rest in peace...
 
+16.Dec.2024
+i have actualized the demos and put a download link for the assets files in the assets folder
+
+
 Welcome to LibSGD
 
 LibSGD is a simple game development library that provides a high level, easy to use 'scene graph' style API for writing games and apps.
