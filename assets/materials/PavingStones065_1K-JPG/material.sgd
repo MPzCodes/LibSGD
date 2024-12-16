@@ -1,0 +1,10 @@
+{
+	"class": "Material",
+	"type": "pbr",
+	"textures": {
+		"albedo": "PavingStones065_1K-JPG_Color.jpg",
+		"roughness": "PavingStones065_1K-JPG_Roughness.jpg",
+		"occlusion": "PavingStones065_1K-JPG_AmbientOcclusion.jpg",
+		"normal": "PavingStones065_1K-JPG_NormalGL.jpg"
+	}
+}
