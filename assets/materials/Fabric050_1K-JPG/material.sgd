@@ -1,0 +1,10 @@
+{
+	"class": "Material",
+	"type": "pbr",
+	"textures": {
+		"albedo": "Fabric050_1K-JPG_Color.jpg",
+		"roughness": "Fabric050_1K-JPG_Roughness.jpg",
+		"occlusion": "Fabric050_1K-JPG_AmbientOcclusion.jpg",
+		"normal": "Fabric050_1K-JPG_NormalGL.jpg"
+	}
+}
