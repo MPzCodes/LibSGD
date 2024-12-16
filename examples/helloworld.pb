@@ -1,4 +1,6 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
 XIncludeFile "start.pb"
 
 sgd_init()
@@ -10,8 +12,8 @@ While (sgd_PollEvents() And 1)=0
 	sgd_RenderScene()
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 3
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 1
 ; EnableAsm
 ; EnableXP
 ; DPIAware

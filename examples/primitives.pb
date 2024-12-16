@@ -1,4 +1,6 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
 XIncludeFile  "start.pb"
 
 sgd_init()
@@ -6,7 +8,7 @@ sgd_init()
 ExamineDesktops()
 sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Primitives"), #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii("sgd://envmaps/sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 
 skybox = sgd_CreateSkybox(env)
@@ -30,7 +32,7 @@ sgd_SetMeshShadowsEnabled (groundMesh, #True)
 
 groundModel = sgd_CreateModel(groundMesh)
 
-material = sgd_LoadPBRMaterial(myAscii("sgd://materials/Fabric050_1K-JPG"))
+material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
 
 r.f = 0.5
 y.f = 1.5
@@ -103,9 +105,8 @@ While (sgd_PollEvents() And 1) <> 1
 	sgd_RenderScene()
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 86
-; FirstLine = 47
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 1
 ; EnableAsm
 ; EnableXP
 ; DPIAware

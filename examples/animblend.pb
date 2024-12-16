@@ -1,4 +1,7 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
+
 XIncludeFile  "start.pb"
 
 sgd_init()
@@ -36,7 +39,7 @@ sgd_MoveEntity (camera,0,1,-3)
 light = sgd_CreateDirectionalLight()
 sgd_TurnEntity (light,-35,0,0)
 
-model = sgd_LoadBonedModel (myAscii("sgd://models/base_male_animated.glb"),#True)
+model = sgd_LoadBonedModel (myAscii("..\assets\models\base_male_animated.glb"),#True)
 
 While Not (sgd_PollEvents() And #EVENT_MASK_CLOSE_CLICKED)
 
@@ -108,9 +111,8 @@ While Not (sgd_PollEvents() And #EVENT_MASK_CLOSE_CLICKED)
 	
 	sgd_Present()
 Wend 
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 73
-; FirstLine = 52
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 41
 ; EnableAsm
 ; EnableXP
 ; DPIAware

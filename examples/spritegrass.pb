@@ -1,5 +1,7 @@
-;Use space to toggle sprite view modes.
 
+; File for libsgd Version 0.17 Dec 2024 
+
+;Use space to toggle sprite view modes.
 
 XIncludeFile  "start.pb"
 
@@ -8,7 +10,7 @@ sgd_init()
 ExamineDesktops()
 sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Sprite Grass"), #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii("sgd://envmaps/sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 skybox = sgd_CreateSkybox(env)
 
@@ -21,7 +23,7 @@ CreatePlayer(0)
 sgd_SetCameraFar (camera, far)
 sgd_MoveEntity (player,0,1.5,0)
 
-grassImage = sgd_LoadImage(myAscii("sgd://misc/grass1.png"))
+grassImage = sgd_LoadImage(myAscii("..\assets\misc\grass1.png"))
 sgd_SetImageRect (grassImage,-0.5,0,0.5,0.5)
 
 n=50000
@@ -56,8 +58,8 @@ While Not sgd_PollEvents()
 	sgd_RenderScene()
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 6
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 25
 ; EnableAsm
 ; EnableXP
 ; DPIAware

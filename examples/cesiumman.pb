@@ -1,5 +1,8 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
 XIncludeFile  "start.pb"
+
 Declare.i LoadScene()
 
 sgd_init()
@@ -40,7 +43,7 @@ Wend
 
 Procedure LoadScene()
 
-	env = sgd_LoadCubeTexture(myAscii("sgd://envmaps/sunnysky-cube.png"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+	env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 	sgd_SetEnvTexture (env)
 
 	skybox = sgd_CreateSkybox(env)
@@ -53,17 +56,17 @@ Procedure LoadScene()
 	camera = sgd_CreatePerspectiveCamera()
 	sgd_MoveEntity (camera,0,1,-5)
 	
-	material = sgd_LoadPBRMaterial(myAscii("sgd://materials/PavingStones065_1K-JPG"))
+	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG"))
 	mesh = sgd_CreateBoxMesh(-10, -1, -10, 10, 0, 10, material)
 	sgd_TransformTexCoords (mesh, 4,4,0,0)
 	ground = sgd_CreateModel(mesh)
 	
-	model = sgd_LoadBonedModel(myAscii("sgd://models/cesiumman.glb"), #True)
+	model = sgd_LoadBonedModel(myAscii("..\assets\models\cesiumman.glb"), #True)
 	sgd_SetMeshShadowsEnabled (sgd_GetModelMesh(model),#True)
 
 EndProcedure
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 46
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 63
 ; Folding = -
 ; EnableAsm
 ; EnableXP

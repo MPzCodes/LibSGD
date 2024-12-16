@@ -1,4 +1,6 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
 IncludePath("..\lib\")
 
 XIncludeFile "keycodes.pb"
@@ -152,8 +154,8 @@ Procedure PlayerFly2(speed.f,maxSpeed.f,minSpeed.f)
 	sgd_MoveEntity (player,player_vx,0,0)
 
 EndProcedure
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 2
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 26
 ; Folding = -
 ; EnableAsm
 ; EnableXP

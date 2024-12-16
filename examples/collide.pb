@@ -1,10 +1,9 @@
 
+; File for libsgd Version 0.17 Dec 2024 
+
 XIncludeFile  "start.pb"
 
 sgd_init()
-
-
-
 
 #COLLIDER_TYPE_LEVEL=0
 #COLLIDER_TYPE_SPHERE=1
@@ -18,7 +17,7 @@ sgd_EnableCollisions (#COLLIDER_TYPE_PLAYER,#COLLIDER_TYPE_SPHERE,#COLLISION_RES
 
 sgd_SetAmbientLightColor (1,0.9,0.8,0.2)
 
-env =  sgd_LoadCubeTexture(myAscii("sgd://envmaps/sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env =  sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 
 skybox = sgd_CreateSkybox(env)
@@ -26,7 +25,7 @@ skybox = sgd_CreateSkybox(env)
 light = sgd_CreateDirectionalLight()
 sgd_TurnEntity (light,-45,-45,0)
 
-levelMesh = sgd_LoadMesh(myAscii("sgd://models/ManurewaDuplex.glb"))
+levelMesh = sgd_LoadMesh(myAscii("..\assets\models\ManurewaDuplex.glb"))
 
 sz.f=50
 sgd_FitMesh (levelMesh,-sz,-sz,-sz,sz,sz,sz,#True)
@@ -104,9 +103,8 @@ While sgd_PollEvents()<>1
 	sgd_Present()
 	
 Wend
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 94
-; FirstLine = 48
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 19
 ; EnableAsm
 ; EnableXP
 ; DPIAware
