@@ -1,0 +1,10 @@
+{
+	"class": "Material",
+	"type": "pbr",
+	"textures": {
+		"albedo": "Tiles093_1K-JPG_Color.jpg",
+		"roughness": "Tiles093_1K-JPG_Roughness.jpg",
+		"occlusion": "Tiles093_1K-JPG_AmbientOcclusion.jpg",
+		"normal": "Tiles093_1K-JPG_NormalGL.jpg"
+	}
+}
