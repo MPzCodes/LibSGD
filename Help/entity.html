@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Entity &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cameras" href="camera.html" />
+    <link rel="prev" title="Scene" href="scene.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="camera.html" title="Cameras"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="scene.html" title="Scene"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Entity</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="entity">
+<h1>Entity<a class="headerlink" href="#entity" title="Link to this heading">¶</a></h1>
+<p>An entity is a visual element in the scene. Every entity has the following properties:</p>
+<ul class="simple">
+<li><p>Name: name of the entity, as read from file or set by user. Use <a class="reference internal" href="#_CPPv417sgd_SetEntityName10SGD_Entity10SGD_String" title="sgd_SetEntityName"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityName()</span></code></a> and <a class="reference internal" href="#_CPPv417sgd_GetEntityName10SGD_Entity" title="sgd_GetEntityName"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityName()</span></code></a> to get and set this property. Use <a class="reference internal" href="#_CPPv419sgd_FindEntityChild10SGD_Entity10SGD_String" title="sgd_FindEntityChild"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_FindEntityChild()</span></code></a> to search an entity and its descendants for an entity with a specific name.</p></li>
+<li><p>Position - position of the entity, stored as x, y, z coordinates. Use <a class="reference internal" href="#_CPPv421sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="sgd_SetEntityPosition"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityPosition()</span></code></a>, <a class="reference internal" href="#_CPPv414sgd_GetEntityX10SGD_Entity" title="sgd_GetEntityX"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityX()</span></code></a>, <a class="reference internal" href="#_CPPv414sgd_GetEntityY10SGD_Entity" title="sgd_GetEntityY"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityY()</span></code></a> and <a class="reference internal" href="#_CPPv414sgd_GetEntityZ10SGD_Entity" title="sgd_GetEntityZ"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityZ()</span></code></a> to set and get this property.</p></li>
+<li><p>Rotation - rotation of the entity, stored as a 3 X 3 orthogonal, normalized ‘basis’ matrix. Use <a class="reference internal" href="#_CPPv421sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="sgd_SetEntityRotation"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityRotation()</span></code></a>, <a class="reference internal" href="#_CPPv415sgd_GetEntityRX10SGD_Entity" title="sgd_GetEntityRX"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityRX()</span></code></a>, <a class="reference internal" href="#_CPPv415sgd_GetEntityRY10SGD_Entity" title="sgd_GetEntityRY"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityRY()</span></code></a> and <a class="reference internal" href="#_CPPv415sgd_GetEntityRZ10SGD_Entity" title="sgd_GetEntityRZ"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityRZ()</span></code></a> to get and set entity rotation using euler angles in the range 0..360.</p></li>
+<li><p>Scale - scale of the entity, stored as x, y, z scale values. Use <a class="reference internal" href="#_CPPv418sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="sgd_SetEntityScale"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityScale()</span></code></a>, <a class="reference internal" href="#_CPPv415sgd_GetEntitySX10SGD_Entity" title="sgd_GetEntitySX"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntitySX()</span></code></a>, <a class="reference internal" href="#_CPPv415sgd_GetEntitySY10SGD_Entity" title="sgd_GetEntitySY"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntitySY()</span></code></a> and <a class="reference internal" href="#_CPPv415sgd_GetEntitySZ10SGD_Entity" title="sgd_GetEntitySZ"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntitySZ()</span></code></a> to get and set this property.</p></li>
+<li><p>Parent - reference to parent entity. Use <a class="reference internal" href="#_CPPv419sgd_SetEntityParent10SGD_Entity10SGD_Entity" title="sgd_SetEntityParent"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityParent()</span></code></a> and <a class="reference internal" href="#_CPPv419sgd_GetEntityParent10SGD_Entity" title="sgd_GetEntityParent"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityParent()</span></code></a> to set and get this property.</p></li>
+<li><p>Children - child entities. Use <a class="reference internal" href="#_CPPv423sgd_GetEntityChildCount10SGD_Entity" title="sgd_GetEntityChildCount"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityChildCount()</span></code></a> and <a class="reference internal" href="#_CPPv418sgd_GetEntityChild10SGD_Entityi" title="sgd_GetEntityChild"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_GetEntityChild()</span></code></a> to visit the children of an entity.</p></li>
+<li><p>Visible flag - flag indicating whther the entity is visible or not. Use <a class="reference internal" href="#_CPPv420sgd_SetEntityVisible10SGD_Entity8SGD_Bool" title="sgd_SetEntityVisible"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityVisible()</span></code></a> and <a class="reference internal" href="#_CPPv419sgd_IsEntityVisible10SGD_Entity" title="sgd_IsEntityVisible"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_IsEntityVisible()</span></code></a> to set and get this property. For an entity to be rendered by <a class="reference internal" href="scene.html#_CPPv415sgd_RenderScenev" title="sgd_RenderScene"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_RenderScene()</span></code></a>, it and its ancestor’s visible flags must be set to true.</p></li>
+<li><p>Enabled flag - flag indicating when the entity is enabled or not. Use <a class="reference internal" href="#_CPPv420sgd_SetEntityEnabled10SGD_Entity8SGD_Bool" title="sgd_SetEntityEnabled"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEntityEnabled()</span></code></a> and <a class="reference internal" href="#_CPPv419sgd_IsEntityEnabled10SGD_Entity" title="sgd_IsEntityEnabled"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_IsEntityEnabled()</span></code></a> to set and get this property. For an entity to be collided with or picked, it and it’s ancestor’s enabled flags must be set to true.</p></li>
+</ul>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv410SGD_Entity">
+<span id="_CPPv310SGD_Entity"></span><span id="_CPPv210SGD_Entity"></span><span id="SGD_Entity"></span><span class="target" id="group___entity_types_1ga378ef8d3f238638876add9dc7f3f069a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Entity</span></span></span><a class="headerlink" href="#_CPPv410SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Entity handle type. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetEntityEnabled10SGD_Entity8SGD_Bool">
+<span id="_CPPv320sgd_SetEntityEnabled10SGD_Entity8SGD_Bool"></span><span id="_CPPv220sgd_SetEntityEnabled10SGD_Entity8SGD_Bool"></span><span id="sgd_SetEntityEnabled__SGD_Entity.SGD_Bool"></span><span class="target" id="group___entity_1ga18117b42931f596a6fab337bee65658a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityEnabled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">enabled</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetEntityEnabled10SGD_Entity8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity enabled state. An entity is only enabled in the scene if both it and all its ancestors are enabled. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_IsEntityEnabled10SGD_Entity">
+<span id="_CPPv319sgd_IsEntityEnabled10SGD_Entity"></span><span id="_CPPv219sgd_IsEntityEnabled10SGD_Entity"></span><span id="sgd_IsEntityEnabled__SGD_Entity"></span><span class="target" id="group___entity_1gab84d767122b6278e84ba5c29666a3d44"></span><a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_IsEntityEnabled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_IsEntityEnabled10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity enabled state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetEntityVisible10SGD_Entity8SGD_Bool">
+<span id="_CPPv320sgd_SetEntityVisible10SGD_Entity8SGD_Bool"></span><span id="_CPPv220sgd_SetEntityVisible10SGD_Entity8SGD_Bool"></span><span id="sgd_SetEntityVisible__SGD_Entity.SGD_Bool"></span><span class="target" id="group___entity_1gadad1437d49166e53e154f4cfb7edcfb8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityVisible</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">visible</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetEntityVisible10SGD_Entity8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity visible state. An entity is only visible in the scene if both it and all its ancestors are visible. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_IsEntityVisible10SGD_Entity">
+<span id="_CPPv319sgd_IsEntityVisible10SGD_Entity"></span><span id="_CPPv219sgd_IsEntityVisible10SGD_Entity"></span><span id="sgd_IsEntityVisible__SGD_Entity"></span><span class="target" id="group___entity_1ga7a51f7381dba740433eeb3350a0eb6e6"></span><a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_IsEntityVisible</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_IsEntityVisible10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity visible state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_DestroyEntity10SGD_Entity">
+<span id="_CPPv317sgd_DestroyEntity10SGD_Entity"></span><span id="_CPPv217sgd_DestroyEntity10SGD_Entity"></span><span id="sgd_DestroyEntity__SGD_Entity"></span><span class="target" id="group___entity_1gacac1be9dfc4e4467c3250cf30e82a664"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_DestroyEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_DestroyEntity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Destroy entity and children recursively. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_ResetEntity10SGD_Entity">
+<span id="_CPPv315sgd_ResetEntity10SGD_Entity"></span><span id="_CPPv215sgd_ResetEntity10SGD_Entity"></span><span id="sgd_ResetEntity__SGD_Entity"></span><span class="target" id="group___entity_1gae572445212169aa744e112c2d5ec0b9a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ResetEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_ResetEntity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Reset entity collision state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_CopyEntity10SGD_Entity">
+<span id="_CPPv314sgd_CopyEntity10SGD_Entity"></span><span id="_CPPv214sgd_CopyEntity10SGD_Entity"></span><span id="sgd_CopyEntity__SGD_Entity"></span><span class="target" id="group___entity_1ga62480e8f81aa1594e5c12c1759d3a779"></span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CopyEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_CopyEntity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Copy entity and children recursively. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_SetEntityName10SGD_Entity10SGD_String">
+<span id="_CPPv317sgd_SetEntityName10SGD_Entity10SGD_String"></span><span id="_CPPv217sgd_SetEntityName10SGD_Entity10SGD_String"></span><span id="sgd_SetEntityName__SGD_Entity.SGD_String"></span><span class="target" id="group___entity_1ga9f5eae9ba4c7050b4d54d9d588f4865f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityName</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_SetEntityName10SGD_Entity10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity name. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_GetEntityName10SGD_Entity">
+<span id="_CPPv317sgd_GetEntityName10SGD_Entity"></span><span id="_CPPv217sgd_GetEntityName10SGD_Entity"></span><span id="sgd_GetEntityName__SGD_Entity"></span><span class="target" id="group___entity_1ga53758cea5527393ac14578d0e0159889"></span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityName</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_GetEntityName10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity name. The returned string will remain valid until the next call to sgd_GetEntityName. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_SetEntityParent10SGD_Entity10SGD_Entity">
+<span id="_CPPv319sgd_SetEntityParent10SGD_Entity10SGD_Entity"></span><span id="_CPPv219sgd_SetEntityParent10SGD_Entity10SGD_Entity"></span><span id="sgd_SetEntityParent__SGD_Entity.SGD_Entity"></span><span class="target" id="group___entity_1ga110245e0cd1b3719d584678d2fbc5dce"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityParent</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">parent</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_SetEntityParent10SGD_Entity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity’s parent. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetEntityParent10SGD_Entity">
+<span id="_CPPv319sgd_GetEntityParent10SGD_Entity"></span><span id="_CPPv219sgd_GetEntityParent10SGD_Entity"></span><span id="sgd_GetEntityParent__SGD_Entity"></span><span class="target" id="group___entity_1gab7a309ea8a5d301a272185366e4f561f"></span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityParent</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetEntityParent10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity’s parent. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423sgd_GetEntityChildCount10SGD_Entity">
+<span id="_CPPv323sgd_GetEntityChildCount10SGD_Entity"></span><span id="_CPPv223sgd_GetEntityChildCount10SGD_Entity"></span><span id="sgd_GetEntityChildCount__SGD_Entity"></span><span class="target" id="group___entity_1ga5ed574de2b90fadb1257cdc0be98426c"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityChildCount</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423sgd_GetEntityChildCount10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity number of children. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetEntityChild10SGD_Entityi">
+<span id="_CPPv318sgd_GetEntityChild10SGD_Entityi"></span><span id="_CPPv218sgd_GetEntityChild10SGD_Entityi"></span><span id="sgd_GetEntityChild__SGD_Entity.i"></span><span class="target" id="group___entity_1ga8ea0a71eb507a76ea8c24935af6be2ac"></span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityChild</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">childIndex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetEntityChild10SGD_Entityi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get entity child by index. childIndex must be &gt;= 0 and &lt; sgd_GetEntityChildCount(entity) </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_FindEntityChild10SGD_Entity10SGD_String">
+<span id="_CPPv319sgd_FindEntityChild10SGD_Entity10SGD_String"></span><span id="_CPPv219sgd_FindEntityChild10SGD_Entity10SGD_String"></span><span id="sgd_FindEntityChild__SGD_Entity.SGD_String"></span><span class="target" id="group___entity_1ga5c37010878935a891d20db0ebe41d41c"></span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_FindEntityChild</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">childName</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_FindEntityChild10SGD_Entity10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Recursively search for an entity by name. If parent is 0, the entire scene is searched. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv321sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv221sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_SetEntityPosition__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga7b30fc20d59389876cb026dc26815a47"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityPosition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ty</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity’s world space position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv321sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv221sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_SetEntityRotation__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga6f5d69d8aa49bf0f3aab9c8cb99a56f3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityRotation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ry</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity’s world space rotation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv318sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv218sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_SetEntityScale__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga2a760821de9e63d14449c85524dbc309"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEntityScale</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sy</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set entity world space scale. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_TranslateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv319sgd_TranslateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv219sgd_TranslateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_TranslateEntity__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga45ca3aa89d26960ebde0da5f9b13db1c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TranslateEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ty</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_TranslateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Translate entity in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_RotateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv316sgd_RotateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv216sgd_RotateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_RotateEntity__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga86fd8edde9e8649635b20678913603f0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_RotateEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ry</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_RotateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Rotate entity in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_ScaleEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv315sgd_ScaleEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv215sgd_ScaleEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_ScaleEntity__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga041985f4ccf49726e387012c0a447727"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ScaleEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sy</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_ScaleEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Scale entity in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_MoveEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv314sgd_MoveEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv214sgd_MoveEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_MoveEntity__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga15b14b8df697819235244d8ea3d70316"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_MoveEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ty</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">tz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_MoveEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Move entity relative to it’s current orientation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_TurnEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real">
+<span id="_CPPv314sgd_TurnEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="_CPPv214sgd_TurnEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"></span><span id="sgd_TurnEntity__SGD_Entity.SGD_Real.SGD_Real.SGD_Real"></span><span class="target" id="group___entity_1ga63688a4d391d4fca4b0ea1316b79a3c9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TurnEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rx</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ry</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">rz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_TurnEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Turn entity relative to it’s current orientation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetEntityX10SGD_Entity">
+<span id="_CPPv314sgd_GetEntityX10SGD_Entity"></span><span id="_CPPv214sgd_GetEntityX10SGD_Entity"></span><span id="sgd_GetEntityX__SGD_Entity"></span><span class="target" id="group___entity_1gad773dec4b86e2214d3cd5bd245b8f015"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetEntityX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X component of entity’s world space position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetEntityY10SGD_Entity">
+<span id="_CPPv314sgd_GetEntityY10SGD_Entity"></span><span id="_CPPv214sgd_GetEntityY10SGD_Entity"></span><span id="sgd_GetEntityY__SGD_Entity"></span><span class="target" id="group___entity_1ga09ac6d50f220f37e57e04c8537f02608"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetEntityY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y component of entity’s world space position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetEntityZ10SGD_Entity">
+<span id="_CPPv314sgd_GetEntityZ10SGD_Entity"></span><span id="_CPPv214sgd_GetEntityZ10SGD_Entity"></span><span id="sgd_GetEntityZ__SGD_Entity"></span><span class="target" id="group___entity_1gaedc46c10efd9ebe330b816107d4d3e63"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetEntityZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z component of entity’s world space position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityRX10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityRX10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityRX10SGD_Entity"></span><span id="sgd_GetEntityRX__SGD_Entity"></span><span class="target" id="group___entity_1gaa0c58d9fb3e931ae3a2f9d0709e1f214"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityRX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityRX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X rotation component (ie: ‘pitch’) of entity’s world space orientation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityRY10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityRY10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityRY10SGD_Entity"></span><span id="sgd_GetEntityRY__SGD_Entity"></span><span class="target" id="group___entity_1ga7aa3c20eaf4d914c639586a16f8b8bd1"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityRY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityRY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y rotation component (ie: ‘yaw’) of entity’s world space orientation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityRZ10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityRZ10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityRZ10SGD_Entity"></span><span id="sgd_GetEntityRZ__SGD_Entity"></span><span class="target" id="group___entity_1gabee050bebcdd012e11e73e159017ec27"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityRZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityRZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z rotation component (ie: ‘roll’) of entity’s world space orientation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntitySX10SGD_Entity">
+<span id="_CPPv315sgd_GetEntitySX10SGD_Entity"></span><span id="_CPPv215sgd_GetEntitySX10SGD_Entity"></span><span id="sgd_GetEntitySX__SGD_Entity"></span><span class="target" id="group___entity_1ga8f345a8138b7698110fbf3c62b77f27d"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntitySX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntitySX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X component of entity’s world space scale factor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntitySY10SGD_Entity">
+<span id="_CPPv315sgd_GetEntitySY10SGD_Entity"></span><span id="_CPPv215sgd_GetEntitySY10SGD_Entity"></span><span id="sgd_GetEntitySY__SGD_Entity"></span><span class="target" id="group___entity_1ga35883f51b662f40bc92d71b1cc08cf22"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntitySY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntitySY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y component of entity’s world space scale factor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntitySZ10SGD_Entity">
+<span id="_CPPv315sgd_GetEntitySZ10SGD_Entity"></span><span id="_CPPv215sgd_GetEntitySZ10SGD_Entity"></span><span id="sgd_GetEntitySZ__SGD_Entity"></span><span class="target" id="group___entity_1gafcf6274537ccbc9dfe4716f4e5c77b96"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntitySZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntitySZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z component of entity’s world space scale factor. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityIX10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityIX10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityIX10SGD_Entity"></span><span id="sgd_GetEntityIX__SGD_Entity"></span><span class="target" id="group___entity_1ga371e32d6068f523ec4ccfac6a45429be"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityIX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityIX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X component of entity’s world space basis matrix right vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityIY10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityIY10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityIY10SGD_Entity"></span><span id="sgd_GetEntityIY__SGD_Entity"></span><span class="target" id="group___entity_1gaa03f32c73406ebea1f30ad6ae792abee"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityIY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityIY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y component of entity’s world space basis matrix right vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityIZ10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityIZ10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityIZ10SGD_Entity"></span><span id="sgd_GetEntityIZ__SGD_Entity"></span><span class="target" id="group___entity_1gada549f74c123f9d322a6786958d7c210"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityIZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityIZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z component of entity’s world space basis matrix right vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityJX10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityJX10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityJX10SGD_Entity"></span><span id="sgd_GetEntityJX__SGD_Entity"></span><span class="target" id="group___entity_1gaaef9ea7961e33bc1ab3d0f30b16109e8"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityJX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityJX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X component of entity’s world space basis matrix up vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityJY10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityJY10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityJY10SGD_Entity"></span><span id="sgd_GetEntityJY__SGD_Entity"></span><span class="target" id="group___entity_1ga6cd072ad66985eef7e5d3a5f19506683"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityJY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityJY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y component of entity’s world space basis matrix up vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityJZ10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityJZ10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityJZ10SGD_Entity"></span><span id="sgd_GetEntityJZ__SGD_Entity"></span><span class="target" id="group___entity_1ga201a04f875d5f2c34ca7691972012ec5"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityJZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityJZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z component of entity’s world space basis matrix up vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityKX10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityKX10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityKX10SGD_Entity"></span><span id="sgd_GetEntityKX__SGD_Entity"></span><span class="target" id="group___entity_1gad878390f2488f0404a5159e17d955971"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityKX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityKX10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the X component of entity’s world space basis matrix forward vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityKY10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityKY10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityKY10SGD_Entity"></span><span id="sgd_GetEntityKY__SGD_Entity"></span><span class="target" id="group___entity_1ga67b7e86d71d4cbee6294a780796417c5"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityKY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityKY10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Y component of entity’s world space basis matrix forward vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetEntityKZ10SGD_Entity">
+<span id="_CPPv315sgd_GetEntityKZ10SGD_Entity"></span><span id="_CPPv215sgd_GetEntityKZ10SGD_Entity"></span><span id="sgd_GetEntityKZ__SGD_Entity"></span><span class="target" id="group___entity_1ga88b65a1d0eead5e3093647e1dc21aa54"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetEntityKZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetEntityKZ10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the Z component of entity’s world space basis matrix forward vector. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_AimEntityAtEntity10SGD_Entity10SGD_Entityf">
+<span id="_CPPv321sgd_AimEntityAtEntity10SGD_Entity10SGD_Entityf"></span><span id="_CPPv221sgd_AimEntityAtEntity10SGD_Entity10SGD_Entityf"></span><span id="sgd_AimEntityAtEntity__SGD_Entity.SGD_Entity.float"></span><span class="target" id="group___entity_1gac706c68c814edc49e932126e53520af6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_AimEntityAtEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">target</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">roll</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_AimEntityAtEntity10SGD_Entity10SGD_Entityf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Aim entity at entity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_AimEntityAtPoint10SGD_Entity8SGD_Real8SGD_Real8SGD_Realf">
+<span id="_CPPv320sgd_AimEntityAtPoint10SGD_Entity8SGD_Real8SGD_Real8SGD_Realf"></span><span id="_CPPv220sgd_AimEntityAtPoint10SGD_Entity8SGD_Real8SGD_Real8SGD_Realf"></span><span id="sgd_AimEntityAtPoint__SGD_Entity.SGD_Real.SGD_Real.SGD_Real.float"></span><span class="target" id="group___entity_1gad80a53f5f91afa4b97eeccce855f20df"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_AimEntityAtPoint</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">roll</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_AimEntityAtPoint10SGD_Entity8SGD_Real8SGD_Real8SGD_Realf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Aim entity at point in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_TransformPoint8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity">
+<span id="_CPPv318sgd_TransformPoint8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="_CPPv218sgd_TransformPoint8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="sgd_TransformPoint__SGD_Real.SGD_Real.SGD_Real.SGD_Entity.SGD_Entity"></span><span class="target" id="group___entity_1gac82d0bfc23eb12c6b2401c3191296122"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TransformPoint</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">srcEntity</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">dstEntity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_TransformPoint8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Transform 3d point from one entity coordinate space to another. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_TransformVector8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity">
+<span id="_CPPv319sgd_TransformVector8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="_CPPv219sgd_TransformVector8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="sgd_TransformVector__SGD_Real.SGD_Real.SGD_Real.SGD_Entity.SGD_Entity"></span><span class="target" id="group___entity_1ga0d2c2f2c7c9a8e82bdf8b68b40138302"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TransformVector</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">srcEntity</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">dstEntity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_TransformVector8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Transform 3d vector from one entity coordinate space to another. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_TransformNormal8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity">
+<span id="_CPPv319sgd_TransformNormal8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="_CPPv219sgd_TransformNormal8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"></span><span id="sgd_TransformNormal__SGD_Real.SGD_Real.SGD_Real.SGD_Entity.SGD_Entity"></span><span class="target" id="group___entity_1ga1391e098c06f60e9e9e7f620de03f3c3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TransformNormal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">srcEntity</span></span>, <a class="reference internal" href="#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">dstEntity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_TransformNormal8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Transform 3d normal from one entity coordinate space to another. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetTransformedXv">
+<span id="_CPPv319sgd_GetTransformedXv"></span><span id="_CPPv219sgd_GetTransformedXv"></span><span id="sgd_GetTransformedX"></span><span class="target" id="group___entity_1gafea00e9f4c0518c58658c38b20c32631"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetTransformedX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetTransformedXv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>X component of most recent sgd_TransformPoint result. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetTransformedYv">
+<span id="_CPPv319sgd_GetTransformedYv"></span><span id="_CPPv219sgd_GetTransformedYv"></span><span id="sgd_GetTransformedY"></span><span class="target" id="group___entity_1ga864d3b9883444799802a4799c2f8fe86"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetTransformedY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetTransformedYv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Y component of most recent sgd_TransformPoint result. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetTransformedZv">
+<span id="_CPPv319sgd_GetTransformedZv"></span><span id="_CPPv219sgd_GetTransformedZv"></span><span id="sgd_GetTransformedZ"></span><span class="target" id="group___entity_1ga7a6f92a13b96bc9fc58d902f0e5fdb7e"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetTransformedZ</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetTransformedZv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Z component of most recent sgd_TransformPoint result. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv410SGD_Entity"><code class="docutils literal notranslate"><span class="pre">SGD_Entity</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetEntityEnabled10SGD_Entity8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityEnabled()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_IsEntityEnabled10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_IsEntityEnabled()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetEntityVisible10SGD_Entity8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityVisible()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_IsEntityVisible10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_IsEntityVisible()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_DestroyEntity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_DestroyEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_ResetEntity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_ResetEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_CopyEntity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_CopyEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_SetEntityName10SGD_Entity10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_GetEntityName10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityName()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_SetEntityParent10SGD_Entity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityParent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetEntityParent10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityParent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv423sgd_GetEntityChildCount10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityChildCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetEntityChild10SGD_Entityi"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityChild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_FindEntityChild10SGD_Entity10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_FindEntityChild()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetEntityPosition10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetEntityRotation10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityRotation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetEntityScale10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_SetEntityScale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_TranslateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_TranslateEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_RotateEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_RotateEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_ScaleEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_ScaleEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_MoveEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_MoveEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_TurnEntity10SGD_Entity8SGD_Real8SGD_Real8SGD_Real"><code class="docutils literal notranslate"><span class="pre">sgd_TurnEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetEntityX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetEntityY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetEntityZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityRX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityRX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityRY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityRY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityRZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityRZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntitySX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntitySX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntitySY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntitySY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntitySZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntitySZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityIX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityIX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityIY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityIY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityIZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityIZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityJX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityJX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityJY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityJY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityJZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityJZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityKX10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityKX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityKY10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityKY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetEntityKZ10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_GetEntityKZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_AimEntityAtEntity10SGD_Entity10SGD_Entityf"><code class="docutils literal notranslate"><span class="pre">sgd_AimEntityAtEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_AimEntityAtPoint10SGD_Entity8SGD_Real8SGD_Real8SGD_Realf"><code class="docutils literal notranslate"><span class="pre">sgd_AimEntityAtPoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_TransformPoint8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_TransformPoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_TransformVector8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_TransformVector()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_TransformNormal8SGD_Real8SGD_Real8SGD_Real10SGD_Entity10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_TransformNormal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetTransformedXv"><code class="docutils literal notranslate"><span class="pre">sgd_GetTransformedX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetTransformedYv"><code class="docutils literal notranslate"><span class="pre">sgd_GetTransformedY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetTransformedZv"><code class="docutils literal notranslate"><span class="pre">sgd_GetTransformedZ()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="camera.html" title="Cameras"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="scene.html" title="Scene"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Entity</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

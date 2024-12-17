@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>System &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Window" href="window.html" />
+    <link rel="prev" title="Core" href="core.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="window.html" title="Window"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">System</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="system">
+<h1>System<a class="headerlink" href="#system" title="Link to this heading">¶</a></h1>
+<p>The system API allows you to control and monitor various low level aspects of LibSGD.</p>
+<p>To startup and shutdown LibSGD, use the <a class="reference internal" href="#_CPPv48sgd_Initv" title="sgd_Init"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_Init()</span></code></a> and <a class="reference internal" href="#_CPPv413sgd_Terminatev" title="sgd_Terminate"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_Terminate()</span></code></a> functions. sgd_Init should be called before any other SGD function, except for sgd_SetConfigVar and sgd_SetErrorCallback which may be called earlier.</p>
+<p>Use <a class="reference internal" href="#_CPPv414sgd_PollEventsv" title="sgd_PollEvents"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_PollEvents()</span></code></a> to poll for user input and system events. You need to call this fairly regularly or the OS may start displaying a ‘busy’ icon or pointer, or even think your app has crash and terminate it completely.</p>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413SGD_EventMask">
+<span id="_CPPv313SGD_EventMask"></span><span id="_CPPv213SGD_EventMask"></span><span class="target" id="group___system_types_1ga3ad104619ef0c24ad87aaf8794e3b800"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EventMask</span></span></span><a class="headerlink" href="#_CPPv413SGD_EventMask" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Events returned by sgd_PollEvents. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask28SGD_EVENT_MASK_CLOSE_CLICKEDE">
+<span id="_CPPv3N13SGD_EventMask28SGD_EVENT_MASK_CLOSE_CLICKEDE"></span><span id="_CPPv2N13SGD_EventMask28SGD_EVENT_MASK_CLOSE_CLICKEDE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800a4316a0ef14feba60fe1f3806744a5fe5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_CLOSE_CLICKED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask28SGD_EVENT_MASK_CLOSE_CLICKEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window close clicked. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask27SGD_EVENT_MASK_SIZE_CHANGEDE">
+<span id="_CPPv3N13SGD_EventMask27SGD_EVENT_MASK_SIZE_CHANGEDE"></span><span id="_CPPv2N13SGD_EventMask27SGD_EVENT_MASK_SIZE_CHANGEDE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800ac457d2093eb910a458e6f7beebc75c66"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_SIZE_CHANGED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask27SGD_EVENT_MASK_SIZE_CHANGEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window size changed. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask25SGD_EVENT_MASK_LOST_FOCUSE">
+<span id="_CPPv3N13SGD_EventMask25SGD_EVENT_MASK_LOST_FOCUSE"></span><span id="_CPPv2N13SGD_EventMask25SGD_EVENT_MASK_LOST_FOCUSE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800ac9cf52da023e313429e51dd95f5e8f53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_LOST_FOCUS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x04</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask25SGD_EVENT_MASK_LOST_FOCUSE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window lost focus. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask24SGD_EVENT_MASK_GOT_FOCUSE">
+<span id="_CPPv3N13SGD_EventMask24SGD_EVENT_MASK_GOT_FOCUSE"></span><span id="_CPPv2N13SGD_EventMask24SGD_EVENT_MASK_GOT_FOCUSE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800adc96291d6cd0c461789db40bb7dea742"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_GOT_FOCUS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x08</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask24SGD_EVENT_MASK_GOT_FOCUSE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window got focus. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask24SGD_EVENT_MASK_SUSPENDEDE">
+<span id="_CPPv3N13SGD_EventMask24SGD_EVENT_MASK_SUSPENDEDE"></span><span id="_CPPv2N13SGD_EventMask24SGD_EVENT_MASK_SUSPENDEDE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800a33061f86b12c1683e14243da794a8abc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_SUSPENDED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x10</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask24SGD_EVENT_MASK_SUSPENDEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>App suspended. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_EventMask22SGD_EVENT_MASK_RESUMEDE">
+<span id="_CPPv3N13SGD_EventMask22SGD_EVENT_MASK_RESUMEDE"></span><span id="_CPPv2N13SGD_EventMask22SGD_EVENT_MASK_RESUMEDE"></span><span class="target" id="group___system_types_1gga3ad104619ef0c24ad87aaf8794e3b800a76156378bc5c69daf7342c8172092ad2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EVENT_MASK_RESUMED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x20</span></span><a class="headerlink" href="#_CPPv4N13SGD_EventMask22SGD_EVENT_MASK_RESUMEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>App resumed. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___system_types_1ga304d42983443ae6d67f98493d9b187fb"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413SGD_EventMask" title="SGD_EventMask"><span class="n"><span class="pre">SGD_EventMask</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_EventMask</span></span></span><br /></dt>
+<dd><p>Events returned by sgd_PollEvents. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv48sgd_Initv">
+<span id="_CPPv38sgd_Initv"></span><span id="_CPPv28sgd_Initv"></span><span id="sgd_Init"></span><span class="target" id="group___system_1ga2d7093860c4746046d2dee8c186cb92d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Init</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48sgd_Initv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Start up libsgd. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetVersionv">
+<span id="_CPPv314sgd_GetVersionv"></span><span id="_CPPv214sgd_GetVersionv"></span><span id="sgd_GetVersion"></span><span class="target" id="group___system_1ga10004e1ea1d2c16732d54308018bf3fb"></span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVersion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetVersionv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get current runtime LibSGD version.</p>
+<p>Returns the value of SGD_VERSION macro at the time the runtime was built. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_Terminatev">
+<span id="_CPPv313sgd_Terminatev"></span><span id="_CPPv213sgd_Terminatev"></span><span id="sgd_Terminate"></span><span class="target" id="group___system_1gaaf6b19b19b23393a128a09973c44497a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Terminate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_Terminatev" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Shut down libsgd. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_SetConfigVar10SGD_String10SGD_String">
+<span id="_CPPv316sgd_SetConfigVar10SGD_String10SGD_String"></span><span id="_CPPv216sgd_SetConfigVar10SGD_String10SGD_String"></span><span id="sgd_SetConfigVar__SGD_String.SGD_String"></span><span class="target" id="group___system_1ga41f79a21d00ec18c2d530d9bb9571f9c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetConfigVar</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_SetConfigVar10SGD_String10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set global configuration variable.</p>
+<p><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Config var name   </p></th>
+<th class="head"><p>Default   </p></th>
+<th class="head"><p>Description    </p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>log.logfilePath   </p></td>
+<td><p></p></td>
+<td><p>Logfile path, defaults to “~/.sgd/log.txt”.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>log.logfileEnabled   </p></td>
+<td><p>“1”   </p></td>
+<td><p>Enables logging to logfile.    </p></td>
+</tr>
+<tr class="row-even"><td><p>log.stdoutEnabled   </p></td>
+<td><p>“1”   </p></td>
+<td><p>Enables logging to stdout.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>gltf.loggingEnabled   </p></td>
+<td><p>“0”   </p></td>
+<td><p>Enables logging by the gltf loader.    </p></td>
+</tr>
+<tr class="row-even"><td><p>dawn.backendType   </p></td>
+<td><p></p></td>
+<td><p>Backend for Dawn to use, one of: “D3D12”, “D3D11”, “Vulkan”, “Metal”. Defaults to   </p></td>
+</tr>
+</tbody>
+</table>
+
+“D3D12” on 64 bit Windows, “D3D11” on 32 bit Windows, “Vulkan” on 64 bit Linux and “Metal” on 64 bit MacOS. render.vsyncEnabled | “1” | Hack that fixes <a class="reference external" href="https://issues.chromium.org/issues/42241496#comment3">https://issues.chromium.org/issues/42241496#comment3</a> render.shadowPassEnabled | “1” | Enables shadow rendering. render.opaquePassEnabled | “1” | Enables opaque rendering. render.blendPassEnabled | “1” | Enables blended rendering. render.effectPassEnabled | “1” | Enables effects rendering. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_GetConfigVar10SGD_String">
+<span id="_CPPv316sgd_GetConfigVar10SGD_String"></span><span id="_CPPv216sgd_GetConfigVar10SGD_String"></span><span id="sgd_GetConfigVar__SGD_String"></span><span class="target" id="group___system_1gaabc38d8ef9477106e3133b1868ed3400"></span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetConfigVar</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_GetConfigVar10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set global configuration variable. The returned value is valid until the next call to sgd_GetConfigVar. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_SetErrorHandlerPFv10SGD_StringPvEPv">
+<span id="_CPPv319sgd_SetErrorHandlerPFv10SGD_StringPvEPv"></span><span id="_CPPv219sgd_SetErrorHandlerPFv10SGD_StringPvEPv"></span><span class="target" id="group___system_1ga32619a6809c357b6fc1eb66cbc4bd840"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetErrorHandler</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">handler</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n"><span class="pre">error</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n"><span class="pre">context</span></span><span class="p"><span class="pre">)</span></span>, <span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">context</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_SetErrorHandlerPFv10SGD_StringPvEPv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set error handler callback. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49sgd_Error10SGD_String">
+<span id="_CPPv39sgd_Error10SGD_String"></span><span id="_CPPv29sgd_Error10SGD_String"></span><span id="sgd_Error__SGD_String"></span><span class="target" id="group___system_1ga9e15487f37f9c05dd9bc193f3eff1a36"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Error</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">error</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49sgd_Error10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Generate runtime error. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv49sgd_Alert10SGD_String">
+<span id="_CPPv39sgd_Alert10SGD_String"></span><span id="_CPPv29sgd_Alert10SGD_String"></span><span id="sgd_Alert__SGD_String"></span><span class="target" id="group___system_1ga0285bbea4ce57feaa68abf27738c8a93"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Alert</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv49sgd_Alert10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Generate modal alert dialog. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv47sgd_Log10SGD_String">
+<span id="_CPPv37sgd_Log10SGD_String"></span><span id="_CPPv27sgd_Log10SGD_String"></span><span id="sgd_Log__SGD_String"></span><span class="target" id="group___system_1gacb75a7990952f8f691733425b3646e85"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Log</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">line</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv47sgd_Log10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Write line of text to log. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetDesktopWidthv">
+<span id="_CPPv319sgd_GetDesktopWidthv"></span><span id="_CPPv219sgd_GetDesktopWidthv"></span><span id="sgd_GetDesktopWidth"></span><span class="target" id="group___system_1ga216ab77ff1950047143624501bcbe728"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetDesktopWidth</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetDesktopWidthv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return width of desktop in pixels. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_GetDesktopHeightv">
+<span id="_CPPv320sgd_GetDesktopHeightv"></span><span id="_CPPv220sgd_GetDesktopHeightv"></span><span id="sgd_GetDesktopHeight"></span><span class="target" id="group___system_1gab5758036dcf9bbe94953690894e5d899"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetDesktopHeight</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_GetDesktopHeightv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return height of desktop in pixels. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_PollEventsv">
+<span id="_CPPv314sgd_PollEventsv"></span><span id="_CPPv214sgd_PollEventsv"></span><span id="sgd_PollEvents"></span><span class="target" id="group___system_1gaa8bc66c31478c9fb10d08ebc6c01a069"></span><a class="reference internal" href="#_CPPv413SGD_EventMask" title="SGD_EventMask"><span class="n"><span class="pre">SGD_EventMask</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_PollEvents</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_PollEventsv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Poll system for events, returns a bit mask of event types that occured.</p>
+<p>The returned return value should be bitwise ‘and’ed with one of the <a class="reference internal" href="#group___system_types_1ga3ad104619ef0c24ad87aaf8794e3b800"><span class="std std-ref">SGD_EventMask</span></a> values to determine whether a particular event occured or not. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_ReleaseHandle10SGD_Handle">
+<span id="_CPPv317sgd_ReleaseHandle10SGD_Handle"></span><span id="_CPPv217sgd_ReleaseHandle10SGD_Handle"></span><span id="sgd_ReleaseHandle__SGD_Handle"></span><span class="target" id="group___system_1ga3b8848dfad4cd261d44e47d63cc33894"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ReleaseHandle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">handle</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_ReleaseHandle10SGD_Handle" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Release an object handle.</p>
+<p>Will cause the object referenced by the handle to become available for destruction, and will also invalidate the handle.</p>
+<p>An object will not be destroyed while it is still being used by another object, eg: a model’s mesh will not be destroyed while it is still being used by a Model.</p>
+<p>It is an error to use an invalidated handle, so once a handle is released be careful not to use it again. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_ReleaseAllHandlesv">
+<span id="_CPPv321sgd_ReleaseAllHandlesv"></span><span id="_CPPv221sgd_ReleaseAllHandlesv"></span><span id="sgd_ReleaseAllHandles"></span><span class="target" id="group___system_1gaca69b47b4e941c9111d3f0cb576c6a03"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ReleaseAllHandles</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_ReleaseAllHandlesv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Release all object handles. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413SGD_EventMask"><code class="docutils literal notranslate"><span class="pre">SGD_EventMask</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv48sgd_Initv"><code class="docutils literal notranslate"><span class="pre">sgd_Init()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetVersionv"><code class="docutils literal notranslate"><span class="pre">sgd_GetVersion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_Terminatev"><code class="docutils literal notranslate"><span class="pre">sgd_Terminate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_SetConfigVar10SGD_String10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_SetConfigVar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_GetConfigVar10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_GetConfigVar()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_SetErrorHandlerPFv10SGD_StringPvEPv"><code class="docutils literal notranslate"><span class="pre">sgd_SetErrorHandler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv49sgd_Error10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_Error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv49sgd_Alert10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_Alert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv47sgd_Log10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_Log()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetDesktopWidthv"><code class="docutils literal notranslate"><span class="pre">sgd_GetDesktopWidth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_GetDesktopHeightv"><code class="docutils literal notranslate"><span class="pre">sgd_GetDesktopHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_PollEventsv"><code class="docutils literal notranslate"><span class="pre">sgd_PollEvents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_ReleaseHandle10SGD_Handle"><code class="docutils literal notranslate"><span class="pre">sgd_ReleaseHandle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_ReleaseAllHandlesv"><code class="docutils literal notranslate"><span class="pre">sgd_ReleaseAllHandles()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="window.html" title="Window"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="core.html" title="Core"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">System</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

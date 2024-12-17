@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Scene &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/tabs.js?v=3030b3cb"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Entity" href="entity.html" />
+    <link rel="prev" title="User Input" href="input.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="entity.html" title="Entity"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="User Input"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Scene</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="scene">
+<h1>Scene<a class="headerlink" href="#scene" title="Link to this heading">¶</a></h1>
+<p>The scene is a collection of entities stored as a directed, acyclic graph, and a numer of rendering properties.</p>
+<p>The Scene rendering properties are:</p>
+<ul class="simple">
+<li><p>Clear Color - a color value used to clear the scene. Use <a class="reference internal" href="#_CPPv417sgd_SetClearColorffff" title="sgd_SetClearColor"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetClearColor()</span></code></a> to set this property.</p></li>
+<li><p>Environment Texture - a cube or equirect 2d texture that represents the scene environment for the purpose of specular reflection when lighting the scene. Use <a class="reference internal" href="#_CPPv417sgd_SetEnvTexture11SGD_Texture" title="sgd_SetEnvTexture"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetEnvTexture()</span></code></a> to set this property.</p></li>
+<li><p>Ambient Light Color - a color value used to represent the scene’s diffuse ambient lighting. Use <a class="reference internal" href="#_CPPv424sgd_SetAmbientLightColorffff" title="sgd_SetAmbientLightColor"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetAmbientLightColor()</span></code></a> to set this property.</p></li>
+</ul>
+<p>To render a scene, use the <code class="xref any docutils literal notranslate"><span class="pre">sgd_RenderScene</span> <span class="pre">function</span></code>.</p>
+<p>Once the scene has been rendered, use the <a class="reference internal" href="#_CPPv411sgd_Presentv" title="sgd_Present"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_Present()</span></code></a> function to copy the render result to the app window.</p>
+<section id="example-code">
+<h2>Example code<a class="headerlink" href="#example-code" title="Link to this heading">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Qw==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-Qw==" name="Qw==" role="tab" tabindex="0">C</button><button aria-controls="panel-0-UHl0aG9u" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-UHl0aG9u" name="UHl0aG9u" role="tab" tabindex="-1">Python</button><button aria-controls="panel-0-QmxpdHpNYXg=" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-QmxpdHpNYXg=" name="QmxpdHpNYXg=" role="tab" tabindex="-1">BlitzMax</button><button aria-controls="panel-0-QmxpdHpCYXNpYw==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-QmxpdHpCYXNpYw==" name="QmxpdHpCYXNpYw==" role="tab" tabindex="-1">BlitzBasic</button></div><div aria-labelledby="tab-0-Qw==" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-Qw==" name="Qw==" role="tabpanel" tabindex="0"><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sgd/sgd.h&gt;</span>
+
+<span class="n">sgd_Init</span><span class="p">();</span>
+
+<span class="n">sgd_CreateWindow</span><span class="p">(</span><span class="s">&quot;Window&quot;</span><span class="p">,</span><span class="n">GetDesktopWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">GetDesktopHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">SGD_WINDOW_FLAGS_CENTERED</span><span class="p">);</span>
+
+<span class="n">sgd_SetClearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">.5f</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">while</span><span class="p">((</span><span class="n">sgd_PollEvents</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">SGD_EVENT_MASK_CLOSE_CLICKED</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="n">sgd_RenderScene</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">sgd_Present</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">sgd_Terminate</span><span class="p">();</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-UHl0aG9u" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-UHl0aG9u" name="UHl0aG9u" role="tabpanel" tabindex="0"><div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">libsgd</span> <span class="kn">import</span> <span class="n">sgd</span>
+
+<span class="n">sgd</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="n">sgd</span><span class="o">.</span><span class="n">createWindow</span><span class="p">(</span><span class="s2">&quot;Window&quot;</span><span class="p">,</span> <span class="n">GetDesktopWidth</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">GetDesktopHeight</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sgd</span><span class="o">.</span><span class="n">WINDOW_FLAGS_CENTERED</span><span class="p">)</span>
+
+<span class="n">sgd</span><span class="o">.</span><span class="n">setClearColor</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="n">sgd</span><span class="o">.</span><span class="n">pollEvents</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">sgd</span><span class="o">.</span><span class="n">EVENT_MASK_CLOSE_CLICKED</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+
+    <span class="n">sgd</span><span class="o">.</span><span class="n">renderScene</span><span class="p">()</span>
+
+    <span class="n">sgd</span><span class="o">.</span><span class="n">present</span><span class="p">()</span>
+
+<span class="n">sgd</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-QmxpdHpNYXg=" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-QmxpdHpNYXg=" name="QmxpdHpNYXg=" role="tabpanel" tabindex="0"><div class="highlight-blitzmax notranslate"><div class="highlight"><pre><span></span><span class="nv">sgd</span><span class="mf">.</span><span class="nf">Init</span><span class="p">()</span>
+
+<span class="nv">sgd</span><span class="mf">.</span><span class="nv">CreateWindow</span><span class="w"> </span><span class="s2">&quot;Window&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">GetDesktopWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nf">GetDesktopHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">sgd</span><span class="mf">.</span><span class="nv">WINDOW_FLAGS_CENTERED</span>
+
+<span class="nv">sgd</span><span class="mf">.</span><span class="nv">SetClearColor</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">.5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="nf">while</span><span class="w"> </span><span class="p">(</span><span class="nf">PollEvents</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">sgd</span><span class="mf">.</span><span class="nv">EVENT_MASK_CLOSE_CLICKED</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="nv">sgd</span><span class="mf">.</span><span class="nf">RenderScene</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nv">sgd</span><span class="mf">.</span><span class="nf">Present</span><span class="p">()</span>
+
+<span class="kr">wend</span>
+
+<span class="nv">sgd</span><span class="mf">.</span><span class="nf">Terminate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-QmxpdHpCYXNpYw==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-QmxpdHpCYXNpYw==" name="QmxpdHpCYXNpYw==" role="tabpanel" tabindex="0"><div class="highlight-b3d notranslate"><div class="highlight"><pre><span></span><span class="nv">CreateWindow</span><span class="w"> </span><span class="s2">&quot;Window&quot;</span><span class="p">,</span><span class="w"> </span><span class="nf">GetDesktopWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nf">GetDesktopHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="nv">WINDOW_FLAGS_CENTERED</span>
+
+<span class="nv">SetClearColor</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">.5</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="nf">While</span><span class="w"> </span><span class="p">(</span><span class="nf">PollEvents</span><span class="p">()</span><span class="w"> </span><span class="o">And</span><span class="w"> </span><span class="nv">EVENT_MASK_CLOSE_CLICKED</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="nf">RenderScene</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nf">Present</span><span class="p">()</span>
+
+<span class="kr">Wend</span>
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_ClearScenev">
+<span id="_CPPv314sgd_ClearScenev"></span><span id="_CPPv214sgd_ClearScenev"></span><span id="sgd_ClearScene"></span><span class="target" id="group___scene_1ga7f05408188bcf31aafa255d32ca4ac6a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ClearScene</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_ClearScenev" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Destroy all active entities. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_ResetScene8SGD_Bool">
+<span id="_CPPv314sgd_ResetScene8SGD_Bool"></span><span id="_CPPv214sgd_ResetScene8SGD_Bool"></span><span id="sgd_ResetScene__SGD_Bool"></span><span class="target" id="group___scene_1gacf2f64f650ad2e1b033cd501e01f034a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ResetScene</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">releaseAllHandles</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_ResetScene8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Reset scene to default state.</p>
+<p>Destroys all active entities in the scene.</p>
+<p>If the release all handles argument is true, sgd_ReleaseAllHandles is also called, allowing you to reset to the initial app state with a single command. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_LoadScene10SGD_String">
+<span id="_CPPv313sgd_LoadScene10SGD_String"></span><span id="_CPPv213sgd_LoadScene10SGD_String"></span><span id="sgd_LoadScene__SGD_String"></span><span class="target" id="group___scene_1ga9460f694f85b677690fcf51daed6fd09"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadScene</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_LoadScene10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Experimental JSON loader! </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_SaveScene10SGD_String">
+<span id="_CPPv313sgd_SaveScene10SGD_String"></span><span id="_CPPv213sgd_SaveScene10SGD_String"></span><span id="sgd_SaveScene__SGD_String"></span><span class="target" id="group___scene_1ga48753691d288abd4fc18ae11b46a4b97"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SaveScene</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_SaveScene10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Experimental JSON saver! </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_SetAmbientLightColorffff">
+<span id="_CPPv324sgd_SetAmbientLightColorffff"></span><span id="_CPPv224sgd_SetAmbientLightColorffff"></span><span id="sgd_SetAmbientLightColor__float.float.float.float"></span><span class="target" id="group___scene_1ga336fb89054ae529bfea22d02b259b773"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAmbientLightColor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">red</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">green</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">blue</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_SetAmbientLightColorffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set scene ambient light color. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_SetClearColorffff">
+<span id="_CPPv317sgd_SetClearColorffff"></span><span id="_CPPv217sgd_SetClearColorffff"></span><span id="sgd_SetClearColor__float.float.float.float"></span><span class="target" id="group___scene_1ga8e150705d65eff4191083e1c85338e3b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetClearColor</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">red</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">green</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">blue</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_SetClearColorffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set scene clear color. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_SetClearDepthf">
+<span id="_CPPv317sgd_SetClearDepthf"></span><span id="_CPPv217sgd_SetClearDepthf"></span><span id="sgd_SetClearDepth__float"></span><span class="target" id="group___scene_1gaef75229d85925aff720054d5bf4d9751"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetClearDepth</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">depth</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_SetClearDepthf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set scene clear depth. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_SetEnvTexture11SGD_Texture">
+<span id="_CPPv317sgd_SetEnvTexture11SGD_Texture"></span><span id="_CPPv217sgd_SetEnvTexture11SGD_Texture"></span><span id="sgd_SetEnvTexture__SGD_Texture"></span><span class="target" id="group___scene_1gaa3743d9a301dbe9ae735da3d2574e2d2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetEnvTexture</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="texture.html#_CPPv411SGD_Texture" title="SGD_Texture"><span class="n"><span class="pre">SGD_Texture</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">texture</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_SetEnvTexture11SGD_Texture" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set scene environment texture. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv429sgd_UpdateShadowMappingConfigv">
+<span id="_CPPv329sgd_UpdateShadowMappingConfigv"></span><span id="_CPPv229sgd_UpdateShadowMappingConfigv"></span><span id="sgd_UpdateShadowMappingConfig"></span><span class="target" id="group___scene_1gad4cf6e9871178c82b19bf1bbf8119804"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_UpdateShadowMappingConfig</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429sgd_UpdateShadowMappingConfigv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update scene shadow mapping config from config vars.</p>
+<p>This function will update shadow mapping config variables from the current config vars, see sgd_SetConfigVar.</p>
+<p><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Config Var   </p></th>
+<th class="head"><p>Type   </p></th>
+<th class="head"><p>Default   </p></th>
+<th class="head"><p>Description    </p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>csm.textureSize   </p></td>
+<td><p>int   </p></td>
+<td><p>“2048”   </p></td>
+<td><p>Texture size of each of the 4 cascading shadow map textures.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>csm.maxLights   </p></td>
+<td><p>int   </p></td>
+<td><p>“4”   </p></td>
+<td><p>Max directional light shadow casters.    </p></td>
+</tr>
+<tr class="row-even"><td><p>csm.clipRange   </p></td>
+<td><p>float   </p></td>
+<td><p>“330.0”   </p></td>
+<td><p>Max offscreen distance to render shadow casters.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>csm.depthBias   </p></td>
+<td><p>float   </p></td>
+<td><p>“0.0001”   </p></td>
+<td><p>Depth bias for cascading shadow maps.    </p></td>
+</tr>
+<tr class="row-even"><td><p>csm.SplitDistances   </p></td>
+<td><p>Vec4f   </p></td>
+<td><p>“15,60,250,1000”   </p></td>
+<td><p>Cascading shadow map split distances from the eye.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>psm.textureSize   </p></td>
+<td><p>int   </p></td>
+<td><p>“1024”   </p></td>
+<td><p>Texture size of point light cube shadow textures.    </p></td>
+</tr>
+<tr class="row-even"><td><p>psm.maxLights   </p></td>
+<td><p>int   </p></td>
+<td><p>“32”   </p></td>
+<td><p>Max point light shadow casters.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>psm.clipNear   </p></td>
+<td><p>float   </p></td>
+<td><p>“0.25”   </p></td>
+<td><p>Near clipping plane for point light shadow maps.    </p></td>
+</tr>
+<tr class="row-even"><td><p>psm.depthBias   </p></td>
+<td><p>float   </p></td>
+<td><p>“0.0001”   </p></td>
+<td><p>Depth bias value for p[oint light shadow maps.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>ssm.textureSize   </p></td>
+<td><p>int   </p></td>
+<td><p>“1024”   </p></td>
+<td><p>Texture size of each spot light 2D shadow map.    </p></td>
+</tr>
+<tr class="row-even"><td><p>ssm.maxLights   </p></td>
+<td><p>int   </p></td>
+<td><p>“16”   </p></td>
+<td><p>Max spot light shadow casters.    </p></td>
+</tr>
+<tr class="row-odd"><td><p>ssm.clipNear   </p></td>
+<td><p>float   </p></td>
+<td><p>“0.25”   </p></td>
+<td><p>Max distance to render shadow casters.    </p></td>
+</tr>
+<tr class="row-even"><td><p>ssm.depthBias   </p></td>
+<td><p>float   </p></td>
+<td><p>“0.0001”   </p></td>
+<td><p>Depth bias value to prevent shadow acne.   </p></td>
+</tr>
+</tbody>
+</table>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_RenderScenev">
+<span id="_CPPv315sgd_RenderScenev"></span><span id="_CPPv215sgd_RenderScenev"></span><span id="sgd_RenderScene"></span><span class="target" id="group___scene_1ga6e0110eaccb5ba3cfd8c55421af7588a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_RenderScene</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_RenderScenev" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Render scene. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411sgd_Presentv">
+<span id="_CPPv311sgd_Presentv"></span><span id="_CPPv211sgd_Presentv"></span><span id="sgd_Present"></span><span class="target" id="group___scene_1ga59a651e78463a9ee936271dd47062753"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Present</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411sgd_Presentv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Present. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410sgd_GetFPSv">
+<span id="_CPPv310sgd_GetFPSv"></span><span id="_CPPv210sgd_GetFPSv"></span><span id="sgd_GetFPS"></span><span class="target" id="group___scene_1ga16d5aa4f1a7ffb925edc963b8883e383"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetFPS</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410sgd_GetFPSv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return frames per second. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv410sgd_GetRPSv">
+<span id="_CPPv310sgd_GetRPSv"></span><span id="_CPPv210sgd_GetRPSv"></span><span id="sgd_GetRPS"></span><span class="target" id="group___scene_1gae812302aa76109ae921414a6d7815af7"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetRPS</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410sgd_GetRPSv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return renders per second. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scene</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-code">Example code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_ClearScenev"><code class="docutils literal notranslate"><span class="pre">sgd_ClearScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_ResetScene8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_ResetScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_LoadScene10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_LoadScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_SaveScene10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_SaveScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_SetAmbientLightColorffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetAmbientLightColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_SetClearColorffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetClearColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_SetClearDepthf"><code class="docutils literal notranslate"><span class="pre">sgd_SetClearDepth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_SetEnvTexture11SGD_Texture"><code class="docutils literal notranslate"><span class="pre">sgd_SetEnvTexture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv429sgd_UpdateShadowMappingConfigv"><code class="docutils literal notranslate"><span class="pre">sgd_UpdateShadowMappingConfig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_RenderScenev"><code class="docutils literal notranslate"><span class="pre">sgd_RenderScene()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv411sgd_Presentv"><code class="docutils literal notranslate"><span class="pre">sgd_Present()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv410sgd_GetFPSv"><code class="docutils literal notranslate"><span class="pre">sgd_GetFPS()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv410sgd_GetRPSv"><code class="docutils literal notranslate"><span class="pre">sgd_GetRPS()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="entity.html" title="Entity"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="User Input"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Scene</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

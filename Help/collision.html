@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Collisions &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Picking" href="picking.html" />
+    <link rel="prev" title="Textures" href="texture.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="picking.html" title="Picking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="texture.html" title="Textures"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Collisions</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="collisions">
+<h1>Collisions<a class="headerlink" href="#collisions" title="Link to this heading">¶</a></h1>
+<section id="sphere-colliders">
+<h2>Sphere colliders<a class="headerlink" href="#sphere-colliders" title="Link to this heading">¶</a></h2>
+<p>Sphere colliders…</p>
+</section>
+<section id="ellipsoid-colliders">
+<h2>Ellipsoid colliders<a class="headerlink" href="#ellipsoid-colliders" title="Link to this heading">¶</a></h2>
+<p>Ellipsoid colliders…</p>
+</section>
+<section id="mesh-colliders">
+<h2>Mesh colliders<a class="headerlink" href="#mesh-colliders" title="Link to this heading">¶</a></h2>
+<p>Mesh colliders…</p>
+</section>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv421SGD_CollisionResponse">
+<span id="_CPPv321SGD_CollisionResponse"></span><span id="_CPPv221SGD_CollisionResponse"></span><span class="target" id="group___collision_types_1ga1dbc50ea6634b4f007bce7a8ec20a51b"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CollisionResponse</span></span></span><a class="headerlink" href="#_CPPv421SGD_CollisionResponse" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Collision responses. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_NONEE">
+<span id="_CPPv3N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_NONEE"></span><span id="_CPPv2N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_NONEE"></span><span class="target" id="group___collision_types_1gga1dbc50ea6634b4f007bce7a8ec20a51baea99e461a42f42e54078363a66fc29de"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_COLLISION_RESPONSE_NONE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_NONEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_STOPE">
+<span id="_CPPv3N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_STOPE"></span><span id="_CPPv2N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_STOPE"></span><span class="target" id="group___collision_types_1gga1dbc50ea6634b4f007bce7a8ec20a51baa71c6cabfd6fbc6832471002e0205c40"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_COLLISION_RESPONSE_STOP</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N21SGD_CollisionResponse27SGD_COLLISION_RESPONSE_STOPE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N21SGD_CollisionResponse28SGD_COLLISION_RESPONSE_SLIDEE">
+<span id="_CPPv3N21SGD_CollisionResponse28SGD_COLLISION_RESPONSE_SLIDEE"></span><span id="_CPPv2N21SGD_CollisionResponse28SGD_COLLISION_RESPONSE_SLIDEE"></span><span class="target" id="group___collision_types_1gga1dbc50ea6634b4f007bce7a8ec20a51baeba8ecb7302c553426925ac59f11fdf5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_COLLISION_RESPONSE_SLIDE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N21SGD_CollisionResponse28SGD_COLLISION_RESPONSE_SLIDEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N21SGD_CollisionResponse30SGD_COLLISION_RESPONSE_SLIDEXZE">
+<span id="_CPPv3N21SGD_CollisionResponse30SGD_COLLISION_RESPONSE_SLIDEXZE"></span><span id="_CPPv2N21SGD_CollisionResponse30SGD_COLLISION_RESPONSE_SLIDEXZE"></span><span class="target" id="group___collision_types_1gga1dbc50ea6634b4f007bce7a8ec20a51ba22eaffe8de176b2b6c1f22653cea22b3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_COLLISION_RESPONSE_SLIDEXZ</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N21SGD_CollisionResponse30SGD_COLLISION_RESPONSE_SLIDEXZE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv412SGD_Collider">
+<span id="_CPPv312SGD_Collider"></span><span id="_CPPv212SGD_Collider"></span><span id="SGD_Collider"></span><span class="target" id="group___collision_types_1ga564b22ed2559a61c431296bd754b11d9"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Collider</span></span></span><a class="headerlink" href="#_CPPv412SGD_Collider" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Collider handle type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___collision_types_1gab83bf54246d01114d6a52d51f55ceaea"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv421SGD_CollisionResponse" title="SGD_CollisionResponse"><span class="n"><span class="pre">SGD_CollisionResponse</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CollisionResponse</span></span></span><br /></dt>
+<dd><p>Collision responses. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_CreateSphereCollider10SGD_Entityif">
+<span id="_CPPv324sgd_CreateSphereCollider10SGD_Entityif"></span><span id="_CPPv224sgd_CreateSphereCollider10SGD_Entityif"></span><span id="sgd_CreateSphereCollider__SGD_Entity.i.float"></span><span class="target" id="group___collision_1ga584c4ab0e8b3fecd9975437fcf7f6b55"></span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateSphereCollider</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderType</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_CreateSphereCollider10SGD_Entityif" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new sphere collider and attach it to entity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv427sgd_CreateEllipsoidCollider10SGD_Entityiff">
+<span id="_CPPv327sgd_CreateEllipsoidCollider10SGD_Entityiff"></span><span id="_CPPv227sgd_CreateEllipsoidCollider10SGD_Entityiff"></span><span id="sgd_CreateEllipsoidCollider__SGD_Entity.i.float.float"></span><span class="target" id="group___collision_1gafd8716b9c95600d06854beed04056802"></span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateEllipsoidCollider</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderType</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427sgd_CreateEllipsoidCollider10SGD_Entityiff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new ellipsoid collider and attach it to entity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_CreateMeshCollider10SGD_Entityi8SGD_Mesh">
+<span id="_CPPv322sgd_CreateMeshCollider10SGD_Entityi8SGD_Mesh"></span><span id="_CPPv222sgd_CreateMeshCollider10SGD_Entityi8SGD_Mesh"></span><span id="sgd_CreateMeshCollider__SGD_Entity.i.SGD_Mesh"></span><span class="target" id="group___collision_1gae291c2b213f5995d286a640690f43fce"></span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateMeshCollider</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderType</span></span>, <a class="reference internal" href="mesh.html#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_CreateMeshCollider10SGD_Entityi8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new mesh collider and attach it to entity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423sgd_CreatePlaneCollider10SGD_Entityi">
+<span id="_CPPv323sgd_CreatePlaneCollider10SGD_Entityi"></span><span id="_CPPv223sgd_CreatePlaneCollider10SGD_Entityi"></span><span id="sgd_CreatePlaneCollider__SGD_Entity.i"></span><span class="target" id="group___collision_1gaa13704c2af574e33c719b93c12c8e44d"></span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreatePlaneCollider</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderType</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423sgd_CreatePlaneCollider10SGD_Entityi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new plane collider and attach it to entity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetColliderEntity12SGD_Collider">
+<span id="_CPPv321sgd_GetColliderEntity12SGD_Collider"></span><span id="_CPPv221sgd_GetColliderEntity12SGD_Collider"></span><span id="sgd_GetColliderEntity__SGD_Collider"></span><span class="target" id="group___collision_1gacbf74359674394655f66307b60e97b2b"></span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetColliderEntity</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetColliderEntity12SGD_Collider" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Return entity a collider is attached to. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetColliderType12SGD_Collider">
+<span id="_CPPv319sgd_GetColliderType12SGD_Collider"></span><span id="_CPPv219sgd_GetColliderType12SGD_Collider"></span><span id="sgd_GetColliderType__SGD_Collider"></span><span class="target" id="group___collision_1gaf6ee5417864e1b04b75dffcb855843b8"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetColliderType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetColliderType12SGD_Collider" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collider type. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetColliderRadius12SGD_Colliderf">
+<span id="_CPPv321sgd_SetColliderRadius12SGD_Colliderf"></span><span id="_CPPv221sgd_SetColliderRadius12SGD_Colliderf"></span><span id="sgd_SetColliderRadius__SGD_Collider.float"></span><span class="target" id="group___collision_1gac6c77df4a83f58ffa679cbb4464bff29"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetColliderRadius</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetColliderRadius12SGD_Colliderf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set sphere or ellipsoid collider radius. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetColliderHeight12SGD_Colliderf">
+<span id="_CPPv321sgd_SetColliderHeight12SGD_Colliderf"></span><span id="_CPPv221sgd_SetColliderHeight12SGD_Colliderf"></span><span id="sgd_SetColliderHeight__SGD_Collider.float"></span><span class="target" id="group___collision_1ga9e40aacada07cb520955f62e4f6d834c"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetColliderHeight</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetColliderHeight12SGD_Colliderf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set ellipsoid collider height. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_EnableCollisionsii21SGD_CollisionResponse">
+<span id="_CPPv320sgd_EnableCollisionsii21SGD_CollisionResponse"></span><span id="_CPPv220sgd_EnableCollisionsii21SGD_CollisionResponse"></span><span id="sgd_EnableCollisions__i.i.SGD_CollisionResponse"></span><span class="target" id="group___collision_1ga39a0a0c3c382c37f218de2a69316d3f9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_EnableCollisions</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">srcColliderType</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dstColliderType</span></span>, <a class="reference internal" href="#_CPPv421SGD_CollisionResponse" title="SGD_CollisionResponse"><span class="n"><span class="pre">SGD_CollisionResponse</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">response</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_EnableCollisionsii21SGD_CollisionResponse" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Enable collisons between 2 collider types. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_UpdateCollidersv">
+<span id="_CPPv319sgd_UpdateCollidersv"></span><span id="_CPPv219sgd_UpdateCollidersv"></span><span id="sgd_UpdateColliders"></span><span class="target" id="group___collision_1gabe610faf7c3136df842d0adef1ce741e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_UpdateColliders</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_UpdateCollidersv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update enabled colliders. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetCollisionCount12SGD_Collider">
+<span id="_CPPv321sgd_GetCollisionCount12SGD_Collider"></span><span id="_CPPv221sgd_GetCollisionCount12SGD_Collider"></span><span id="sgd_GetCollisionCount__SGD_Collider"></span><span class="target" id="group___collision_1ga39953cce26e02be5907496f918e5535c"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionCount</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetCollisionCount12SGD_Collider" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collisions generated by sgd_UpdateColliders for moving collider. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_GetCollisionCollider12SGD_Collideri">
+<span id="_CPPv324sgd_GetCollisionCollider12SGD_Collideri"></span><span id="_CPPv224sgd_GetCollisionCollider12SGD_Collideri"></span><span id="sgd_GetCollisionCollider__SGD_Collider.i"></span><span class="target" id="group___collision_1ga6536b8d49f960fa91b420ad4e4c2d26e"></span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionCollider</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_GetCollisionCollider12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get the collider a collision was with. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_GetCollisionX12SGD_Collideri">
+<span id="_CPPv317sgd_GetCollisionX12SGD_Collideri"></span><span id="_CPPv217sgd_GetCollisionX12SGD_Collideri"></span><span id="sgd_GetCollisionX__SGD_Collider.i"></span><span class="target" id="group___collision_1ga17d9198a7b15b65b5a0d732150ba7653"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_GetCollisionX12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision X coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_GetCollisionY12SGD_Collideri">
+<span id="_CPPv317sgd_GetCollisionY12SGD_Collideri"></span><span id="_CPPv217sgd_GetCollisionY12SGD_Collideri"></span><span id="sgd_GetCollisionY__SGD_Collider.i"></span><span class="target" id="group___collision_1gaf6b67401c45264a573e4ca7504022cd9"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_GetCollisionY12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision Y coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_GetCollisionZ12SGD_Collideri">
+<span id="_CPPv317sgd_GetCollisionZ12SGD_Collideri"></span><span id="_CPPv217sgd_GetCollisionZ12SGD_Collideri"></span><span id="sgd_GetCollisionZ__SGD_Collider.i"></span><span class="target" id="group___collision_1ga9bcd541ac2446495ae79eafc7f5e1507"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_GetCollisionZ12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision Z coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetCollisionNX12SGD_Collideri">
+<span id="_CPPv318sgd_GetCollisionNX12SGD_Collideri"></span><span id="_CPPv218sgd_GetCollisionNX12SGD_Collideri"></span><span id="sgd_GetCollisionNX__SGD_Collider.i"></span><span class="target" id="group___collision_1gafb39c7102fc9af2781e8b31cd47a9e9b"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionNX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetCollisionNX12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision normal X component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetCollisionNY12SGD_Collideri">
+<span id="_CPPv318sgd_GetCollisionNY12SGD_Collideri"></span><span id="_CPPv218sgd_GetCollisionNY12SGD_Collideri"></span><span id="sgd_GetCollisionNY__SGD_Collider.i"></span><span class="target" id="group___collision_1gadd76264d73cb9fd85866577a0c645e1f"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionNY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetCollisionNY12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision normal Y component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetCollisionNZ12SGD_Collideri">
+<span id="_CPPv318sgd_GetCollisionNZ12SGD_Collideri"></span><span id="_CPPv218sgd_GetCollisionNZ12SGD_Collideri"></span><span id="sgd_GetCollisionNZ__SGD_Collider.i"></span><span class="target" id="group___collision_1ga9f7c377c749316bfa70d96a6a60aa1b3"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetCollisionNZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">collider</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetCollisionNZ12SGD_Collideri" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get collision normal Z component. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Collisions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sphere-colliders">Sphere colliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ellipsoid-colliders">Ellipsoid colliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mesh-colliders">Mesh colliders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421SGD_CollisionResponse"><code class="docutils literal notranslate"><span class="pre">SGD_CollisionResponse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412SGD_Collider"><code class="docutils literal notranslate"><span class="pre">SGD_Collider</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_CreateSphereCollider10SGD_Entityif"><code class="docutils literal notranslate"><span class="pre">sgd_CreateSphereCollider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv427sgd_CreateEllipsoidCollider10SGD_Entityiff"><code class="docutils literal notranslate"><span class="pre">sgd_CreateEllipsoidCollider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_CreateMeshCollider10SGD_Entityi8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_CreateMeshCollider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv423sgd_CreatePlaneCollider10SGD_Entityi"><code class="docutils literal notranslate"><span class="pre">sgd_CreatePlaneCollider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetColliderEntity12SGD_Collider"><code class="docutils literal notranslate"><span class="pre">sgd_GetColliderEntity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetColliderType12SGD_Collider"><code class="docutils literal notranslate"><span class="pre">sgd_GetColliderType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetColliderRadius12SGD_Colliderf"><code class="docutils literal notranslate"><span class="pre">sgd_SetColliderRadius()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetColliderHeight12SGD_Colliderf"><code class="docutils literal notranslate"><span class="pre">sgd_SetColliderHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_EnableCollisionsii21SGD_CollisionResponse"><code class="docutils literal notranslate"><span class="pre">sgd_EnableCollisions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_UpdateCollidersv"><code class="docutils literal notranslate"><span class="pre">sgd_UpdateColliders()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetCollisionCount12SGD_Collider"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_GetCollisionCollider12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionCollider()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_GetCollisionX12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_GetCollisionY12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_GetCollisionZ12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetCollisionNX12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionNX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetCollisionNY12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionNY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetCollisionNZ12SGD_Collideri"><code class="docutils literal notranslate"><span class="pre">sgd_GetCollisionNZ()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="picking.html" title="Picking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="texture.html" title="Textures"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Collisions</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

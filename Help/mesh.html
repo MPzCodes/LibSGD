@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Meshes &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Images" href="image.html" />
+    <link rel="prev" title="2D Overlay" href="overlay.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="image.html" title="Images"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="overlay.html" title="2D Overlay"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Meshes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="meshes">
+<h1>Meshes<a class="headerlink" href="#meshes" title="Link to this heading">¶</a></h1>
+<p>Meshes…</p>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413SGD_MeshFlags">
+<span id="_CPPv313SGD_MeshFlags"></span><span id="_CPPv213SGD_MeshFlags"></span><span class="target" id="group___mesh_types_1ga1a01f635303225acb29d2578b8ed39d5"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_MeshFlags</span></span></span><a class="headerlink" href="#_CPPv413SGD_MeshFlags" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Mesh flags. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_MeshFlags19SGD_MESH_FLAGS_NONEE">
+<span id="_CPPv3N13SGD_MeshFlags19SGD_MESH_FLAGS_NONEE"></span><span id="_CPPv2N13SGD_MeshFlags19SGD_MESH_FLAGS_NONEE"></span><span class="target" id="group___mesh_types_1gga1a01f635303225acb29d2578b8ed39d5acd3909b836c7c471a131702db829d78f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_MESH_FLAGS_NONE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N13SGD_MeshFlags19SGD_MESH_FLAGS_NONEE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>No special mesh flags. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_MeshFlags31SGD_MESH_FLAGS_TANGENTS_ENABLEDE">
+<span id="_CPPv3N13SGD_MeshFlags31SGD_MESH_FLAGS_TANGENTS_ENABLEDE"></span><span id="_CPPv2N13SGD_MeshFlags31SGD_MESH_FLAGS_TANGENTS_ENABLEDE"></span><span class="target" id="group___mesh_types_1gga1a01f635303225acb29d2578b8ed39d5a443613bd864cc3bc03ad77427223de7e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_MESH_FLAGS_TANGENTS_ENABLED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N13SGD_MeshFlags31SGD_MESH_FLAGS_TANGENTS_ENABLEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Mesh contains materials with normal maps. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_MeshFlags31SGD_MESH_FLAGS_BLENDED_SURFACESE">
+<span id="_CPPv3N13SGD_MeshFlags31SGD_MESH_FLAGS_BLENDED_SURFACESE"></span><span id="_CPPv2N13SGD_MeshFlags31SGD_MESH_FLAGS_BLENDED_SURFACESE"></span><span class="target" id="group___mesh_types_1gga1a01f635303225acb29d2578b8ed39d5aa88f478e100229b2ad62fcbe1480968d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_MESH_FLAGS_BLENDED_SURFACES</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N13SGD_MeshFlags31SGD_MESH_FLAGS_BLENDED_SURFACESE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Mesh contains materials that use alphaBlend blend mode. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___mesh_types_1ga63da680f579c29021d3e5980f134af21"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413SGD_MeshFlags" title="SGD_MeshFlags"><span class="n"><span class="pre">SGD_MeshFlags</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_MeshFlags</span></span></span><br /></dt>
+<dd><p>Mesh flags. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv48SGD_Mesh">
+<span id="_CPPv38SGD_Mesh"></span><span id="_CPPv28SGD_Mesh"></span><span id="SGD_Mesh"></span><span class="target" id="group___mesh_1gadcafc40bdf8482ffb2714fdfe13c55f6"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Mesh</span></span></span><a class="headerlink" href="#_CPPv48SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Mesh handle type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv411SGD_Surface">
+<span id="_CPPv311SGD_Surface"></span><span id="_CPPv211SGD_Surface"></span><span id="SGD_Surface"></span><span class="target" id="group___mesh_1ga9b21a791d517c7ba17646852c0053bca"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Surface</span></span></span><a class="headerlink" href="#_CPPv411SGD_Surface" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Surface handle type. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412sgd_LoadMesh10SGD_String">
+<span id="_CPPv312sgd_LoadMesh10SGD_String"></span><span id="_CPPv212sgd_LoadMesh10SGD_String"></span><span id="sgd_LoadMesh__SGD_String"></span><span class="target" id="group___mesh_1ga7503508d8b61242ce7a5e4841887be4b"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadMesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412sgd_LoadMesh10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Load a new mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412sgd_CopyMesh8SGD_Mesh">
+<span id="_CPPv312sgd_CopyMesh8SGD_Mesh"></span><span id="_CPPv212sgd_CopyMesh8SGD_Mesh"></span><span id="sgd_CopyMesh__SGD_Mesh"></span><span class="target" id="group___mesh_1gaebafe41b57f59a191f70f8e770feb281"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CopyMesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412sgd_CopyMesh8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Copy mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_CreateBoxMeshffffff12SGD_Material">
+<span id="_CPPv317sgd_CreateBoxMeshffffff12SGD_Material"></span><span id="_CPPv217sgd_CreateBoxMeshffffff12SGD_Material"></span><span id="sgd_CreateBoxMesh__float.float.float.float.float.float.SGD_Material"></span><span class="target" id="group___mesh_1ga2cd81172b3032f43c8082270c594e6b3"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateBoxMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minY</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minZ</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxY</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxZ</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_CreateBoxMeshffffff12SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new box mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_CreateSphereMeshfii12SGD_Material">
+<span id="_CPPv320sgd_CreateSphereMeshfii12SGD_Material"></span><span id="_CPPv220sgd_CreateSphereMeshfii12SGD_Material"></span><span id="sgd_CreateSphereMesh__float.i.i.SGD_Material"></span><span class="target" id="group___mesh_1gaa603561bc949a38b688d67c7270fdf74"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateSphereMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">xSegs</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ySegs</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_CreateSphereMeshfii12SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new sphere mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_CreateCylinderMeshffi12SGD_Material">
+<span id="_CPPv322sgd_CreateCylinderMeshffi12SGD_Material"></span><span id="_CPPv222sgd_CreateCylinderMeshffi12SGD_Material"></span><span id="sgd_CreateCylinderMesh__float.float.i.SGD_Material"></span><span class="target" id="group___mesh_1ga96b10b4b168f0c22689f9102e3f42e66"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateCylinderMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">segs</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_CreateCylinderMeshffi12SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new cylinder mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_CreateConeMeshffi12SGD_Material">
+<span id="_CPPv318sgd_CreateConeMeshffi12SGD_Material"></span><span id="_CPPv218sgd_CreateConeMeshffi12SGD_Material"></span><span id="sgd_CreateConeMesh__float.float.i.SGD_Material"></span><span class="target" id="group___mesh_1ga5fa9f5abb661543b258e5460cf754d4f"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateConeMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">segs</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_CreateConeMeshffi12SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new cone mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_CreateTorusMeshffii12SGD_Material">
+<span id="_CPPv319sgd_CreateTorusMeshffii12SGD_Material"></span><span id="_CPPv219sgd_CreateTorusMeshffii12SGD_Material"></span><span id="sgd_CreateTorusMesh__float.float.i.i.SGD_Material"></span><span class="target" id="group___mesh_1gad77b0a596ea68af424a9a13f058640d4"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateTorusMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outerRadius</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">innerRadius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">outerSegs</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">innerSegs</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_CreateTorusMeshffii12SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new torus mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425sgd_SetMeshShadowsEnabled8SGD_Mesh8SGD_Bool">
+<span id="_CPPv325sgd_SetMeshShadowsEnabled8SGD_Mesh8SGD_Bool"></span><span id="_CPPv225sgd_SetMeshShadowsEnabled8SGD_Mesh8SGD_Bool"></span><span id="sgd_SetMeshShadowsEnabled__SGD_Mesh.SGD_Bool"></span><span class="target" id="group___mesh_1ga494e32f0684a103ff186d499d8d81d33"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMeshShadowsEnabled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">enabled</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425sgd_SetMeshShadowsEnabled8SGD_Mesh8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set mesh shadow casting enabled, defaults to true. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_IsMeshShadowsEnabled8SGD_Mesh">
+<span id="_CPPv324sgd_IsMeshShadowsEnabled8SGD_Mesh"></span><span id="_CPPv224sgd_IsMeshShadowsEnabled8SGD_Mesh"></span><span id="sgd_IsMeshShadowsEnabled__SGD_Mesh"></span><span class="target" id="group___mesh_1gad0f39701e6a95e303673d144bc4d6992"></span><a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_IsMeshShadowsEnabled</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_IsMeshShadowsEnabled8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh shadow casting enabled. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_UpdateMeshNormals8SGD_Mesh">
+<span id="_CPPv321sgd_UpdateMeshNormals8SGD_Mesh"></span><span id="_CPPv221sgd_UpdateMeshNormals8SGD_Mesh"></span><span id="sgd_UpdateMeshNormals__SGD_Mesh"></span><span class="target" id="group___mesh_1gadbcf25028c7676980f121cfcad11cb10"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_UpdateMeshNormals</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_UpdateMeshNormals8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update mesh normals. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_UpdateMeshTangents8SGD_Mesh">
+<span id="_CPPv322sgd_UpdateMeshTangents8SGD_Mesh"></span><span id="_CPPv222sgd_UpdateMeshTangents8SGD_Mesh"></span><span id="sgd_UpdateMeshTangents__SGD_Mesh"></span><span class="target" id="group___mesh_1gaf4d0a82e0436f2e31bc9bb22fa08d70b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_UpdateMeshTangents</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_UpdateMeshTangents8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update mesh tangets. Mesh must have SGD_MESH_TANGENTS_ENABLED flag. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv411sgd_FitMesh8SGD_Meshffffff8SGD_Bool">
+<span id="_CPPv311sgd_FitMesh8SGD_Meshffffff8SGD_Bool"></span><span id="_CPPv211sgd_FitMesh8SGD_Meshffffff8SGD_Bool"></span><span id="sgd_FitMesh__SGD_Mesh.float.float.float.float.float.float.SGD_Bool"></span><span class="target" id="group___mesh_1ga8eebfed7d8b996ebb79e9e1a896c9c08"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_FitMesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minY</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minZ</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxY</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">maxZ</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">uniform</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv411sgd_FitMesh8SGD_Meshffffff8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Fit mesh to a bounding box. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_TransformMesh8SGD_Meshfffffffff">
+<span id="_CPPv317sgd_TransformMesh8SGD_Meshfffffffff"></span><span id="_CPPv217sgd_TransformMesh8SGD_Meshfffffffff"></span><span id="sgd_TransformMesh__SGD_Mesh.float.float.float.float.float.float.float.float.float"></span><span class="target" id="group___mesh_1gaa56cb963efb9828ba70884ab0eb4281e"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TransformMesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ty</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tz</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ry</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rz</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sy</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_TransformMesh8SGD_Meshfffffffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Transform mesh by translation, rotation, scale. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_TransformTexCoords8SGD_Meshffff">
+<span id="_CPPv322sgd_TransformTexCoords8SGD_Meshffff"></span><span id="_CPPv222sgd_TransformTexCoords8SGD_Meshffff"></span><span id="sgd_TransformTexCoords__SGD_Mesh.float.float.float.float"></span><span class="target" id="group___mesh_1gab804e110bdbbdea0fa1bd324c77a8740"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_TransformTexCoords</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">scaleX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">scaleY</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offsetX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offsetY</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_TransformTexCoords8SGD_Meshffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Transform mesh texture coordinates. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412sgd_FlipMesh8SGD_Mesh">
+<span id="_CPPv312sgd_FlipMesh8SGD_Mesh"></span><span id="_CPPv212sgd_FlipMesh8SGD_Mesh"></span><span id="sgd_FlipMesh__SGD_Mesh"></span><span class="target" id="group___mesh_1ga725aaf73c94f1e739fad6eea5e9ac2a2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_FlipMesh</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412sgd_FlipMesh8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Flip mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMinX8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMinX8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMinX8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMinX__SGD_Mesh"></span><span class="target" id="group___mesh_1gad583df8d183b7a2d2a559d8f816d7467"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMinX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMinX8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box min x coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMinY8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMinY8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMinY8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMinY__SGD_Mesh"></span><span class="target" id="group___mesh_1ga091e8c1017fb0821fb1b8a0081c9bba3"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMinY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMinY8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box min y coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMinZ8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMinZ8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMinZ8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMinZ__SGD_Mesh"></span><span class="target" id="group___mesh_1ga36ac9b67920030adb244f1de98cf813a"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMinZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMinZ8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box min z coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMaxX8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMaxX8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMaxX8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMaxX__SGD_Mesh"></span><span class="target" id="group___mesh_1ga077fd1e9a608f512f3d9a47f26bc50ef"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMaxX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMaxX8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box max x coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMaxY8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMaxY8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMaxY8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMaxY__SGD_Mesh"></span><span class="target" id="group___mesh_1ga33ba09406f345014472278cd09418bcd"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMaxY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMaxY8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box max y coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetMeshBoundsMaxZ8SGD_Mesh">
+<span id="_CPPv321sgd_GetMeshBoundsMaxZ8SGD_Mesh"></span><span id="_CPPv221sgd_GetMeshBoundsMaxZ8SGD_Mesh"></span><span id="sgd_GetMeshBoundsMaxZ__SGD_Mesh"></span><span class="target" id="group___mesh_1ga2156513abac519a8c1fbd3189e118ed3"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMeshBoundsMaxZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetMeshBoundsMaxZ8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh bounding box max z coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_CreateMeshi9SGD_Flags">
+<span id="_CPPv314sgd_CreateMeshi9SGD_Flags"></span><span id="_CPPv214sgd_CreateMeshi9SGD_Flags"></span><span id="sgd_CreateMesh__i.SGD_Flags"></span><span class="target" id="group___mesh_1ga904fb6a7581e931f95e9f84076e96fc6"></span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateMesh</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertexCount</span></span>, <a class="reference internal" href="core.html#_CPPv49SGD_Flags" title="SGD_Flags"><span class="n"><span class="pre">SGD_Flags</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_CreateMeshi9SGD_Flags" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new custom mesh. See also <a class="reference internal" href="#group___mesh_types_1ga1a01f635303225acb29d2578b8ed39d5"><span class="std std-ref">SGD_MeshFlags</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_ResizeVertices8SGD_Meshi">
+<span id="_CPPv318sgd_ResizeVertices8SGD_Meshi"></span><span id="_CPPv218sgd_ResizeVertices8SGD_Meshi"></span><span id="sgd_ResizeVertices__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga97b80cadf45f858ea7635f5a75452b3b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ResizeVertices</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_ResizeVertices8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Add uninitialized vertices to a mesh, returning index of the first new vertex. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetVertexCount8SGD_Mesh">
+<span id="_CPPv318sgd_GetVertexCount8SGD_Mesh"></span><span id="_CPPv218sgd_GetVertexCount8SGD_Mesh"></span><span id="sgd_GetVertexCount__SGD_Mesh"></span><span class="target" id="group___mesh_1ga188dded731f4eff06c2bd8dfb1285a4e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexCount</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetVertexCount8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get number of vertices in mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_AddVertex8SGD_Meshffffffff">
+<span id="_CPPv313sgd_AddVertex8SGD_Meshffffffff"></span><span id="_CPPv213sgd_AddVertex8SGD_Meshffffffff"></span><span id="sgd_AddVertex__SGD_Mesh.float.float.float.float.float.float.float.float"></span><span class="target" id="group___mesh_1gabd1e54985d07dd4997411c8529b3b7c4"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_AddVertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nz</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_AddVertex8SGD_Meshffffffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Add a vertex to a mesh, returning index of new vertex. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_SetVertex8SGD_Meshiffffffff">
+<span id="_CPPv313sgd_SetVertex8SGD_Meshiffffffff"></span><span id="_CPPv213sgd_SetVertex8SGD_Meshiffffffff"></span><span id="sgd_SetVertex__SGD_Mesh.i.float.float.float.float.float.float.float.float"></span><span class="target" id="group___mesh_1ga5c7a12b84bcd3b4f83881a0082db9545"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nz</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">s</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_SetVertex8SGD_Meshiffffffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetVertexPosition8SGD_Meshifff">
+<span id="_CPPv321sgd_SetVertexPosition8SGD_Meshifff"></span><span id="_CPPv221sgd_SetVertexPosition8SGD_Meshifff"></span><span id="sgd_SetVertexPosition__SGD_Mesh.i.float.float.float"></span><span class="target" id="group___mesh_1ga3b84da131e08d3c59bf6ad7b66e84f72"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertexPosition</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">z</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetVertexPosition8SGD_Meshifff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_SetVertexNormal8SGD_Meshifff">
+<span id="_CPPv319sgd_SetVertexNormal8SGD_Meshifff"></span><span id="_CPPv219sgd_SetVertexNormal8SGD_Meshifff"></span><span id="sgd_SetVertexNormal__SGD_Mesh.i.float.float.float"></span><span class="target" id="group___mesh_1ga0b992d62d6b271dabba1860ccb35450b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertexNormal</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ny</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">nz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_SetVertexNormal8SGD_Meshifff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex normal. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetVertexTangent8SGD_Meshiffff">
+<span id="_CPPv320sgd_SetVertexTangent8SGD_Meshiffff"></span><span id="_CPPv220sgd_SetVertexTangent8SGD_Meshiffff"></span><span id="sgd_SetVertexTangent__SGD_Mesh.i.float.float.float.float"></span><span class="target" id="group___mesh_1ga64158764d7991431385d983c71e33d61"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertexTangent</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tx</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">ty</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tz</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">tw</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetVertexTangent8SGD_Meshiffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex tangent. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetVertexColor8SGD_Meshiffff">
+<span id="_CPPv318sgd_SetVertexColor8SGD_Meshiffff"></span><span id="_CPPv218sgd_SetVertexColor8SGD_Meshiffff"></span><span id="sgd_SetVertexColor__SGD_Mesh.i.float.float.float.float"></span><span class="target" id="group___mesh_1ga1d64bb9a9e0fe06d23cf6dd5021c64a4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertexColor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">g</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">a</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetVertexColor8SGD_Meshiffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex color. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_SetVertexTexCoord08SGD_Meshiff">
+<span id="_CPPv322sgd_SetVertexTexCoord08SGD_Meshiff"></span><span id="_CPPv222sgd_SetVertexTexCoord08SGD_Meshiff"></span><span id="sgd_SetVertexTexCoord0__SGD_Mesh.i.float.float"></span><span class="target" id="group___mesh_1ga626cb5df23a2db7eb70f16d83c607dd7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetVertexTexCoord0</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">u0</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_SetVertexTexCoord08SGD_Meshiff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set vertex texture coordinate 0. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetVertexX8SGD_Meshi">
+<span id="_CPPv314sgd_GetVertexX8SGD_Meshi"></span><span id="_CPPv214sgd_GetVertexX8SGD_Meshi"></span><span id="sgd_GetVertexX__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga379459f7eb5277baa4afb065037c0ffe"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetVertexX8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex position x coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetVertexY8SGD_Meshi">
+<span id="_CPPv314sgd_GetVertexY8SGD_Meshi"></span><span id="_CPPv214sgd_GetVertexY8SGD_Meshi"></span><span id="sgd_GetVertexY__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga43ccf718a8dc37fea452e62086f6b79a"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetVertexY8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex position y coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetVertexZ8SGD_Meshi">
+<span id="_CPPv314sgd_GetVertexZ8SGD_Meshi"></span><span id="_CPPv214sgd_GetVertexZ8SGD_Meshi"></span><span id="sgd_GetVertexZ__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga71dbe944471c27babe294358d8201212"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetVertexZ8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex position z coordinate. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexNX8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexNX8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexNX8SGD_Meshi"></span><span id="sgd_GetVertexNX__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga2d73578c03e8fc9a4871098a02ecaadb"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexNX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexNX8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex normal x component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexNY8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexNY8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexNY8SGD_Meshi"></span><span id="sgd_GetVertexNY__SGD_Mesh.i"></span><span class="target" id="group___mesh_1gae94a55b2773c9c697720d7479f1e97be"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexNY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexNY8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex normal y component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexNZ8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexNZ8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexNZ8SGD_Meshi"></span><span id="sgd_GetVertexNZ__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga23d869c1bffb96c2552618141892848d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexNZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexNZ8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex normal z component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexTX8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexTX8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexTX8SGD_Meshi"></span><span id="sgd_GetVertexTX__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga92ab961c35552f1d7b3e9d71b471ad15"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexTX</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexTX8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex tangent x component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexTY8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexTY8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexTY8SGD_Meshi"></span><span id="sgd_GetVertexTY__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga4523ac5cf51bf081a20da8b2b5ef6ade"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexTY</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexTY8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex tangent y component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexTZ8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexTZ8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexTZ8SGD_Meshi"></span><span id="sgd_GetVertexTZ__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga44645ba083f8978fd0992f309e179f60"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexTZ</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexTZ8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex tangent z component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexTW8SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexTW8SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexTW8SGD_Meshi"></span><span id="sgd_GetVertexTW__SGD_Mesh.i"></span><span class="target" id="group___mesh_1gad71a02b6ec8190922e801313607c283d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexTW</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexTW8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex tangent w component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_GetVertexRed8SGD_Meshi">
+<span id="_CPPv316sgd_GetVertexRed8SGD_Meshi"></span><span id="_CPPv216sgd_GetVertexRed8SGD_Meshi"></span><span id="sgd_GetVertexRed__SGD_Mesh.i"></span><span class="target" id="group___mesh_1gadccd843a5a18c3e400be997eb075809f"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexRed</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_GetVertexRed8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex color red component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetVertexGreen8SGD_Meshi">
+<span id="_CPPv318sgd_GetVertexGreen8SGD_Meshi"></span><span id="_CPPv218sgd_GetVertexGreen8SGD_Meshi"></span><span id="sgd_GetVertexGreen__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga5891b2978a041ee12ef74f728e89b739"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexGreen</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetVertexGreen8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex color green component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_GetVertexBlue8SGD_Meshi">
+<span id="_CPPv317sgd_GetVertexBlue8SGD_Meshi"></span><span id="_CPPv217sgd_GetVertexBlue8SGD_Meshi"></span><span id="sgd_GetVertexBlue__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga330a7f8c99aaaa813bec7bec2ba97b9e"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexBlue</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_GetVertexBlue8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex color blue component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetVertexAlpha8SGD_Meshi">
+<span id="_CPPv318sgd_GetVertexAlpha8SGD_Meshi"></span><span id="_CPPv218sgd_GetVertexAlpha8SGD_Meshi"></span><span id="sgd_GetVertexAlpha__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga6ead255e703bca10ca0a073aee34644d"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexAlpha</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetVertexAlpha8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex color alpha component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexU08SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexU08SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexU08SGD_Meshi"></span><span id="sgd_GetVertexU0__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga67d5f9cf8c5004ae6874c363d22b81cc"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexU0</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexU08SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex texture coordinate 0 u component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetVertexV08SGD_Meshi">
+<span id="_CPPv315sgd_GetVertexV08SGD_Meshi"></span><span id="_CPPv215sgd_GetVertexV08SGD_Meshi"></span><span id="sgd_GetVertexV0__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga119b0b3dbde9b62e8a1b4f9de53c730b"></span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetVertexV0</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetVertexV08SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get vertex tangent coorindate 1 y component. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_CreateSurface8SGD_Mesh12SGD_Materiali">
+<span id="_CPPv317sgd_CreateSurface8SGD_Mesh12SGD_Materiali"></span><span id="_CPPv217sgd_CreateSurface8SGD_Mesh12SGD_Materiali"></span><span id="sgd_CreateSurface__SGD_Mesh.SGD_Material.i"></span><span class="target" id="group___mesh_1gad43165add30fa46c1146964333e76293"></span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateSurface</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">triangleCount</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_CreateSurface8SGD_Mesh12SGD_Materiali" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new Surface and add it to mesh. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetSurfaceCount8SGD_Mesh">
+<span id="_CPPv319sgd_GetSurfaceCount8SGD_Mesh"></span><span id="_CPPv219sgd_GetSurfaceCount8SGD_Mesh"></span><span id="sgd_GetSurfaceCount__SGD_Mesh"></span><span class="target" id="group___mesh_1ga52a4ed35324d6f479fd8e4b18f9ca37e"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetSurfaceCount</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetSurfaceCount8SGD_Mesh" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh surface count. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetSurface8SGD_Meshi">
+<span id="_CPPv314sgd_GetSurface8SGD_Meshi"></span><span id="_CPPv214sgd_GetSurface8SGD_Meshi"></span><span id="sgd_GetSurface__SGD_Mesh.i"></span><span class="target" id="group___mesh_1ga0595a6ba202d2b2627de57dce067ea43"></span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetSurface</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv48SGD_Mesh" title="SGD_Mesh"><span class="n"><span class="pre">SGD_Mesh</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">mesh</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetSurface8SGD_Meshi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh surface. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetMaterial11SGD_Surface">
+<span id="_CPPv315sgd_GetMaterial11SGD_Surface"></span><span id="_CPPv215sgd_GetMaterial11SGD_Surface"></span><span id="sgd_GetMaterial__SGD_Surface"></span><span class="target" id="group___mesh_1ga59644b9524e77d14238dbf8c10eb4b32"></span><a class="reference internal" href="material.html#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetMaterial</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetMaterial11SGD_Surface" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get surface material. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_ResizeTriangles11SGD_Surfacei">
+<span id="_CPPv319sgd_ResizeTriangles11SGD_Surfacei"></span><span id="_CPPv219sgd_ResizeTriangles11SGD_Surfacei"></span><span id="sgd_ResizeTriangles__SGD_Surface.i"></span><span class="target" id="group___mesh_1ga64d9093637bdf0e23a79fb93d5db57f6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_ResizeTriangles</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">count</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_ResizeTriangles11SGD_Surfacei" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Add empty triangles to surface, returning index of first new triangle. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_GetTriangleCount11SGD_Surface">
+<span id="_CPPv320sgd_GetTriangleCount11SGD_Surface"></span><span id="_CPPv220sgd_GetTriangleCount11SGD_Surface"></span><span id="sgd_GetTriangleCount__SGD_Surface"></span><span class="target" id="group___mesh_1ga33983357f73051c17564750dad316781"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetTriangleCount</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_GetTriangleCount11SGD_Surface" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get number of triangles in surface. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_AddTriangle11SGD_Surfaceiii">
+<span id="_CPPv315sgd_AddTriangle11SGD_Surfaceiii"></span><span id="_CPPv215sgd_AddTriangle11SGD_Surfaceiii"></span><span id="sgd_AddTriangle__SGD_Surface.i.i.i"></span><span class="target" id="group___mesh_1ga074f57031801148197705d9cab08bcba"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_AddTriangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v1</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_AddTriangle11SGD_Surfaceiii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Add triangle to surface, returning index of new triangle. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_SetTriangle11SGD_Surfaceiiii">
+<span id="_CPPv315sgd_SetTriangle11SGD_Surfaceiiii"></span><span id="_CPPv215sgd_SetTriangle11SGD_Surfaceiiii"></span><span id="sgd_SetTriangle__SGD_Surface.i.i.i.i"></span><span class="target" id="group___mesh_1gabcc538dae3b66ac5ac2db8c5135dedb6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetTriangle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">triangle</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v0</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v1</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">v2</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_SetTriangle11SGD_Surfaceiiii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update existing triangle vertices in surface. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_GetTriangleVertex11SGD_Surfaceii">
+<span id="_CPPv321sgd_GetTriangleVertex11SGD_Surfaceii"></span><span id="_CPPv221sgd_GetTriangleVertex11SGD_Surfaceii"></span><span id="sgd_GetTriangleVertex__SGD_Surface.i.i"></span><span class="target" id="group___mesh_1ga10956b5146b4c6b5915267774ed09007"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetTriangleVertex</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv411SGD_Surface" title="SGD_Surface"><span class="n"><span class="pre">SGD_Surface</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">surface</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">triangle</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_GetTriangleVertex11SGD_Surfaceii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get mesh vertex index of a triangle corner. Vertex must be 0, 1 or 2. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Meshes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413SGD_MeshFlags"><code class="docutils literal notranslate"><span class="pre">SGD_MeshFlags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv48SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">SGD_Mesh</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv411SGD_Surface"><code class="docutils literal notranslate"><span class="pre">SGD_Surface</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412sgd_LoadMesh10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_LoadMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412sgd_CopyMesh8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_CopyMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_CreateBoxMeshffffff12SGD_Material"><code class="docutils literal notranslate"><span class="pre">sgd_CreateBoxMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_CreateSphereMeshfii12SGD_Material"><code class="docutils literal notranslate"><span class="pre">sgd_CreateSphereMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_CreateCylinderMeshffi12SGD_Material"><code class="docutils literal notranslate"><span class="pre">sgd_CreateCylinderMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_CreateConeMeshffi12SGD_Material"><code class="docutils literal notranslate"><span class="pre">sgd_CreateConeMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_CreateTorusMeshffii12SGD_Material"><code class="docutils literal notranslate"><span class="pre">sgd_CreateTorusMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv425sgd_SetMeshShadowsEnabled8SGD_Mesh8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_SetMeshShadowsEnabled()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_IsMeshShadowsEnabled8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_IsMeshShadowsEnabled()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_UpdateMeshNormals8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_UpdateMeshNormals()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_UpdateMeshTangents8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_UpdateMeshTangents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv411sgd_FitMesh8SGD_Meshffffff8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_FitMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_TransformMesh8SGD_Meshfffffffff"><code class="docutils literal notranslate"><span class="pre">sgd_TransformMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_TransformTexCoords8SGD_Meshffff"><code class="docutils literal notranslate"><span class="pre">sgd_TransformTexCoords()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412sgd_FlipMesh8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_FlipMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMinX8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMinX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMinY8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMinY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMinZ8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMinZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMaxX8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMaxX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMaxY8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMaxY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetMeshBoundsMaxZ8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetMeshBoundsMaxZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_CreateMeshi9SGD_Flags"><code class="docutils literal notranslate"><span class="pre">sgd_CreateMesh()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_ResizeVertices8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_ResizeVertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetVertexCount8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_AddVertex8SGD_Meshffffffff"><code class="docutils literal notranslate"><span class="pre">sgd_AddVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_SetVertex8SGD_Meshiffffffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetVertexPosition8SGD_Meshifff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertexPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_SetVertexNormal8SGD_Meshifff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertexNormal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetVertexTangent8SGD_Meshiffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertexTangent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetVertexColor8SGD_Meshiffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertexColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_SetVertexTexCoord08SGD_Meshiff"><code class="docutils literal notranslate"><span class="pre">sgd_SetVertexTexCoord0()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetVertexX8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetVertexY8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetVertexZ8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexNX8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexNX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexNY8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexNY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexNZ8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexNZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexTX8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexTX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexTY8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexTY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexTZ8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexTZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexTW8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexTW()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_GetVertexRed8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexRed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetVertexGreen8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexGreen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_GetVertexBlue8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexBlue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetVertexAlpha8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexU08SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexU0()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetVertexV08SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetVertexV0()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_CreateSurface8SGD_Mesh12SGD_Materiali"><code class="docutils literal notranslate"><span class="pre">sgd_CreateSurface()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetSurfaceCount8SGD_Mesh"><code class="docutils literal notranslate"><span class="pre">sgd_GetSurfaceCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetSurface8SGD_Meshi"><code class="docutils literal notranslate"><span class="pre">sgd_GetSurface()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetMaterial11SGD_Surface"><code class="docutils literal notranslate"><span class="pre">sgd_GetMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_ResizeTriangles11SGD_Surfacei"><code class="docutils literal notranslate"><span class="pre">sgd_ResizeTriangles()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_GetTriangleCount11SGD_Surface"><code class="docutils literal notranslate"><span class="pre">sgd_GetTriangleCount()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_AddTriangle11SGD_Surfaceiii"><code class="docutils literal notranslate"><span class="pre">sgd_AddTriangle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_SetTriangle11SGD_Surfaceiiii"><code class="docutils literal notranslate"><span class="pre">sgd_SetTriangle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_GetTriangleVertex11SGD_Surfaceii"><code class="docutils literal notranslate"><span class="pre">sgd_GetTriangleVertex()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="image.html" title="Images"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="overlay.html" title="2D Overlay"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Meshes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Audio &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Picking" href="picking.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="picking.html" title="Picking"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Audio</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="audio">
+<h1>Audio<a class="headerlink" href="#audio" title="Link to this heading">¶</a></h1>
+<p>Audio…</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv49SGD_Sound">
+<span id="_CPPv39SGD_Sound"></span><span id="_CPPv29SGD_Sound"></span><span id="SGD_Sound"></span><span class="target" id="group___audio_1ga80a40fda0e7db8787a577c1f32e33322"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Sound</span></span></span><a class="headerlink" href="#_CPPv49SGD_Sound" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Sound handle type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv417SGD_AudioListener">
+<span id="_CPPv317SGD_AudioListener"></span><span id="_CPPv217SGD_AudioListener"></span><span id="SGD_AudioListener"></span><span class="target" id="group___audio_1ga4dddc233d85fd585993be366462bf9ad"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_AudioListener</span></span></span><a class="headerlink" href="#_CPPv417SGD_AudioListener" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Audo listener handle type. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_LoadSound10SGD_String">
+<span id="_CPPv313sgd_LoadSound10SGD_String"></span><span id="_CPPv213sgd_LoadSound10SGD_String"></span><span id="sgd_LoadSound__SGD_String"></span><span class="target" id="group___audio_1ga5d63400ea95b3458202f9e004fdeb3c2"></span><a class="reference internal" href="#_CPPv49SGD_Sound" title="SGD_Sound"><span class="n"><span class="pre">SGD_Sound</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadSound</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_LoadSound10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Load a new sound. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_PlaySound9SGD_Sound">
+<span id="_CPPv313sgd_PlaySound9SGD_Sound"></span><span id="_CPPv213sgd_PlaySound9SGD_Sound"></span><span id="sgd_PlaySound__SGD_Sound"></span><span class="target" id="group___audio_1ga9e4a4c68b0517bb81421d4c1d36d8a7f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_PlaySound</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv49SGD_Sound" title="SGD_Sound"><span class="n"><span class="pre">SGD_Sound</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sound</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_PlaySound9SGD_Sound" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Play a sound, returning an audio stream.. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412sgd_CueSound9SGD_Sound">
+<span id="_CPPv312sgd_CueSound9SGD_Sound"></span><span id="_CPPv212sgd_CueSound9SGD_Sound"></span><span id="sgd_CueSound__SGD_Sound"></span><span class="target" id="group___audio_1gad250b999d1db2743ed09ba513e842358"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CueSound</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv49SGD_Sound" title="SGD_Sound"><span class="n"><span class="pre">SGD_Sound</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sound</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412sgd_CueSound9SGD_Sound" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Cue a sound. The returned audio stream must be unpaused before it will start. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetAudioVolumeif">
+<span id="_CPPv318sgd_SetAudioVolumeif"></span><span id="_CPPv218sgd_SetAudioVolumeif"></span><span id="sgd_SetAudioVolume__i.float"></span><span class="target" id="group___audio_1gaf79531eac9f387cd551c3cd24add41ca"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAudioVolume</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">volume</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetAudioVolumeif" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set audio volume. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_SetAudioPanif">
+<span id="_CPPv315sgd_SetAudioPanif"></span><span id="_CPPv215sgd_SetAudioPanif"></span><span id="sgd_SetAudioPan__i.float"></span><span class="target" id="group___audio_1gac1e2164b70b26fff97e05cf87b17ddbf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAudioPan</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">pan</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_SetAudioPanif" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set audio pan. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_SetAudioPitchScaleif">
+<span id="_CPPv322sgd_SetAudioPitchScaleif"></span><span id="_CPPv222sgd_SetAudioPitchScaleif"></span><span id="sgd_SetAudioPitchScale__i.float"></span><span class="target" id="group___audio_1ga30a4609b6acf28c3ee7e19fecce85818"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAudioPitchScale</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">scale</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_SetAudioPitchScaleif" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set audio pitch scale. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_SetAudioLoopingi8SGD_Bool">
+<span id="_CPPv319sgd_SetAudioLoopingi8SGD_Bool"></span><span id="_CPPv219sgd_SetAudioLoopingi8SGD_Bool"></span><span id="sgd_SetAudioLooping__i.SGD_Bool"></span><span class="target" id="group___audio_1ga705f7c59a53a80d11e40a8a36fdde154"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAudioLooping</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">looping</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_SetAudioLoopingi8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set audio looping flag. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetAudioPausedi8SGD_Bool">
+<span id="_CPPv318sgd_SetAudioPausedi8SGD_Bool"></span><span id="_CPPv218sgd_SetAudioPausedi8SGD_Bool"></span><span id="sgd_SetAudioPaused__i.SGD_Bool"></span><span class="target" id="group___audio_1gad18e3908459c8382fc2a76c33d13873d"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetAudioPaused</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">paused</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetAudioPausedi8SGD_Bool" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set audio paused flag. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_IsAudioValidi">
+<span id="_CPPv316sgd_IsAudioValidi"></span><span id="_CPPv216sgd_IsAudioValidi"></span><span id="sgd_IsAudioValid__i"></span><span class="target" id="group___audio_1ga5fe565349832b607c65a24712da0333f"></span><a class="reference internal" href="core.html#_CPPv48SGD_Bool" title="SGD_Bool"><span class="n"><span class="pre">SGD_Bool</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_IsAudioValid</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_IsAudioValidi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get audio valid flag. Audio is valid if it is playing or paused. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv413sgd_StopAudioi">
+<span id="_CPPv313sgd_StopAudioi"></span><span id="_CPPv213sgd_StopAudioi"></span><span id="sgd_StopAudio__i"></span><span class="target" id="group___audio_1gad75eca1efb9c67a8fcf29e5cf9dd24e1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_StopAudio</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">audio</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413sgd_StopAudioi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Stop audio. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_Set3DAudioConfigfff">
+<span id="_CPPv320sgd_Set3DAudioConfigfff"></span><span id="_CPPv220sgd_Set3DAudioConfigfff"></span><span id="sgd_Set3DAudioConfig__float.float.float"></span><span class="target" id="group___audio_1ga6900b68ecc6268e1a5a01f48a0415700"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Set3DAudioConfig</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rolloffScale</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dopplerScale</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">distanceScale</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_Set3DAudioConfigfff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set 3D audio config. All paremters default to 1. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv425sgd_Create3DAudioListener10SGD_Entity">
+<span id="_CPPv325sgd_Create3DAudioListener10SGD_Entity"></span><span id="_CPPv225sgd_Create3DAudioListener10SGD_Entity"></span><span id="sgd_Create3DAudioListener__SGD_Entity"></span><span class="target" id="group___audio_1ga70507cad76db55c4d6d9dfeade1d9552"></span><a class="reference internal" href="#_CPPv417SGD_AudioListener" title="SGD_AudioListener"><span class="n"><span class="pre">SGD_AudioListener</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Create3DAudioListener</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425sgd_Create3DAudioListener10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create 3D audio listener attached to entity. Only one audio listener is currently supported. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_Play3DSound9SGD_Sound10SGD_Entity">
+<span id="_CPPv315sgd_Play3DSound9SGD_Sound10SGD_Entity"></span><span id="_CPPv215sgd_Play3DSound9SGD_Sound10SGD_Entity"></span><span id="sgd_Play3DSound__SGD_Sound.SGD_Entity"></span><span class="target" id="group___audio_1ga522c0f3c910e5f404be8af0158e17ad5"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Play3DSound</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv49SGD_Sound" title="SGD_Sound"><span class="n"><span class="pre">SGD_Sound</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">sound</span></span>, <a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">entity</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_Play3DSound9SGD_Sound10SGD_Entity" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Play 3D sound at entity position and velocity. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_Update3DAudiov">
+<span id="_CPPv317sgd_Update3DAudiov"></span><span id="_CPPv217sgd_Update3DAudiov"></span><span id="sgd_Update3DAudio"></span><span class="target" id="group___audio_1ga735d34414618c7ee7d65d1db5d2cd4b6"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_Update3DAudio</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_Update3DAudiov" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Update 3D audio. Must be called to update 3D rolloff and doppler effects. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Audio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv49SGD_Sound"><code class="docutils literal notranslate"><span class="pre">SGD_Sound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417SGD_AudioListener"><code class="docutils literal notranslate"><span class="pre">SGD_AudioListener</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_LoadSound10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_LoadSound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_PlaySound9SGD_Sound"><code class="docutils literal notranslate"><span class="pre">sgd_PlaySound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412sgd_CueSound9SGD_Sound"><code class="docutils literal notranslate"><span class="pre">sgd_CueSound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetAudioVolumeif"><code class="docutils literal notranslate"><span class="pre">sgd_SetAudioVolume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_SetAudioPanif"><code class="docutils literal notranslate"><span class="pre">sgd_SetAudioPan()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_SetAudioPitchScaleif"><code class="docutils literal notranslate"><span class="pre">sgd_SetAudioPitchScale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_SetAudioLoopingi8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_SetAudioLooping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetAudioPausedi8SGD_Bool"><code class="docutils literal notranslate"><span class="pre">sgd_SetAudioPaused()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_IsAudioValidi"><code class="docutils literal notranslate"><span class="pre">sgd_IsAudioValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413sgd_StopAudioi"><code class="docutils literal notranslate"><span class="pre">sgd_StopAudio()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_Set3DAudioConfigfff"><code class="docutils literal notranslate"><span class="pre">sgd_Set3DAudioConfig()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv425sgd_Create3DAudioListener10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_Create3DAudioListener()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_Play3DSound9SGD_Sound10SGD_Entity"><code class="docutils literal notranslate"><span class="pre">sgd_Play3DSound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_Update3DAudiov"><code class="docutils literal notranslate"><span class="pre">sgd_Update3DAudio()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="picking.html" title="Picking"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Audio</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

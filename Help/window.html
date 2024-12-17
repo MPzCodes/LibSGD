@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Window &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="User Input" href="input.html" />
+    <link rel="prev" title="System" href="system.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="input.html" title="User Input"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="system.html" title="System"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Window</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="window">
+<h1>Window<a class="headerlink" href="#window" title="Link to this heading">¶</a></h1>
+<p>To create a window, use <a class="reference internal" href="#_CPPv416sgd_CreateWindowii10SGD_String9SGD_Flags" title="sgd_CreateWindow"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_CreateWindow()</span></code></a>.</p>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv415SGD_WindowState">
+<span id="_CPPv315SGD_WindowState"></span><span id="_CPPv215SGD_WindowState"></span><span class="target" id="group___window_types_1ga099e8efd82665e92d14433a907bf2163"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WindowState</span></span></span><a class="headerlink" href="#_CPPv415SGD_WindowState" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window states. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowState23SGD_WINDOW_STATE_CLOSEDE">
+<span id="_CPPv3N15SGD_WindowState23SGD_WINDOW_STATE_CLOSEDE"></span><span id="_CPPv2N15SGD_WindowState23SGD_WINDOW_STATE_CLOSEDE"></span><span class="target" id="group___window_types_1gga099e8efd82665e92d14433a907bf2163af47714b02a4d69f97fcd88e51ac0b691"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_STATE_CLOSED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowState23SGD_WINDOW_STATE_CLOSEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window is closed. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowState26SGD_WINDOW_STATE_MINIMIZEDE">
+<span id="_CPPv3N15SGD_WindowState26SGD_WINDOW_STATE_MINIMIZEDE"></span><span id="_CPPv2N15SGD_WindowState26SGD_WINDOW_STATE_MINIMIZEDE"></span><span class="target" id="group___window_types_1gga099e8efd82665e92d14433a907bf2163a4a1a4452f693c374a382895d3681363f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_STATE_MINIMIZED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowState26SGD_WINDOW_STATE_MINIMIZEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window is minimized. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowState23SGD_WINDOW_STATE_NORMALE">
+<span id="_CPPv3N15SGD_WindowState23SGD_WINDOW_STATE_NORMALE"></span><span id="_CPPv2N15SGD_WindowState23SGD_WINDOW_STATE_NORMALE"></span><span class="target" id="group___window_types_1gga099e8efd82665e92d14433a907bf2163afd511270764e3c04657fca1ff1426b72"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_STATE_NORMAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowState23SGD_WINDOW_STATE_NORMALE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window is normal. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowState26SGD_WINDOW_STATE_MAXIMIZEDE">
+<span id="_CPPv3N15SGD_WindowState26SGD_WINDOW_STATE_MAXIMIZEDE"></span><span id="_CPPv2N15SGD_WindowState26SGD_WINDOW_STATE_MAXIMIZEDE"></span><span class="target" id="group___window_types_1gga099e8efd82665e92d14433a907bf2163a129664d7ef7835a71df0ef5bf2e0ff88"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_STATE_MAXIMIZED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowState26SGD_WINDOW_STATE_MAXIMIZEDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window is maximized. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowState27SGD_WINDOW_STATE_FULLSCREENE">
+<span id="_CPPv3N15SGD_WindowState27SGD_WINDOW_STATE_FULLSCREENE"></span><span id="_CPPv2N15SGD_WindowState27SGD_WINDOW_STATE_FULLSCREENE"></span><span class="target" id="group___window_types_1gga099e8efd82665e92d14433a907bf2163a1ecdcf4314ab1e49af0f4da35fa84060"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_STATE_FULLSCREEN</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowState27SGD_WINDOW_STATE_FULLSCREENE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window is fullscreen. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv415SGD_WindowFlags">
+<span id="_CPPv315SGD_WindowFlags"></span><span id="_CPPv215SGD_WindowFlags"></span><span class="target" id="group___window_types_1ga1add6f79a3b088c13c33a5b91cec1ba7"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WindowFlags</span></span></span><a class="headerlink" href="#_CPPv415SGD_WindowFlags" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Window flags. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowFlags21SGD_WINDOW_FLAGS_NONEE">
+<span id="_CPPv3N15SGD_WindowFlags21SGD_WINDOW_FLAGS_NONEE"></span><span id="_CPPv2N15SGD_WindowFlags21SGD_WINDOW_FLAGS_NONEE"></span><span class="target" id="group___window_types_1gga1add6f79a3b088c13c33a5b91cec1ba7aaa1500e85c6fba6ef5c39c055d971ccd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_FLAGS_NONE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x00</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowFlags21SGD_WINDOW_FLAGS_NONEE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>No special flags. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowFlags27SGD_WINDOW_FLAGS_FULLSCREENE">
+<span id="_CPPv3N15SGD_WindowFlags27SGD_WINDOW_FLAGS_FULLSCREENE"></span><span id="_CPPv2N15SGD_WindowFlags27SGD_WINDOW_FLAGS_FULLSCREENE"></span><span class="target" id="group___window_types_1gga1add6f79a3b088c13c33a5b91cec1ba7a4057cbd8237fdbe94aaa1c821c8c2989"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_FLAGS_FULLSCREEN</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x01</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowFlags27SGD_WINDOW_FLAGS_FULLSCREENE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create fullscreen window. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowFlags26SGD_WINDOW_FLAGS_RESIZABLEE">
+<span id="_CPPv3N15SGD_WindowFlags26SGD_WINDOW_FLAGS_RESIZABLEE"></span><span id="_CPPv2N15SGD_WindowFlags26SGD_WINDOW_FLAGS_RESIZABLEE"></span><span class="target" id="group___window_types_1gga1add6f79a3b088c13c33a5b91cec1ba7a0e6f4886479b0a0a1a4279d41b7f693b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_FLAGS_RESIZABLE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x02</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowFlags26SGD_WINDOW_FLAGS_RESIZABLEE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create resizable window. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15SGD_WindowFlags25SGD_WINDOW_FLAGS_CENTEREDE">
+<span id="_CPPv3N15SGD_WindowFlags25SGD_WINDOW_FLAGS_CENTEREDE"></span><span id="_CPPv2N15SGD_WindowFlags25SGD_WINDOW_FLAGS_CENTEREDE"></span><span class="target" id="group___window_types_1gga1add6f79a3b088c13c33a5b91cec1ba7aacce60b6e7ca29d5d5e94411a76500c9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WINDOW_FLAGS_CENTERED</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0x04</span></span><a class="headerlink" href="#_CPPv4N15SGD_WindowFlags25SGD_WINDOW_FLAGS_CENTEREDE" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create window centered on desktop. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___window_types_1ga2a6af1be03d861da3ba155deb4f9d40a"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv415SGD_WindowState" title="SGD_WindowState"><span class="n"><span class="pre">SGD_WindowState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WindowState</span></span></span><br /></dt>
+<dd><p>Window states. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___window_types_1ga1604a66c08bff6b5faad19ec00b2b270"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv415SGD_WindowFlags" title="SGD_WindowFlags"><span class="n"><span class="pre">SGD_WindowFlags</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_WindowFlags</span></span></span><br /></dt>
+<dd><p>Window flags. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_CreateWindowii10SGD_String9SGD_Flags">
+<span id="_CPPv316sgd_CreateWindowii10SGD_String9SGD_Flags"></span><span id="_CPPv216sgd_CreateWindowii10SGD_String9SGD_Flags"></span><span id="sgd_CreateWindow__i.i.SGD_String.SGD_Flags"></span><span class="target" id="group___window_1ga9356c0ccd4beae83db0365acb239edfa"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateWindow</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">title</span></span>, <a class="reference internal" href="core.html#_CPPv49SGD_Flags" title="SGD_Flags"><span class="n"><span class="pre">SGD_Flags</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">flags</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_CreateWindowii10SGD_String9SGD_Flags" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new window. See <a class="reference internal" href="#group___window_types_1ga1add6f79a3b088c13c33a5b91cec1ba7"><span class="std std-ref">SGD_WindowFlags</span></a> for possible values for <code class="docutils literal notranslate"><span class="pre">flags</span></code>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_DestroyWindowv">
+<span id="_CPPv317sgd_DestroyWindowv"></span><span id="_CPPv217sgd_DestroyWindowv"></span><span id="sgd_DestroyWindow"></span><span class="target" id="group___window_1ga8ff71ea834286bd99f50b736fa8b63bf"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_DestroyWindow</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_DestroyWindowv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Destroy window. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetWindowPositionii">
+<span id="_CPPv321sgd_SetWindowPositionii"></span><span id="_CPPv221sgd_SetWindowPositionii"></span><span id="sgd_SetWindowPosition__i.i"></span><span class="target" id="group___window_1gab8d1152c6870d519bd969bb7f0df36c3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetWindowPosition</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetWindowPositionii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set window position. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetWindowXv">
+<span id="_CPPv314sgd_GetWindowXv"></span><span id="_CPPv214sgd_GetWindowXv"></span><span id="sgd_GetWindowX"></span><span class="target" id="group___window_1gac5ebe2d9ca94f7e1dc15311fa62d4227"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetWindowXv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window x. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetWindowYv">
+<span id="_CPPv314sgd_GetWindowYv"></span><span id="_CPPv214sgd_GetWindowYv"></span><span id="sgd_GetWindowY"></span><span class="target" id="group___window_1ga78def1b0a4dd8393cd2ac05cbf68ff53"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetWindowYv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window y. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv417sgd_SetWindowSizeii">
+<span id="_CPPv317sgd_SetWindowSizeii"></span><span id="_CPPv217sgd_SetWindowSizeii"></span><span id="sgd_SetWindowSize__i.i"></span><span class="target" id="group___window_1ga74dbfb7f3ab699f50d37e1f95f1975b2"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetWindowSize</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417sgd_SetWindowSizeii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set window size. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetWindowWidthv">
+<span id="_CPPv318sgd_GetWindowWidthv"></span><span id="_CPPv218sgd_GetWindowWidthv"></span><span id="sgd_GetWindowWidth"></span><span class="target" id="group___window_1ga0a049d6d1ae4623f310f808c5f3d9fcf"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowWidth</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetWindowWidthv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window width. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_GetWindowHeightv">
+<span id="_CPPv319sgd_GetWindowHeightv"></span><span id="_CPPv219sgd_GetWindowHeightv"></span><span id="sgd_GetWindowHeight"></span><span class="target" id="group___window_1gae3f2690ab41c0047216e6ba35c6e19d4"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowHeight</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_GetWindowHeightv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window height. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetWindowTitle10SGD_String">
+<span id="_CPPv318sgd_SetWindowTitle10SGD_String"></span><span id="_CPPv218sgd_SetWindowTitle10SGD_String"></span><span id="sgd_SetWindowTitle__SGD_String"></span><span class="target" id="group___window_1gac74bda77f34fb98e8d8f8868e1b9badd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetWindowTitle</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">title</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetWindowTitle10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set window title. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetWindowTitlev">
+<span id="_CPPv318sgd_GetWindowTitlev"></span><span id="_CPPv218sgd_GetWindowTitlev"></span><span id="sgd_GetWindowTitle"></span><span class="target" id="group___window_1gad66b20395b5ccfbbdd237c01c9b437dc"></span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowTitle</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetWindowTitlev" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window title. The returned string will be valid until the next call to <a class="reference internal" href="#group___window_1gad66b20395b5ccfbbdd237c01c9b437dc"><span class="std std-ref">sgd_GetWindowTitle()</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_SetFullscreenModeiii">
+<span id="_CPPv321sgd_SetFullscreenModeiii"></span><span id="_CPPv221sgd_SetFullscreenModeiii"></span><span id="sgd_SetFullscreenMode__i.i.i"></span><span class="target" id="group___window_1gae83511fbb06ac6f966a26b701fd9870f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetFullscreenMode</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">width</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">height</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">hertz</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_SetFullscreenModeiii" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set fullscreen mode. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_SetWindowState15SGD_WindowState">
+<span id="_CPPv318sgd_SetWindowState15SGD_WindowState"></span><span id="_CPPv218sgd_SetWindowState15SGD_WindowState"></span><span id="sgd_SetWindowState__SGD_WindowState"></span><span class="target" id="group___window_1ga0deef7d21a79311d9539f5ad737b4c17"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetWindowState</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv415SGD_WindowState" title="SGD_WindowState"><span class="n"><span class="pre">SGD_WindowState</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">state</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_SetWindowState15SGD_WindowState" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set window state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv418sgd_GetWindowStatev">
+<span id="_CPPv318sgd_GetWindowStatev"></span><span id="_CPPv218sgd_GetWindowStatev"></span><span id="sgd_GetWindowState"></span><span class="target" id="group___window_1ga4585c88a10867c05a6947758778dfdfa"></span><a class="reference internal" href="#_CPPv415SGD_WindowState" title="SGD_WindowState"><span class="n"><span class="pre">SGD_WindowState</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetWindowState</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418sgd_GetWindowStatev" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Get window state. See sgd_SetWindowState. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Window</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415SGD_WindowState"><code class="docutils literal notranslate"><span class="pre">SGD_WindowState</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415SGD_WindowFlags"><code class="docutils literal notranslate"><span class="pre">SGD_WindowFlags</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_CreateWindowii10SGD_String9SGD_Flags"><code class="docutils literal notranslate"><span class="pre">sgd_CreateWindow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_DestroyWindowv"><code class="docutils literal notranslate"><span class="pre">sgd_DestroyWindow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetWindowPositionii"><code class="docutils literal notranslate"><span class="pre">sgd_SetWindowPosition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetWindowXv"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetWindowYv"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv417sgd_SetWindowSizeii"><code class="docutils literal notranslate"><span class="pre">sgd_SetWindowSize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetWindowWidthv"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowWidth()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_GetWindowHeightv"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowHeight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetWindowTitle10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_SetWindowTitle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetWindowTitlev"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowTitle()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_SetFullscreenModeiii"><code class="docutils literal notranslate"><span class="pre">sgd_SetFullscreenMode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_SetWindowState15SGD_WindowState"><code class="docutils literal notranslate"><span class="pre">sgd_SetWindowState()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv418sgd_GetWindowStatev"><code class="docutils literal notranslate"><span class="pre">sgd_GetWindowState()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="input.html" title="User Input"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="system.html" title="System"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Window</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

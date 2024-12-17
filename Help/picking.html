@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Picking &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Audio" href="audio.html" />
+    <link rel="prev" title="Collisions" href="collision.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="audio.html" title="Audio"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="collision.html" title="Collisions"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Picking</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="picking">
+<h1>Picking<a class="headerlink" href="#picking" title="Link to this heading">¶</a></h1>
+<p>Picking…</p>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_CameraPick10SGD_Cameraffi">
+<span id="_CPPv314sgd_CameraPick10SGD_Cameraffi"></span><span id="_CPPv214sgd_CameraPick10SGD_Cameraffi"></span><span id="sgd_CameraPick__SGD_Camera.float.float.i"></span><span class="target" id="group___picking_1ga9a55c824e04d05aa3c94bc1774632788"></span><a class="reference internal" href="collision.html#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CameraPick</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="camera.html#_CPPv410SGD_Camera" title="SGD_Camera"><span class="n"><span class="pre">SGD_Camera</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">camera</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">windowX</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">windowY</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderMask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_CameraPick10SGD_Cameraffi" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Pick first collider along ray passing from camera eye through window coordinates.</p>
+<p>Note that the colliderMask parameter is a ‘bitmask’ value, where each ‘1’ bit in the value’s binary representation repesents a collider type you want to be included in the pick, allowing you to pick more than 1 collider type in a single pick.</p>
+<p>For example, if you want the pick to include collider types 0 and 3, you would set bits 0 and 3 in the colliderMask, resuling in a value of 2^0 | 2^3 == 9.</p>
+<p>If you want the pick to include <em>all</em> collider types, use a colliderMask of -1, a bitmask value with all bits set. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv412sgd_LinePick8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Reali">
+<span id="_CPPv312sgd_LinePick8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Reali"></span><span id="_CPPv212sgd_LinePick8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Reali"></span><span id="sgd_LinePick__SGD_Real.SGD_Real.SGD_Real.SGD_Real.SGD_Real.SGD_Real.SGD_Real.i"></span><span class="target" id="group___picking_1ga2cbe601f75f7876b80f35293307f1f45"></span><a class="reference internal" href="collision.html#_CPPv412SGD_Collider" title="SGD_Collider"><span class="n"><span class="pre">SGD_Collider</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LinePick</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x0</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y0</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z0</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">x1</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">y1</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">z1</span></span>, <a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">radius</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">colliderMask</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412sgd_LinePick8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Reali" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Pick first collider along line.</p>
+<p>Please see <a class="reference internal" href="#group___picking_1ga9a55c824e04d05aa3c94bc1774632788"><span class="std std-ref">sgd_CameraPick</span></a> for more information about the colliderMask parameter. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetPickedXv">
+<span id="_CPPv314sgd_GetPickedXv"></span><span id="_CPPv214sgd_GetPickedXv"></span><span id="sgd_GetPickedX"></span><span class="target" id="group___picking_1ga328a8cc7e9fc11d91272b2c5e139a7f6"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetPickedXv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>X coordinate of pick contact point in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetPickedYv">
+<span id="_CPPv314sgd_GetPickedYv"></span><span id="_CPPv214sgd_GetPickedYv"></span><span id="sgd_GetPickedY"></span><span class="target" id="group___picking_1ga408359b3efb53e4a49668c897c10b40f"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetPickedYv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Y coordinate of pick contact point in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_GetPickedZv">
+<span id="_CPPv314sgd_GetPickedZv"></span><span id="_CPPv214sgd_GetPickedZv"></span><span id="sgd_GetPickedZ"></span><span class="target" id="group___picking_1ga3b94ffe2bcf41e31a5ff8097fc5f3448"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedZ</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_GetPickedZv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Z coordinate of pick contact point in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetPickedNXv">
+<span id="_CPPv315sgd_GetPickedNXv"></span><span id="_CPPv215sgd_GetPickedNXv"></span><span id="sgd_GetPickedNX"></span><span class="target" id="group___picking_1ga7cda4b206ca9fe0ae97160350ce52259"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedNX</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetPickedNXv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>X compnent of pick contact normal in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetPickedNYv">
+<span id="_CPPv315sgd_GetPickedNYv"></span><span id="_CPPv215sgd_GetPickedNYv"></span><span id="sgd_GetPickedNY"></span><span class="target" id="group___picking_1gac042b94ab5ad899b6a05ed46deab6ee0"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedNY</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetPickedNYv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Y component of pick contact normal in world space. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv415sgd_GetPickedNZv">
+<span id="_CPPv315sgd_GetPickedNZv"></span><span id="_CPPv215sgd_GetPickedNZv"></span><span id="sgd_GetPickedNZ"></span><span class="target" id="group___picking_1gab76604ae134afeee102f6fb27ff8c347"></span><a class="reference internal" href="core.html#_CPPv48SGD_Real" title="SGD_Real"><span class="n"><span class="pre">SGD_Real</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_GetPickedNZ</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415sgd_GetPickedNZv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Z component of pick contact normal in world space. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Picking</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_CameraPick10SGD_Cameraffi"><code class="docutils literal notranslate"><span class="pre">sgd_CameraPick()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412sgd_LinePick8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Real8SGD_Reali"><code class="docutils literal notranslate"><span class="pre">sgd_LinePick()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetPickedXv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetPickedYv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_GetPickedZv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedZ()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetPickedNXv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedNX()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetPickedNYv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedNY()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv415sgd_GetPickedNZv"><code class="docutils literal notranslate"><span class="pre">sgd_GetPickedNZ()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="audio.html" title="Audio"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="collision.html" title="Collisions"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Picking</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

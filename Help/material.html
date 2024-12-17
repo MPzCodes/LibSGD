@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Materials &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Textures" href="texture.html" />
+    <link rel="prev" title="Images" href="image.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="texture.html" title="Textures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="image.html" title="Images"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Materials</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="materials">
+<h1>Materials<a class="headerlink" href="#materials" title="Link to this heading">¶</a></h1>
+<p>Materials are used when creating mesh surfaces, and affect how the surface appears when rendered by lighting.</p>
+<p>There are several kinds of materials available, and each material supports different parameters that are set using one of <a class="reference internal" href="#_CPPv422sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture" title="sgd_SetMaterialTexture"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetMaterialTexture()</span></code></a>, <a class="reference internal" href="#_CPPv420sgd_SetMaterialColor12SGD_Material10SGD_Stringffff" title="sgd_SetMaterialColor"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetMaterialColor()</span></code></a> and <a class="reference internal" href="#_CPPv420sgd_SetMaterialFloat12SGD_Material10SGD_Stringf" title="sgd_SetMaterialFloat"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_SetMaterialFloat()</span></code></a>.</p>
+<p>Material’s also have a <a class="reference internal" href="#_CPPv413SGD_BlendMode" title="SGD_BlendMode"><code class="xref any cpp cpp-enum docutils literal notranslate"><span class="pre">SGD_BlendMode</span></code></a>, <a class="reference internal" href="#_CPPv413SGD_DepthFunc" title="SGD_DepthFunc"><code class="xref any cpp cpp-enum docutils literal notranslate"><span class="pre">SGD_DepthFunc</span></code></a> and <a class="reference internal" href="#_CPPv412SGD_CullMode" title="SGD_CullMode"><code class="xref any cpp cpp-enum docutils literal notranslate"><span class="pre">SGD_CullMode</span></code></a>.</p>
+<section id="pbr-materials">
+<h2>PBR Materials<a class="headerlink" href="#pbr-materials" title="Link to this heading">¶</a></h2>
+<p>PBR (physically based rendering) materials are the most physically accurate type of material available, but also the slowest to render.</p>
+<p>To load a PBR material from file use <a class="reference internal" href="#_CPPv419sgd_LoadPBRMaterial10SGD_String" title="sgd_LoadPBRMaterial"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_LoadPBRMaterial()</span></code></a>, and to create a PBR material from scratch use <a class="reference internal" href="#_CPPv421sgd_CreatePBRMaterialv" title="sgd_CreatePBRMaterial"><code class="xref any cpp cpp-func docutils literal notranslate"><span class="pre">sgd_CreatePBRMaterial()</span></code></a>.</p>
+<p>The material parameters available for PBR materials are:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">PBR Material Parameters</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Tyes(s)</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>“albedo”</p></td>
+<td><p>texture, color</p></td>
+<td><p>Base color used for PBR lighting</p></td>
+</tr>
+<tr class="row-odd"><td><p>“emissive”</p></td>
+<td><p>texture, color</p></td>
+<td><p>Emissive color applied after PBR lighting</p></td>
+</tr>
+<tr class="row-even"><td><p>“roughness”</p></td>
+<td><p>texture, float</p></td>
+<td><p>Roughness value used for lighting. In the case of texture parameters, this value is read from the texture green component.</p></td>
+</tr>
+<tr class="row-odd"><td><p>“metalness”</p></td>
+<td><p>texture, float</p></td>
+<td><p>Metalness value used for lighting. In the case of texture parameters, this value is read from the texture blue component.</p></td>
+</tr>
+<tr class="row-even"><td><p>“occlusion”</p></td>
+<td><p>texture</p></td>
+<td><p>Ambient occlusion value, read from the texture red component.</p></td>
+</tr>
+<tr class="row-odd"><td><p>“normal”</p></td>
+<td><p>texture</p></td>
+<td><p>Surface normal map.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prelit-materials">
+<h2>Prelit Materials<a class="headerlink" href="#prelit-materials" title="Link to this heading">¶</a></h2>
+<p>Prelit materials are the simplest type of material you can use. Prelit materials support a single “emissive” texture and a single “emissive” color, which are multiplied together to produce a final surface color. Prelit materials are completed unaffecrted by scene lighting.</p>
+</section>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413SGD_BlendMode">
+<span id="_CPPv313SGD_BlendMode"></span><span id="_CPPv213SGD_BlendMode"></span><span class="target" id="group___material_types_1ga3e5d1baa145c7cfd20157520ffdbd1a3"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_BlendMode</span></span></span><a class="headerlink" href="#_CPPv413SGD_BlendMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Blend mode. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_BlendMode21SGD_BLEND_MODE_OPAQUEE">
+<span id="_CPPv3N13SGD_BlendMode21SGD_BLEND_MODE_OPAQUEE"></span><span id="_CPPv2N13SGD_BlendMode21SGD_BLEND_MODE_OPAQUEE"></span><span class="target" id="group___material_types_1gga3e5d1baa145c7cfd20157520ffdbd1a3a5897271ef30c59b985c85b3762cd1188"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_BLEND_MODE_OPAQUE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N13SGD_BlendMode21SGD_BLEND_MODE_OPAQUEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_BlendMode25SGD_BLEND_MODE_ALPHA_MASKE">
+<span id="_CPPv3N13SGD_BlendMode25SGD_BLEND_MODE_ALPHA_MASKE"></span><span id="_CPPv2N13SGD_BlendMode25SGD_BLEND_MODE_ALPHA_MASKE"></span><span class="target" id="group___material_types_1gga3e5d1baa145c7cfd20157520ffdbd1a3abb27a7278d44a706a637c89edc2a8687"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_BLEND_MODE_ALPHA_MASK</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N13SGD_BlendMode25SGD_BLEND_MODE_ALPHA_MASKE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_BlendMode26SGD_BLEND_MODE_ALPHA_BLENDE">
+<span id="_CPPv3N13SGD_BlendMode26SGD_BLEND_MODE_ALPHA_BLENDE"></span><span id="_CPPv2N13SGD_BlendMode26SGD_BLEND_MODE_ALPHA_BLENDE"></span><span class="target" id="group___material_types_1gga3e5d1baa145c7cfd20157520ffdbd1a3a11d36d5db3282b4ce5aab4bdc6fd34d1"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_BLEND_MODE_ALPHA_BLEND</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N13SGD_BlendMode26SGD_BLEND_MODE_ALPHA_BLENDE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv413SGD_DepthFunc">
+<span id="_CPPv313SGD_DepthFunc"></span><span id="_CPPv213SGD_DepthFunc"></span><span class="target" id="group___material_types_1ga2eba5c0b3c7955d62ceb4a68c7f79626"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DepthFunc</span></span></span><a class="headerlink" href="#_CPPv413SGD_DepthFunc" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Depth Comparison function. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc20SGD_DEPTH_FUNC_NEVERE">
+<span id="_CPPv3N13SGD_DepthFunc20SGD_DEPTH_FUNC_NEVERE"></span><span id="_CPPv2N13SGD_DepthFunc20SGD_DEPTH_FUNC_NEVERE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a45bc76cf1b4f388a6e929f6de741eb96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_NEVER</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc20SGD_DEPTH_FUNC_NEVERE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc19SGD_DEPTH_FUNC_LESSE">
+<span id="_CPPv3N13SGD_DepthFunc19SGD_DEPTH_FUNC_LESSE"></span><span id="_CPPv2N13SGD_DepthFunc19SGD_DEPTH_FUNC_LESSE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a9079365cf57bf3d52660897458d463b2"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_LESS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc19SGD_DEPTH_FUNC_LESSE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc20SGD_DEPTH_FUNC_EQUALE">
+<span id="_CPPv3N13SGD_DepthFunc20SGD_DEPTH_FUNC_EQUALE"></span><span id="_CPPv2N13SGD_DepthFunc20SGD_DEPTH_FUNC_EQUALE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626aae6bce049c4ff4af81534ef06d19de76"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_EQUAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc20SGD_DEPTH_FUNC_EQUALE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc25SGD_DEPTH_FUNC_LESS_EQUALE">
+<span id="_CPPv3N13SGD_DepthFunc25SGD_DEPTH_FUNC_LESS_EQUALE"></span><span id="_CPPv2N13SGD_DepthFunc25SGD_DEPTH_FUNC_LESS_EQUALE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a2f7589ea8eba453bf1bb3ec6fdd580ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_LESS_EQUAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc25SGD_DEPTH_FUNC_LESS_EQUALE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc22SGD_DEPTH_FUNC_GREATERE">
+<span id="_CPPv3N13SGD_DepthFunc22SGD_DEPTH_FUNC_GREATERE"></span><span id="_CPPv2N13SGD_DepthFunc22SGD_DEPTH_FUNC_GREATERE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a88a626e3e92dbbacc3a97493cce3d64e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_GREATER</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">5</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc22SGD_DEPTH_FUNC_GREATERE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc24SGD_DEPTH_FUNC_NOT_EQUALE">
+<span id="_CPPv3N13SGD_DepthFunc24SGD_DEPTH_FUNC_NOT_EQUALE"></span><span id="_CPPv2N13SGD_DepthFunc24SGD_DEPTH_FUNC_NOT_EQUALE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a1696724c53af1bc92c588c76def07d02"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_NOT_EQUAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">6</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc24SGD_DEPTH_FUNC_NOT_EQUALE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc28SGD_DEPTH_FUNC_GREATER_EQUALE">
+<span id="_CPPv3N13SGD_DepthFunc28SGD_DEPTH_FUNC_GREATER_EQUALE"></span><span id="_CPPv2N13SGD_DepthFunc28SGD_DEPTH_FUNC_GREATER_EQUALE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a426c1700a4b145943865a10361289269"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_GREATER_EQUAL</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">7</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc28SGD_DEPTH_FUNC_GREATER_EQUALE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N13SGD_DepthFunc21SGD_DEPTH_FUNC_ALWAYSE">
+<span id="_CPPv3N13SGD_DepthFunc21SGD_DEPTH_FUNC_ALWAYSE"></span><span id="_CPPv2N13SGD_DepthFunc21SGD_DEPTH_FUNC_ALWAYSE"></span><span class="target" id="group___material_types_1gga2eba5c0b3c7955d62ceb4a68c7f79626a451537b34aa94aacc72c5159411a3660"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DEPTH_FUNC_ALWAYS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">8</span></span><a class="headerlink" href="#_CPPv4N13SGD_DepthFunc21SGD_DEPTH_FUNC_ALWAYSE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv412SGD_CullMode">
+<span id="_CPPv312SGD_CullMode"></span><span id="_CPPv212SGD_CullMode"></span><span class="target" id="group___material_types_1ga8a6728c038804bb9aa35d47f44d5c785"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CullMode</span></span></span><a class="headerlink" href="#_CPPv412SGD_CullMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Cull modes. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12SGD_CullMode18SGD_CULL_MODE_NONEE">
+<span id="_CPPv3N12SGD_CullMode18SGD_CULL_MODE_NONEE"></span><span id="_CPPv2N12SGD_CullMode18SGD_CULL_MODE_NONEE"></span><span class="target" id="group___material_types_1gga8a6728c038804bb9aa35d47f44d5c785a2c04b50806d79d0d367da544dcf8a744"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CULL_MODE_NONE</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><a class="headerlink" href="#_CPPv4N12SGD_CullMode18SGD_CULL_MODE_NONEE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12SGD_CullMode19SGD_CULL_MODE_FRONTE">
+<span id="_CPPv3N12SGD_CullMode19SGD_CULL_MODE_FRONTE"></span><span id="_CPPv2N12SGD_CullMode19SGD_CULL_MODE_FRONTE"></span><span class="target" id="group___material_types_1gga8a6728c038804bb9aa35d47f44d5c785a8bed49ee130ad847729dd05c5b60a9d3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CULL_MODE_FRONT</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><a class="headerlink" href="#_CPPv4N12SGD_CullMode19SGD_CULL_MODE_FRONTE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N12SGD_CullMode18SGD_CULL_MODE_BACKE">
+<span id="_CPPv3N12SGD_CullMode18SGD_CULL_MODE_BACKE"></span><span id="_CPPv2N12SGD_CullMode18SGD_CULL_MODE_BACKE"></span><span class="target" id="group___material_types_1gga8a6728c038804bb9aa35d47f44d5c785ab3e728f45244a4d13a24bf523f5a89a5"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CULL_MODE_BACK</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><a class="headerlink" href="#_CPPv4N12SGD_CullMode18SGD_CULL_MODE_BACKE" title="Link to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv412SGD_Material">
+<span id="_CPPv312SGD_Material"></span><span id="_CPPv212SGD_Material"></span><span id="SGD_Material"></span><span class="target" id="group___material_types_1ga57095c56c3fe27fbfa4fbc914e89841b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="core.html#_CPPv410SGD_Handle" title="SGD_Handle"><span class="n"><span class="pre">SGD_Handle</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Material</span></span></span><a class="headerlink" href="#_CPPv412SGD_Material" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Material handle type. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___material_types_1gaed1d0d29b788de04173f73c58400b8f4"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413SGD_BlendMode" title="SGD_BlendMode"><span class="n"><span class="pre">SGD_BlendMode</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_BlendMode</span></span></span><br /></dt>
+<dd><p>Blend mode. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___material_types_1ga2d96e743a79903f5e767c17700ab537b"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv413SGD_DepthFunc" title="SGD_DepthFunc"><span class="n"><span class="pre">SGD_DepthFunc</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_DepthFunc</span></span></span><br /></dt>
+<dd><p>Depth Comparison function. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="group___material_types_1gaed826993be6a492d955b06b6c1afa40c"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv412SGD_CullMode" title="SGD_CullMode"><span class="n"><span class="pre">SGD_CullMode</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_CullMode</span></span></span><br /></dt>
+<dd><p>Cull modes. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv419sgd_LoadPBRMaterial10SGD_String">
+<span id="_CPPv319sgd_LoadPBRMaterial10SGD_String"></span><span id="_CPPv219sgd_LoadPBRMaterial10SGD_String"></span><span id="sgd_LoadPBRMaterial__SGD_String"></span><span class="target" id="group___material_1gab96834cf7f0a91fe9f748eafc9555033"></span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadPBRMaterial</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419sgd_LoadPBRMaterial10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Load a new PBR material. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv421sgd_CreatePBRMaterialv">
+<span id="_CPPv321sgd_CreatePBRMaterialv"></span><span id="_CPPv221sgd_CreatePBRMaterialv"></span><span id="sgd_CreatePBRMaterial"></span><span class="target" id="group___material_1ga8ccb64da2f98db991a7da569934fa010"></span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreatePBRMaterial</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421sgd_CreatePBRMaterialv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new PBR material. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_LoadPrelitMaterial10SGD_String">
+<span id="_CPPv322sgd_LoadPrelitMaterial10SGD_String"></span><span id="_CPPv222sgd_LoadPrelitMaterial10SGD_String"></span><span id="sgd_LoadPrelitMaterial__SGD_String"></span><span class="target" id="group___material_1gac8116cd35702449d06fd0edc35b69c6e"></span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadPrelitMaterial</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_LoadPrelitMaterial10SGD_String" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Load a new prelit material. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_CreatePrelitMaterialv">
+<span id="_CPPv324sgd_CreatePrelitMaterialv"></span><span id="_CPPv224sgd_CreatePrelitMaterialv"></span><span id="sgd_CreatePrelitMaterial"></span><span class="target" id="group___material_1ga3bc76f02b2c65d7fbb0b55663eec0821"></span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreatePrelitMaterial</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_CreatePrelitMaterialv" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new prelit material. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_SetMaterialBlendMode12SGD_Material13SGD_BlendMode">
+<span id="_CPPv324sgd_SetMaterialBlendMode12SGD_Material13SGD_BlendMode"></span><span id="_CPPv224sgd_SetMaterialBlendMode12SGD_Material13SGD_BlendMode"></span><span id="sgd_SetMaterialBlendMode__SGD_Material.SGD_BlendMode"></span><span class="target" id="group___material_1gacfe253db1257b4d33de424ebb9517fc3"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialBlendMode</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="#_CPPv413SGD_BlendMode" title="SGD_BlendMode"><span class="n"><span class="pre">SGD_BlendMode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">blendMode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_SetMaterialBlendMode12SGD_Material13SGD_BlendMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material blend mode. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv424sgd_SetMaterialDepthFunc12SGD_Material13SGD_DepthFunc">
+<span id="_CPPv324sgd_SetMaterialDepthFunc12SGD_Material13SGD_DepthFunc"></span><span id="_CPPv224sgd_SetMaterialDepthFunc12SGD_Material13SGD_DepthFunc"></span><span id="sgd_SetMaterialDepthFunc__SGD_Material.SGD_DepthFunc"></span><span class="target" id="group___material_1gacb088f4e82e845acd9fca5fd4ddba6eb"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialDepthFunc</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="#_CPPv413SGD_DepthFunc" title="SGD_DepthFunc"><span class="n"><span class="pre">SGD_DepthFunc</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">depthFunc</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424sgd_SetMaterialDepthFunc12SGD_Material13SGD_DepthFunc" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material depth comparison function. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv423sgd_SetMaterialCullMode12SGD_Material12SGD_CullMode">
+<span id="_CPPv323sgd_SetMaterialCullMode12SGD_Material12SGD_CullMode"></span><span id="_CPPv223sgd_SetMaterialCullMode12SGD_Material12SGD_CullMode"></span><span id="sgd_SetMaterialCullMode__SGD_Material.SGD_CullMode"></span><span class="target" id="group___material_1ga58e29abfd0748ff13d561330eb497d18"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialCullMode</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="#_CPPv412SGD_CullMode" title="SGD_CullMode"><span class="n"><span class="pre">SGD_CullMode</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">cullMode</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423sgd_SetMaterialCullMode12SGD_Material12SGD_CullMode" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material cull mode. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture">
+<span id="_CPPv322sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture"></span><span id="_CPPv222sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture"></span><span id="sgd_SetMaterialTexture__SGD_Material.SGD_String.SGD_Texture"></span><span class="target" id="group___material_1ga9c5d7e1ea09df869870180528eda5163"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialTexture</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">parameter</span></span>, <a class="reference internal" href="texture.html#_CPPv411SGD_Texture" title="SGD_Texture"><span class="n"><span class="pre">SGD_Texture</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">texture</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material texture parameter. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetMaterialColor12SGD_Material10SGD_Stringffff">
+<span id="_CPPv320sgd_SetMaterialColor12SGD_Material10SGD_Stringffff"></span><span id="_CPPv220sgd_SetMaterialColor12SGD_Material10SGD_Stringffff"></span><span id="sgd_SetMaterialColor__SGD_Material.SGD_String.float.float.float.float"></span><span class="target" id="group___material_1ga84a7f423b3c4a042414feb430e146863"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialColor</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">parameter</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">red</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">green</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">blue</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetMaterialColor12SGD_Material10SGD_Stringffff" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material color parameter. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetMaterialFloat12SGD_Material10SGD_Stringf">
+<span id="_CPPv320sgd_SetMaterialFloat12SGD_Material10SGD_Stringf"></span><span id="_CPPv220sgd_SetMaterialFloat12SGD_Material10SGD_Stringf"></span><span id="sgd_SetMaterialFloat__SGD_Material.SGD_String.float"></span><span class="target" id="group___material_1ga275737c1a1f8c444a37782fb9e356609"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetMaterialFloat</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv412SGD_Material" title="SGD_Material"><span class="n"><span class="pre">SGD_Material</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">material</span></span>, <a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">parameter</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetMaterialFloat12SGD_Material10SGD_Stringf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set material float parameter. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="skybox.html">Skyboxes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Materials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pbr-materials">PBR Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prelit-materials">Prelit Materials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413SGD_BlendMode"><code class="docutils literal notranslate"><span class="pre">SGD_BlendMode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv413SGD_DepthFunc"><code class="docutils literal notranslate"><span class="pre">SGD_DepthFunc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412SGD_CullMode"><code class="docutils literal notranslate"><span class="pre">SGD_CullMode</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv412SGD_Material"><code class="docutils literal notranslate"><span class="pre">SGD_Material</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv419sgd_LoadPBRMaterial10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_LoadPBRMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv421sgd_CreatePBRMaterialv"><code class="docutils literal notranslate"><span class="pre">sgd_CreatePBRMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_LoadPrelitMaterial10SGD_String"><code class="docutils literal notranslate"><span class="pre">sgd_LoadPrelitMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_CreatePrelitMaterialv"><code class="docutils literal notranslate"><span class="pre">sgd_CreatePrelitMaterial()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_SetMaterialBlendMode12SGD_Material13SGD_BlendMode"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialBlendMode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv424sgd_SetMaterialDepthFunc12SGD_Material13SGD_DepthFunc"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialDepthFunc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv423sgd_SetMaterialCullMode12SGD_Material12SGD_CullMode"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialCullMode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_SetMaterialTexture12SGD_Material10SGD_String11SGD_Texture"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialTexture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetMaterialColor12SGD_Material10SGD_Stringffff"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialColor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetMaterialFloat12SGD_Material10SGD_Stringf"><code class="docutils literal notranslate"><span class="pre">sgd_SetMaterialFloat()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="texture.html" title="Textures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="image.html" title="Images"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Materials</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Skyboxes &#8212; LibSGD v0.17.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/nature.css?v=864fdb85" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=007b89a2" />
+    <script src="_static/documentation_options.js?v=036fd922"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Terrains" href="terrain.html" />
+    <link rel="prev" title="Sprites" href="sprite.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="terrain.html" title="Terrains"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="sprite.html" title="Sprites"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Skyboxes</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="skyboxes">
+<h1>Skyboxes<a class="headerlink" href="#skyboxes" title="Link to this heading">¶</a></h1>
+<p>Skyboxes…</p>
+<section id="types">
+<h2>Types<a class="headerlink" href="#types" title="Link to this heading">¶</a></h2>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv410SGD_Skybox">
+<span id="_CPPv310SGD_Skybox"></span><span id="_CPPv210SGD_Skybox"></span><span id="SGD_Skybox"></span><span class="target" id="group___skybox_types_1ga027b257118bf8d2f7f36c00dc3956017"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="entity.html#_CPPv410SGD_Entity" title="SGD_Entity"><span class="n"><span class="pre">SGD_Entity</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SGD_Skybox</span></span></span><a class="headerlink" href="#_CPPv410SGD_Skybox" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Skybox handle type. </p>
+</dd></dl>
+
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h2>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414sgd_LoadSkybox10SGD_Stringf">
+<span id="_CPPv314sgd_LoadSkybox10SGD_Stringf"></span><span id="_CPPv214sgd_LoadSkybox10SGD_Stringf"></span><span id="sgd_LoadSkybox__SGD_String.float"></span><span class="target" id="group___skybox_1ga463747023b6df1ee3b14a2229dd4ae82"></span><a class="reference internal" href="#_CPPv410SGD_Skybox" title="SGD_Skybox"><span class="n"><span class="pre">SGD_Skybox</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_LoadSkybox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="core.html#_CPPv410SGD_String" title="SGD_String"><span class="n"><span class="pre">SGD_String</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">roughness</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414sgd_LoadSkybox10SGD_Stringf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Load a skybox. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv416sgd_CreateSkybox11SGD_Texture">
+<span id="_CPPv316sgd_CreateSkybox11SGD_Texture"></span><span id="_CPPv216sgd_CreateSkybox11SGD_Texture"></span><span id="sgd_CreateSkybox__SGD_Texture"></span><span class="target" id="group___skybox_1ga9db6a72c5dad00e47d042804d685dc55"></span><a class="reference internal" href="#_CPPv410SGD_Skybox" title="SGD_Skybox"><span class="n"><span class="pre">SGD_Skybox</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_CreateSkybox</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="texture.html#_CPPv411SGD_Texture" title="SGD_Texture"><span class="n"><span class="pre">SGD_Texture</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">texture</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416sgd_CreateSkybox11SGD_Texture" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Create a new skybox. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv420sgd_SetSkyboxTexture10SGD_Skybox11SGD_Texture">
+<span id="_CPPv320sgd_SetSkyboxTexture10SGD_Skybox11SGD_Texture"></span><span id="_CPPv220sgd_SetSkyboxTexture10SGD_Skybox11SGD_Texture"></span><span id="sgd_SetSkyboxTexture__SGD_Skybox.SGD_Texture"></span><span class="target" id="group___skybox_1ga84e356a92f9f4e310287ad38862af908"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetSkyboxTexture</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Skybox" title="SGD_Skybox"><span class="n"><span class="pre">SGD_Skybox</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">skybox</span></span>, <a class="reference internal" href="texture.html#_CPPv411SGD_Texture" title="SGD_Texture"><span class="n"><span class="pre">SGD_Texture</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">texture</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420sgd_SetSkyboxTexture10SGD_Skybox11SGD_Texture" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set skybox texture. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv422sgd_SetSkyboxRoughness10SGD_Skyboxf">
+<span id="_CPPv322sgd_SetSkyboxRoughness10SGD_Skyboxf"></span><span id="_CPPv222sgd_SetSkyboxRoughness10SGD_Skyboxf"></span><span id="sgd_SetSkyboxRoughness__SGD_Skybox.float"></span><span class="target" id="group___skybox_1ga6e55dbe937777fbcf99a18925b8258b9"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sgd_SetSkyboxRoughness</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv410SGD_Skybox" title="SGD_Skybox"><span class="n"><span class="pre">SGD_Skybox</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">skybox</span></span>, <span class="kt"><span class="pre">float</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">roughness</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422sgd_SetSkyboxRoughness10SGD_Skyboxf" title="Link to this definition">¶</a><br /></dt>
+<dd><p>Set skybox roughness in the range 0 to 1. </p>
+</dd></dl>
+
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system.html">System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">Window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input.html">User Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scene.html">Scene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera.html">Cameras</a></li>
+<li class="toctree-l1"><a class="reference internal" href="light.html">Lights</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprite.html">Sprites</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Skyboxes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#types">Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv410SGD_Skybox"><code class="docutils literal notranslate"><span class="pre">SGD_Skybox</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv414sgd_LoadSkybox10SGD_Stringf"><code class="docutils literal notranslate"><span class="pre">sgd_LoadSkybox()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv416sgd_CreateSkybox11SGD_Texture"><code class="docutils literal notranslate"><span class="pre">sgd_CreateSkybox()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv420sgd_SetSkyboxTexture10SGD_Skybox11SGD_Texture"><code class="docutils literal notranslate"><span class="pre">sgd_SetSkyboxTexture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv422sgd_SetSkyboxRoughness10SGD_Skyboxf"><code class="docutils literal notranslate"><span class="pre">sgd_SetSkyboxRoughness()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="terrain.html">Terrains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overlay.html">2D Overlay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mesh.html">Meshes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="image.html">Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material.html">Materials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="texture.html">Textures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html">Collisions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="picking.html">Picking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="audio.html">Audio</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="terrain.html" title="Terrains"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="sprite.html" title="Sprites"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">LibSGD v0.17.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Skyboxes</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Blitz Research.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    </div>
+  </body>
+</html>
