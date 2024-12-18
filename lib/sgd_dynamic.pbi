@@ -1,7 +1,7 @@
 ﻿
 ; Libname: sgd_dynamic.lib
-; created: 2024/11/07  15:51
-; translated MPz Version 0.03 alpha
+; created: 2024/12/15  15:51
+; translated MPz Version for Version 0.18 alpha
 
  Macro SGD_String
     s
@@ -20,8 +20,23 @@
    i
  EndMacro
  
+;Import "libsgd.lib"
 Import "sgd_dynamic.lib"
-    
+  
+  
+  ;-! @defgroup SystemTypes SystemTypes
+  ; ! @{
+
+  ;-! Events returned by sgd_PollEvents.
+  Enumeration SGD_EventMask
+    #SGD_EVENT_MASK_CLOSE_CLICKED =  $01 ;//!< Window close clicked.
+	  #SGD_EVENT_MASK_SIZE_CHANGED  =  $02 ;//!< Window size changed.
+	  #SGD_EVENT_MASK_LOST_FOCUS    =  $04 ;//!< Window lost focus.
+	  #SGD_EVENT_MASK_GOT_FOCUS     =  $08 ;//!< Window got focus.
+	  #SGD_EVENT_MASK_SUSPENDED     =  $10 ;//!< App suspended.
+	  #SGD_EVENT_MASK_RESUMED       =  $20 ;//!< App resumed.
+  EndEnumeration 
+
   ;-! @defgroup System System
   ; ! Start up libsgd.
   sgd_Init() As "sgd_Init";
@@ -55,7 +70,7 @@ Import "sgd_dynamic.lib"
   ; ! Generate modal alert dialog.
   sgd_Alert(message.SGD_String ) As "sgd_Alert";
   ; ! Write line of text To log.
-  sgd_Log(line.SGD_String ) As "";
+  sgd_Log(line.SGD_String ) As "sgd_Log";
   ; ! Return width of desktop IN pixels.
   sgd_GetDesktopWidth() As "sgd_GetDesktopWidth";
   ; ! Return height of desktop IN pixels.
@@ -77,6 +92,24 @@ Import "sgd_dynamic.lib"
   ; ! @cond Debug memory state.
   sgd_DebugMemory() As "sgd_DebugMemory";
   
+  ; ! @defgroup WindowTypes WindowTypes
+  ; ! Window states.
+  Enumeration SGD_WindowState
+	  #SGD_WINDOW_STATE_CLOSED    ; = 0,	//!< Window is closed
+	  #SGD_WINDOW_STATE_MINIMIZED ; = 1, //!< Window is minimized
+	  #SGD_WINDOW_STATE_NORMAL    ; = 2,	//!< Window is normal
+	  #SGD_WINDOW_STATE_MAXIMIZED ; = 3, //!< Window is maximized
+	  #SGD_WINDOW_STATE_FULLSCREEN; = 4 //!< Window is fullscreen
+  EndEnumeration 
+  
+  ; ! Window flags.
+  Enumeration SGD_WindowFlags 
+	  #SGD_WINDOW_FLAGS_NONE      ; = 0x00, //!< No special flags.
+	  #SGD_WINDOW_FLAGS_FULLSCREEN; = 0x01, //!< Create fullscreen window.
+	  #SGD_WINDOW_FLAGS_RESIZABLE ; = 0x02,	//!< Create resizable window.
+	  #SGD_WINDOW_FLAGS_CENTERED  = $04   ;	//!< Create window centered on desktop.
+  EndEnumeration 
+  ; ! @}
   ;-! @defgroup Window Window
   ; ! Create a new window. See @ref SGD_WindowFlags for possible values for `flags`.
   sgd_CreateWindow(width.i, height.i, title.SGD_String, flags.i) As "sgd_CreateWindow"
@@ -104,6 +137,18 @@ Import "sgd_dynamic.lib"
   sgd_SetWindowState(state.i) As "sgd_SetWindowState"
   ; ! Get window state. See sgd_SetWindowState.
   sgd_GetWindowState() As "sgd_GetWindowState"
+  
+  ; ! @defgroup InputTypes InputTypes
+  ; ! @{
+
+  ; ! Mouse cursor modes.
+  Enumeration SGD_MouseCursorMode 
+    #SGD_MOUSE_CURSOR_MODE_NORMAL = 1
+    #SGD_MOUSE_CURSOR_MODE_HIDDEN 
+    #SGD_MOUSE_CURSOR_MODE_DISABLED 
+    #SGD_MOUSE_CURSOR_MODE_CAPTURED 
+  EndEnumeration
+  ; ! @}
   
    ;-! @defgroup Input Input
    ; ! True If key is currently held down.
@@ -142,9 +187,60 @@ Import "sgd_dynamic.lib"
    sgd_IsGamepadButtonHit(gamepad.i, button.i) As "sgd_IsGamepadButtonHit"
    ; ! Value IN the range -1 To 1 representing joystick axis position.
    sgd_GetGamepadAxis.f(gamepad.i,axis.i) As "sgd_GetGamepadAxis"
-  
    
-   ;-! @defgroup Texture Texture
+   ; ! @defgroup TextureTypes TextureTypes
+   ; ! @{
+   ; ! Texture handle type.
+   ; ! Texture types.
+  Enumeration SGD_TextureType 
+	  #SGD_TEXTURE_TYPE_2D = 1
+	  #SGD_TEXTURE_TYPE_CUBE 
+	  #SGD_TEXTURE_TYPE_ARRAY
+	EndEnumeration
+	
+	; ! Texture formats.
+  ; !
+  ; ! The 8 bit unsigned, normalized formats are converted To values IN the range 0.0..1.0 IN shader code.
+  ; !
+  ; ! The 8 bit signed, normalized formats are converted To values IN the range -1.0..+1.0 IN shader code. 
+  ; !
+  ; ! All formats except For SGD_TEXTURE_FORMAT_SRGBA8 represent values IN 'linear color space'.
+  ; !
+  ; ! SGD_TEXTURE_FORMAT_ANY can be used With loading functions To let SGD pick a suitable texture format
+  ; ! depending on the content of the Data being loaded.
+	
+	Enumeration SGD_TextureFormat 
+	  #SGD_TEXTURE_FORMAT_ANY     ;= 0, //!< Let SGD loaders choose format.
+	  #SGD_TEXTURE_FORMAT_R8      ;= 1,	   //!< 8 bit unsigned normalized red.
+	  #SGD_TEXTURE_FORMAT_RG8     ;= 2,	   //!< 8 bit unsigned normalized red, green.
+	  #SGD_TEXTURE_FORMAT_RGBA8   ;= 3,  //!< 8 bit unsigned normalized red, green, blue, alpha.
+    #SGD_TEXTURE_FORMAT_SRGBA8  ;= 4, //!< 8 bit unsigned normalized red, green, blue, alpha. Non-linear
+  	#SGD_TEXTURE_FORMAT_R8S     ;= 5,	   //!< 8 bit signed normalized red.
+	  #SGD_TEXTURE_FORMAT_RG8S    ;= 6,   //!< 8 bit signed normalized red, green.
+	  #SGD_TEXTURE_FORMAT_RGBA8S  ;= 7, //!< 8 bit signed normalized red, green, blue, alpha.
+	  #SGD_TEXTURE_FORMAT_R16F    ;= 8,	 //!< 16 bit floating point red only.
+	  #SGD_TEXTURE_FORMAT_RG16F   ;= 9,	 //!< 16 bit floating point red only.
+	  #SGD_TEXTURE_FORMAT_RGBA16F ;= 10, //!< 16 bit floating point red only.
+  EndEnumeration;
+
+  ; ! Texture flags
+  ; !
+  ; ! By Default, texture coordinates wrap at the edges of textures.
+  ; !
+  ; ! Textures are always linear filtered when minimized.
+  Enumeration SGD_TextureFlags 
+	  #SGD_TEXTURE_FLAGS_NONE    ;= 0x0,  //!< No texture flags.
+	  #SGD_TEXTURE_FLAGS_CLAMP_U ;= 0x01 , //!< Clamp texture U coordinates.
+	  #SGD_TEXTURE_FLAGS_CLAMP_V ;= 0x02 , //!< Clamp texture V coordinates.
+	  #SGD_TEXTURE_FLAGS_CLAMP_W = $04  ;, //!< Clamp texture W coordinates.
+	  #SGD_TEXTURE_FLAGS_FILTER  = $08  ;,  //!< Perform bilinear filtering on texels that cover more than screen pixel.
+	  #SGD_TEXTURE_FLAGS_MIPMAP  = $10  ;,  //!< Create And perform mipmapping.
+	  #SGD_TEXTURE_FLAGS_DEFAULT = $18  ;, //!< Combination of SGD_TEXTURE_FLAGS_FILTER And SGD_TEXTURE_FLAGS_MIPMAP
+	  #SGD_TEXTURE_FLAGS_IMAGE   = $01f ;, //!< Combination of SGD_TEXTURE_FLAGS_FILTER, SGD_TEXTURE_FLAGS_MIPMAP And all clamp flags.
+  EndEnumeration
+  ; ! @}
+  
+  ;-! @defgroup Texture Texture
    ; ! Load a new 2D texture. See also @ref SGD_TextureFlags.
    ; ! @param path is the file path of the texture To load.
    ; ! @param format is a SGD_TextureFormat constant.
@@ -165,9 +261,9 @@ Import "sgd_dynamic.lib"
    ; ! Get width of texture.
    sgd_GetTextureWidth(texture.i) As "sgd_GetTextureWidth"
    ; ! Get height of texture.
-   sgd_GetTextureDepth(texture.i) As "sgd_GetTextureDepth"
-   ; ! Get height of texture.
    sgd_GetTextureHeight(texture.i) As "sgd_GetTextureHeight"
+   ; ! Get Depth of texture.
+   sgd_GetTextureDepth(texture.i) As "sgd_GetTextureDepth"
    ; ! Get texture format.
    sgd_GetTextureFormat(texture.i) As "sgd_GetTextureFormat"
    ; ! Get texture flags.
@@ -177,37 +273,88 @@ Import "sgd_dynamic.lib"
    ; ! Get texture texel
    sgd_GetTexelSRGBA( texture.i, x.i, y.i) As "sgd_GetTexelSRGBA"
    
-   ;-! @defgroup Material Material
+   ; ! @defgroup MaterialTypes MaterialTypes
+   ; ! @{
 
+   ; ! Material handle type.
+   ; typedef SGD_Handle SGD_Material;
+   ; ! Material blend modes, For use With @ref sgd_SetMaterialBlendMode.
+   Enumeration SGD_BlendMode
+     #SGD_BLEND_MODE_OPAQUE = 1
+	   #SGD_BLEND_MODE_ALPHA_MASK 
+	   #SGD_BLEND_MODE_ALPHA_BLEND 
+   EndEnumeration
+
+   ; ! Material depth comparison functions, For use With @ref sgd_SetMaterialDepthFunc.
+   Enumeration SGD_DepthFunc 
+	   #SGD_DEPTH_FUNC_NEVER = 1
+	   #SGD_DEPTH_FUNC_LESS 
+	   #SGD_DEPTH_FUNC_EQUAL 
+	   #SGD_DEPTH_FUNC_LESS_EQUAL 
+	   #SGD_DEPTH_FUNC_GREATER 
+	   #SGD_DEPTH_FUNC_NOT_EQUAL 
+	   #SGD_DEPTH_FUNC_GREATER_EQUAL 
+	   #SGD_DEPTH_FUNC_ALWAYS 
+   EndEnumeration
+
+   ; ! Material cull modes, For use With @ref sgd_SetMaterialCullMode.
+   Enumeration SGD_CullMode
+	   #SGD_CULL_MODE_NONE = 1
+	   #SGD_CULL_MODE_FRONT 
+	   #SGD_CULL_MODE_BACK 
+   EndEnumeration
+   ; ! @}
+
+   ;-! @defgroup Material Material
+  
+   ; ! Load a new material from an '.sgd' material file.
+   sgd_LoadMaterial(path.SGD_String) As "sgd_LoadMaterial"
+   ; ! Create a new PBR material.
+   sgd_CreatePBRMaterial() As "sgd_CreatePBRMaterial"
    ; ! Load a new PBR material.
-    sgd_LoadPBRMaterial(path.SGD_String) As "sgd_LoadPBRMaterial"
-    ; ! Create a new PBR material.
-    sgd_CreatePBRMaterial() As "sgd_CreatePBRMaterial"
-    ; ! Load a new prelit material.
-    sgd_LoadPrelitMaterial(path.SGD_String) As "sgd_LoadPrelitMaterial"
-    ; ! Create a new prelit material.
-    sgd_CreatePrelitMaterial() As "sgd_CreatePrelitMaterial"
-    ; ! Set material blend mode.
-    sgd_SetMaterialBlendMode(material.i, blendMode.i) As "sgd_SetMaterialBlendMode"
-    ; ! Set material depth comparison function.
-    sgd_SetMaterialDepthFunc(material.i, depthFun.i) As "sgd_SetMaterialDepthFunc"
-    ; ! Set material cull mode.
-    sgd_SetMaterialCullMode(material.i, cullMode.i) As "sgd_SetMaterialCullMode"
-    ; ! Set material texture parameter.
-    sgd_SetMaterialTexture(material.i,  parameter.SGD_String, texture.i) As "sgd_SetMaterialTexture"
-    ; ! Set material color parameter.
-    sgd_SetMaterialColor(material.i, parameter.SGD_String , red.f, green.f, blue.f,alpha.f) As "sgd_SetMaterialColor"
-    ; ! Set material float parameter.
-    sgd_SetMaterialFloat(material.i, parameter.SGD_String , value.f) As "sgd_SetMaterialFloat"
+   sgd_LoadPBRMaterial(path.SGD_String) As "sgd_LoadPBRMaterial"
+   ; ! Create a new emissive material.
+   sgd_CreateEmissiveMaterial() As "sgd_CreateEmissiveMaterial"
+   ; ! Load a new emissive material from an image file.
+   sgd_LoadEmissiveMaterial(path.SGD_String) As "sgd_LoadEmissiveMaterial"
+   ; ! Set material blend mode.
+   sgd_SetMaterialBlendMode(material.i, blendMode.i) As "sgd_SetMaterialBlendMode"
+   ; ! Set material depth comparison function.
+   sgd_SetMaterialDepthFunc(material.i, depthFun.i) As "sgd_SetMaterialDepthFunc"
+   ; ! Set material cull mode.
+   sgd_SetMaterialCullMode(material.i, cullMode.i) As "sgd_SetMaterialCullMode"
+   ; ! Set material texture property.
+   sgd_SetMaterialTexture(material.i,  parameter.SGD_String, texture.i) As "sgd_SetMaterialTexture"
+   ; ! @}
+
+   ; ! Set material color property.
+   ; ! The color components should be IN non-linear color space, And should Not be premultiplied by alpha.
+   sgd_SetMaterialColor(material.i, property.SGD_String , red.f, green.f, blue.f,alpha.f) As "sgd_SetMaterialColor"
+   ; ! Set material vec4f property.
+   sgd_SetMaterialVec4f(material.i, property.SGD_String , x.f,  y.f, z.f, w.f) As "sgd_SetMaterialVec4f"
+   ; ! Set material vec3f property.
+   sgd_SetMaterialVec3f(material.i, property.SGD_String , x.f,  y.f, z.f) As "sgd_SetMaterialVec3f"
+   ; ! Set material vec2f property.
+   sgd_SetMaterialVec2f(material.i, property.SGD_String , x.f,  y.f) As "sgd_SetMaterialVec2f"
+   ; ! Set material float property.
+   sgd_SetMaterialFloat(material.i, property.SGD_String , value.f) As "sgd_SetMaterialFloat"
+   ; ! @}
     
-    
-    ;-! @defgroup Mesh Mesh
-    ; ! Load a new mesh.
-    sgd_LoadMesh(path.SGD_String) As "sgd_LoadMesh"
-    ; ! Copy mesh.
-    sgd_CopyMesh(mesh.i) As "sgd_CopyMesh"
-    ; ! Create a new box mesh.
-    sgd_CreateBoxMesh(minX.f, minY.f, minZ.f, maxX.f, maxY.f, maxZ.f,material.i) As "sgd_CreateBoxMesh";
+   ;-! @defgroup Mesh Mesh
+   
+   ; ! Mesh flags.
+   Enumeration SGD_MeshFlags 
+	   #SGD_MESH_FLAGS_NONE             ;= 0,	 //!< No special mesh flags.
+	   #SGD_MESH_FLAGS_TANGENTS_ENABLED ; = 1, //!< Mesh contains materials With normal maps.
+	   #SGD_MESH_FLAGS_BLENDED_SURFACES ;= 2, //!< Mesh contains materials that use alphaBlend blend mode.
+   EndEnumeration
+
+   ; ! Load a new mesh.
+   sgd_LoadMesh(path.SGD_String) As "sgd_LoadMesh"
+   ; ! Copy mesh.
+   sgd_CopyMesh(mesh.i) As "sgd_CopyMesh"
+   ; ! Create a new box mesh.
+   sgd_CreateBoxMesh(minX.f, minY.f, minZ.f, maxX.f, maxY.f, maxZ.f,material.i) As "sgd_CreateBoxMesh";
     ; ! Create a new sphere mesh.
     sgd_CreateSphereMesh(radius.f, xSegs.i, ySegs.i, material.i) As "sgd_CreateSphereMesh";
     ; ! Create a new cylinder mesh.
@@ -330,6 +477,14 @@ Import "sgd_dynamic.lib"
     sgd_LoadArrayImage(path.SGD_String , frameCount.i, framesX.i, framesY.i, frameSpacing.i) As "sgd_LoadArrayImage";
     ; ! Create an image With an existing texture.
     sgd_CreateImage(texture.i ) As "sgd_CreateImage";
+    
+    ; ! Image view modes.
+    Enumeration SGD_ImageViewMode 
+	    #SGD_IMAGE_VIEW_MODE_FIXED = 1
+	    #SGD_IMAGE_VIEW_MODE_FREE 
+	    #SGD_IMAGE_VIEW_MODE_UPRIGHT 
+    EndEnumeration
+
     ; ! Set view mode For use With 3D sprites.
     sgd_SetImageViewMode(image.i, viewMode.i) As "sgd_SetImageViewMode";
     ; ! Set image blend mode.
@@ -388,6 +543,7 @@ Import "sgd_dynamic.lib"
     sgd_ClearScene() As "sgd_ClearScene";
     ; ! Reset scene To Default state.
     ; ! Destroys all active entities IN the scene.
+    ; ! If the release all handles argument is true, sgd_ReleaseAllHandles is also called, allowing
     sgd_ResetScene(releaseAllHandles.i) As "sgd_ResetScene";
     ; ! Experimental JSON loader!
     sgd_LoadScene( path.SGD_String) As "sgd_LoadScene";
@@ -401,6 +557,7 @@ Import "sgd_dynamic.lib"
     sgd_SetClearDepth(depth.f) As "sgd_SetClearDepth";
     ; ! Set scene environment texture.
     sgd_SetEnvTexture( texture.i) As "sgd_SetEnvTexture";
+    
     ; ! Update scene shadow mapping config from config vars.
     ; ! This function will update shadow mapping config variables from the current config vars, see sgd_SetConfigVar.
     ; !
@@ -527,6 +684,15 @@ Import "sgd_dynamic.lib"
     ; ! Z component of most recent sgd_TransformPoint result.
     sgd_GetTransformedZ.SGD_Real() As "sgd_GetTransformedZ";
     
+    ; ! @defgroup CameraTypes CameraTypes
+    ; ! Camera handle type.
+    ;typedef SGD_Entity SGD_Camera;
+    Enumeration SGD_CameraType 
+	    #SGD_CAMERA_TYPE_PERSPECTIVE = 1
+	    #SGD_CAMERA_TYPE_ORTHOGRAPHIC 
+	  EndEnumeration 
+	    ; ! @}
+    
     ;-! @defgroup Camera Camera
     ; ! Create a new perspective camera.
     sgd_CreatePerspectiveCamera() As "sgd_CreatePerspectiveCamera";
@@ -554,7 +720,18 @@ Import "sgd_dynamic.lib"
     sgd_GetUnprojectedY.SGD_Real() As "sgd_GetUnprojectedY";
     ; ! Z coordinate of projected point IN window coordinates.
     sgd_GetUnprojectedZ.SGD_Real() As "sgd_GetUnprojectedZ";
-
+    
+    ; ! @defgroup LightTypes LightTypes
+    ; ! Light handle type.
+    ;typedef SGD_Entity SGD_Light;
+    ; ! Light type.
+    Enumeration SGD_LightType 
+      #SGD_LIGHT_TYPE_DIRECTIONAL = 1
+	    #SGD_LIGHT_TYPE_POINT
+	    #SGD_LIGHT_TYPE_SPOT 
+    EndEnumeration
+    ; ! @}
+    
     ;-! @defgroup Light Light
     ; ! Create a new directional light.
     ; ! A maximum of 4 directional lights are supported by the renderer. If you create more than that, the 4 With the highest
@@ -590,7 +767,17 @@ Import "sgd_dynamic.lib"
     sgd_SetLightInnerConeAngle(light.i, angle.f) As "sgd_SetLightInnerConeAngle";
     ; ! Set spot light outer cone angle IN degrees.
     sgd_SetLightOuterConeAngle(light.i, angle.f) As "sgd_SetLightOuterConeAngle";
-
+    
+    ; ! @defgroup ModelTypes ModelTypes
+    ; ! Model handle type.
+    ; typedef SGD_Entity SGD_Model;
+    ; ! Animation modes.
+    Enumeration SGD_AnimationMode 
+	    #SGD_ANIMATION_MODE_ONE_SHOT = 1
+	    #SGD_ANIMATION_MODE_LOOP 
+	    #SGD_ANIMATION_MODE_PING_PONG 
+    EndEnumeration
+    ; ! @}
     
     ;-! @defgroup Model Model
     ; ! Load a model.
@@ -607,7 +794,7 @@ Import "sgd_dynamic.lib"
     sgd_SetModelColor(model.i, red.f, green.f, blue.f, alpha.f) As "sgd_SetModelColor";
     ; ! Animate a model.
     sgd_AnimateModel(model.i, animation.i, time.f, animationMode.i,weight.f) As "sgd_AnimateModel";
-
+    
     ;-! @defgroup Skybox Skybox
     ; ! Load a skybox.
     sgd_LoadSkybox(path.SGD_String, roughness.f) As "sgd_LoadSkybox";
@@ -643,6 +830,8 @@ Import "sgd_dynamic.lib"
     sgd_SetTerrainNormalTexture(terrain.i, texture.i) As "sgd_SetTerrainNormalTexture";
     ; ! Set terrain Debug mode.
     sgd_SetTerrainDebugMode(terrain.i, debugMode.i) As "sgd_SetTerrainDebugMode";
+    ; ! Get terrain height at world x/z coordinates.
+    sgd_GetTerrainHeight.SGD_Real(terrain.i,  x.SGD_Real, z.SGD_Real ) As "sgd_GetTerrainHeight"
 
     ;-! @defgroup Sprite Sprite
     ; ! Create a new sprite.
@@ -654,13 +843,29 @@ Import "sgd_dynamic.lib"
     ; ! Set sprite animation frame.
     sgd_SetSpriteFrame(sprite.i, frame.f) As "sgd_SetSpriteFrame";
     
+    ; ! @defgroup CollisionTypes CollisionTypes
+    ; ! Collider handle type.
+    ;typedef SGD_Handle SGD_Collider;
+    ; ! Collision responses
+    Enumeration SGD_CollisionResponse
+	     #SGD_COLLISION_RESPONSE_NONE 
+	     #SGD_COLLISION_RESPONSE_STOP 
+	     #SGD_COLLISION_RESPONSE_SLIDE 
+	     #SGD_COLLISION_RESPONSE_SLIDEXZ 
+    EndEnumeration
+    ; ! @}
+    
     ;-! @defgroup Collision Collision
     ; ! Create a new sphere collider And attach it To entity.
     sgd_CreateSphereCollider(entity.i, colliderType.i, radius.f) As "sgd_CreateSphereCollider";
     ; ! Create a new ellipsoid collider And attach it To entity.
     sgd_CreateEllipsoidCollider(entity.i, colliderType.i, radius.f, height.f) As "sgd_CreateEllipsoidCollider";
     ; ! Create a new mesh collider And attach it To entity.
+    ; ! If mesh is 0, entity must a Model entity, And is used To provide the collision mesh.
     sgd_CreateMeshCollider(entity.i, colliderType.i, mesh.i) As "sgd_CreateMeshCollider";
+    ; ! Create a new terrain collider And attach it To entity.
+    ; ! The entity must be a terrain entity.
+    sgd_CreateTerrainCollider(terrain.i, colliderType.i) As "sgd_CreateTerrainCollider";
     ; ! Create a new plane collider And attach it To entity.
     sgd_CreatePlaneCollider(entity.i, colliderType.i) As "sgd_CreatePlaneCollider";
     ; ! Return entity a collider is attached To.
@@ -785,10 +990,11 @@ Import "sgd_dynamic.lib"
   
   EndImport
 
-; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 22
+; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
+; CursorPosition = 1
+; FirstLine = 186
 ; Folding = -
-; Markers = 780
+; Markers = 985
 ; EnableAsm
 ; EnableXP
 ; DPIAware
