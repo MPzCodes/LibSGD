@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 
 XIncludeFile  "start.pb"
 
@@ -32,7 +32,8 @@ sgd_SetMeshShadowsEnabled (groundMesh, #True)
 
 groundModel = sgd_CreateModel(groundMesh)
 
-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
+material = sgd_LoadMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
+;-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
 
 r.f = 0.5
 y.f = 1.5
@@ -106,7 +107,7 @@ While (sgd_PollEvents() And 1) <> 1
 	sgd_Present()
 Wend
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; CursorPosition = 34
 ; EnableAsm
 ; EnableXP
 ; DPIAware

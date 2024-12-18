@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 ; new terrain collision
 
 XIncludeFile  "start.pb"
 
@@ -48,12 +48,20 @@ sgd_MoveEntity (player,0,512,-1024)
 sgd_SetCameraNear (camera,0.2)
 sgd_SetCameraFar (camera,2000)
 
+sgd_CreateTerrainCollider (terrain,0) ; new terrain collision
+sgd_CreateSphereCollider (player,1,1)
+
+sgd_EnableCollisions (1,0,#COLLISION_RESPONSE_SLIDE)
+
 De_bug=0
 
 While (sgd_PollEvents() And 1)<>1
 
 ;	PlayerFly2(.75,1.25,.25)
 	PlayerFly2(0.25,0.5,0.125)
+	
+	sgd_UpdateColliders()
+
 	
 	If sgd_IsKeyHit(#KEY_SPACE)
 		De_bug=1-De_bug
@@ -71,7 +79,7 @@ While (sgd_PollEvents() And 1)<>1
 	sgd_Present()
 Wend
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 10
+; CursorPosition = 1
 ; EnableAsm
 ; EnableXP
 ; DPIAware

@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 
 XIncludeFile  "start.pb"
 
@@ -13,7 +13,7 @@ sgd_init()
 ExamineDesktops()
 sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Picture"), #WINDOW_FLAGS_CENTERED)
 
-mat = sgd_LoadPrelitMaterial(myAscii("..\assets\misc\StillLife.exr"))
+mat = sgd_LoadEmissiveMaterial(myAscii("..\assets\misc\StillLife.exr"))
 sgd_SetMaterialBlendMode (mat, #BLEND_MODE_ALPHA_BLEND)
 
 sgd_Set2DFillMaterial (mat)
@@ -48,7 +48,7 @@ While (sgd_PollEvents() And 1) <> 1
 Wend
 
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; CursorPosition = 15
 ; EnableAsm
 ; EnableXP
 ; DPIAware

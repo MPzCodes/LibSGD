@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 
 IncludePath("..\lib\")
 
@@ -155,7 +155,7 @@ Procedure PlayerFly2(speed.f,maxSpeed.f,minSpeed.f)
 
 EndProcedure
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 26
+; CursorPosition = 1
 ; Folding = -
 ; EnableAsm
 ; EnableXP

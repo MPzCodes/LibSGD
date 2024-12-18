@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 
 ;Use space to toggle sprite view modes.
 
@@ -59,7 +59,7 @@ While Not sgd_PollEvents()
 	sgd_Present()
 Wend
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 25
+; CursorPosition = 1
 ; EnableAsm
 ; EnableXP
 ; DPIAware

@@ -1,5 +1,5 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 
 XIncludeFile  "start.pb"
 
@@ -56,7 +56,8 @@ Procedure LoadScene()
 	camera = sgd_CreatePerspectiveCamera()
 	sgd_MoveEntity (camera,0,1,-5)
 	
-	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG"))
+	;-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG")) ; Loaderror... search error
+	material = sgd_LoadMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG"))
 	mesh = sgd_CreateBoxMesh(-10, -1, -10, 10, 0, 10, material)
 	sgd_TransformTexCoords (mesh, 4,4,0,0)
 	ground = sgd_CreateModel(mesh)
@@ -66,7 +67,8 @@ Procedure LoadScene()
 
 EndProcedure
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 63
+; CursorPosition = 58
+; FirstLine = 10
 ; Folding = -
 ; EnableAsm
 ; EnableXP

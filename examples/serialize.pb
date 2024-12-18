@@ -45,10 +45,10 @@ sgd_SaveScene (myAscii("~/Desktop/test-scene.json"))
 ; The purpose of the programme is to delete the Scene with sgd_ResetScene and then load it again with sgd_LoadScene. I am looking for the error MPz...
 
 ;Destroy scene
-;-sgd_ResetScene (#True) 
+;- sgd_ResetScene (#True) 
 
 ;Load scene from desktop!
-;-sgd_LoadScene (myAscii("~/Desktop/test-scene.json"))
+;- sgd_LoadScene (myAscii("~/Desktop/test-scene.json"))
 
 ;createPlayer(0)
 ;MoveEntity player,0,10,0
@@ -64,7 +64,7 @@ While sgd_PollEvents()<>1
 	sgd_Present()
 Wend
 ; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 4
+; CursorPosition = 50
 ; EnableAsm
 ; EnableXP
 ; DPIAware
