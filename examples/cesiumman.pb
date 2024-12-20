@@ -56,8 +56,7 @@ Procedure LoadScene()
 	camera = sgd_CreatePerspectiveCamera()
 	sgd_MoveEntity (camera,0,1,-5)
 	
-	;-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG")) ; Loaderror... search error
-	material = sgd_LoadMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG"))
+	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG")) ; Loaderror... search error
 	mesh = sgd_CreateBoxMesh(-10, -1, -10, 10, 0, 10, material)
 	sgd_TransformTexCoords (mesh, 4,4,0,0)
 	ground = sgd_CreateModel(mesh)
