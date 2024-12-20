@@ -32,8 +32,7 @@ sgd_SetMeshShadowsEnabled (groundMesh, #True)
 
 groundModel = sgd_CreateModel(groundMesh)
 
-material = sgd_LoadMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
-;-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
+material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
 
 r.f = 0.5
 y.f = 1.5
