@@ -158,11 +158,9 @@ EndProcedure
 
 Procedure CreateGround()
 Static material,mesh,model
-	;-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Gravel023_1K-JPG"))
-	material = sgd_LoadMaterial(myAscii("..\assets\materials\Gravel023_1K-JPG"))
-	
-	
-	mesh = sgd_CreateBoxMesh(-#WORLD_SIZE * 2,-1,-#WORLD_SIZE*2,#WORLD_SIZE*2,0,#WORLD_SIZE*2,material)
+	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Gravel023_1K-JPG"))
+
+        mesh = sgd_CreateBoxMesh(-#WORLD_SIZE * 2,-1,-#WORLD_SIZE*2,#WORLD_SIZE*2,0,#WORLD_SIZE*2,material)
 	sgd_TransformTexCoords (mesh,100,100,0,0)
 
 	model = sgd_CreateModel(mesh)
@@ -171,9 +169,8 @@ EndProcedure
 
 Procedure CreateBlocks()
   Static material , mesh
-;-  material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric048_1K-JPG"))
-  material = sgd_LoadMaterial(myAscii("..\assets\materials\Fabric048_1K-JPG"))
-	mesh = sgd_CreateBoxMesh(-1,-1,-1,1,1,1,material)
+  material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric048_1K-JPG"))
+  mesh = sgd_CreateBoxMesh(-1,-1,-1,1,1,1,material)
 	sgd_SetMeshShadowsEnabled (mesh,#True)
 	
 	For i = 1 To #NUM_BLOCKS
