@@ -24,13 +24,17 @@ LibSGD is licensed under the Zlib/PNG license.
 
 Hello 
 
-I have used the "sgd_dynamic.dll" LibSGD v0.17.1 for this programme example and compiled Blitz3D example for Purebasic.
+you have two folder here:
 
-Procedure to work with the libsgd under Purebasic 6.12 x64: 
+This is version 0.17.1. These version was the latest that Mark has published on patreon. The compiled x64 dll file is in the folder and the lib is ready to use. You must download the assets (grafic, models etc) seperatly. These files arte to big for github. 
+https://github.com/MPzCodes/LibSGD/tree/main
 
-1) https://github.com/blitz-research/libsgd source code and instructions to create a dll yourself. Please copy the dll file into the "examples" directory. 
+This is version 0.18. These version was the developer version of Mark, but has the newest functions. The compiled x64 dll file is in the folder and the lib is ready to use too. You must download the assets (grafic, models etc) seperatly. These files arte to big for github. 
+https://github.com/MPzCodes/LibSGD/tree/Develop-Version-0.18
 
-2) I took all demos from the "LibSGD-windows-v0.17.1.zip" file from the Patreon page and adapted them. Greetings Michael
+You find the sourcecode here:
+1) https://github.com/blitz-research/libsgd/tree/develop source code and instructions to create a dll yourself. 
+2) I took all demos from the "LibSGD-windows-v0.17.1.zip" file from the Patreon page and adapted them here. Greetings Michael
 
 German translation
 
@@ -49,16 +53,18 @@ LibSGD ist lizenziert unter der Zlib/PNG Lizenz.
 server offline - Beteiligt euch an der LibSFD-Diskussion auf https://skirmish-dev.net/forum 
 
 server offline - Helft, LibSGD auf https://patreon.com/libsgd zu unterstützen.
+Hallo
 
-Hello,
+Sie haben hier zwei Ordner:
 
-ich habe die "sgd_dynamic.dll" LibSGD v0.17.1 für diese Programmbeispiel verwendet und Blitz3D Beispiel für Purebasic übersetzt.
+Dies ist Version 0.17.1. Diese Version war die letzte, die Mark auf Patreon veröffentlicht hat. Die kompilierte x64 dll Datei ist in dem Ordner und die Lib ist bereit zu verwenden. Die Assets (Grafik, Models etc) müssen separat heruntergeladen werden. Diese Dateien sind zu groß für github.
+https://github.com/MPzCodes/LibSGD/tree/main
 
-Vorgehensweise um unter Purebasic 6.12 x64 mit der libsgd zu arbeiten:
+Dies ist die Version 0.18. Diese Version war die Entwicklerversion von Mark, hat aber die neuesten Funktionen. Die kompilierte x64 dll Datei befindet sich in dem Ordner und die Lib ist auch fertig zur Verwendung. Die Assets (Grafik, Models etc) müssen separat heruntergeladen werden. Diese Dateien sind zu groß für github.
+https://github.com/MPzCodes/LibSGD/tree/Develop-Version-0.18
 
-1) https://github.com/blitz-research/libsgd
-Quellcode und Anleitung um eine dll selber zu erstellen. Diese wird dann in das "examples" Verzeichnis kopiert.
-
-2) Alle Demos habe ich der "LibSGD-windows-v0.17.1.zip" Datei von der Patreon Seite entnommen und angepasst. 
+Den Quellcode finden Sie hier:
+1) https://github.com/blitz-research/libsgd/tree/develop Quellcode und Anleitung um eine dll selbst zu erstellen.
+2) Ich habe alle Demos aus der "LibSGD-windows-v0.17.1.zip" Datei von der Patreon Seite genommen und hier angepasst. Grüße Michael
 
 Gruss Michael
