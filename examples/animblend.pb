@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -30,16 +32,16 @@ seq0 = 1	;initially idle
 time0Step.f = 0.02
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Animation Blender"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Animation Blender", #WINDOW_FLAGS_CENTERED)
 
 camera = sgd_CreatePerspectiveCamera()
 sgd_TurnEntity( camera,-45,0,0)
 sgd_MoveEntity (camera,0,0,-7.5)
 
-plane = sgd_CreatePlane(sgd_LoadMaterial(myAscii("..\assets\materials\Ground037_1K-JPG")))
+plane = sgd_CreatePlane(sgd_LoadMaterial("..\assets\materials\Ground037_1K-JPG"))
 
 pmaterial = sgd_CreateEmissiveMaterial()
-sgd_SetMaterialColor (pmaterial,myAscii("emissive"),1,1,1,1)
+sgd_SetMaterialColor (pmaterial,"emissive",1,1,1,1)
 pmesh = sgd_CreateSphereMesh(0.05,8,4,pmaterial)
 pmodel = sgd_CreateModel(pmesh)
 
@@ -54,7 +56,7 @@ outerAngle.f = 45
 innerAngle.f = 0
 sgd_SetLightShadowsEnabled (light,#True)
 
-model = sgd_LoadBonedModel(myAscii("..\assets\models\base_male_animated.glb"),#True)
+model = sgd_LoadBonedModel("..\assets\models\base_male_animated.glb",#True)
 sgd_SetMeshShadowsEnabled (sgd_GetModelMesh(model),#True)
 
 
@@ -137,17 +139,17 @@ While Not (sgd_PollEvents() And #EVENT_MASK_CLOSE_CLICKED)
 	sgd_SetLightInnerConeAngle (light,innerAngle)
 	
 	sgd_Clear2D()
-	sgd_Draw2DText (myAscii("Arrow keys/Shift to run. Using blend:"+useBlend+" (space to toggle)"),0,0)
-	sgd_Draw2DText (myAscii("Outer cone angle: "+outerAngle+" (1/2)"),0,16)
-	sgd_Draw2DText (myAscii("Inner cone angle: "+innerAngle+" (3/4)"),0,32)
+	sgd_Draw2DText ("Arrow keys/Shift to run. Using blend:"+useBlend+" (space to toggle)",0,0)
+	sgd_Draw2DText ("Outer cone angle: "+outerAngle+" (1/2)",0,16)
+	sgd_Draw2DText ("Inner cone angle: "+innerAngle+" (3/4)",0,32)
 
 	sgd_RenderScene()
 	
 	sgd_Present()
 Wend 
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 39
-; FirstLine = 10
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 143
+; FirstLine = 91
 ; EnableAsm
 ; EnableXP
 ; DPIAware

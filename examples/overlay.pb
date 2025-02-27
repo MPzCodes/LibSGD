@@ -1,14 +1,17 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
+
 
 XIncludeFile  "start.pb"
 
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Hello World"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Hello World", #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture("..\assets\envmaps\sunnysky-cube.png",#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 
 sgd_SetEnvTexture (env)
 
@@ -17,7 +20,7 @@ sgd_SetSkyboxRoughness (skybox, 0.3)
 
 sgd_Clear2D()
 
-sgd_Draw2DText (myAscii("Hello World!"),0,0)
+sgd_Draw2DText ("Hello World!",0,0)
 
 ; Draw some lines
 ;Set2DLineWidth 5
@@ -59,8 +62,8 @@ While (sgd_PollEvents() And 1) = 0
 	sgd_Present()
 
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 3
 ; EnableAsm
 ; EnableXP
 ; DPIAware

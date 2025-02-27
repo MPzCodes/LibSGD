@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -12,7 +14,7 @@ Global camera
 Global model
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Cesium Man"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Cesium Man", #WINDOW_FLAGS_CENTERED)
 
 LoadScene()
 
@@ -43,7 +45,7 @@ Wend
 
 Procedure LoadScene()
 
-	env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+	env = sgd_LoadCubeTexture("..\assets\envmaps\sunnysky-cube.png", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 	sgd_SetEnvTexture (env)
 
 	skybox = sgd_CreateSkybox(env)
@@ -56,18 +58,17 @@ Procedure LoadScene()
 	camera = sgd_CreatePerspectiveCamera()
 	sgd_MoveEntity (camera,0,1,-5)
 	
-	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\PavingStones065_1K-JPG")) ; Loaderror... search error
+	material = sgd_LoadPBRMaterial("..\assets\materials\PavingStones065_1K-JPG") ; Loaderror... search error
 	mesh = sgd_CreateBoxMesh(-10, -1, -10, 10, 0, 10, material)
 	sgd_TransformTexCoords (mesh, 4,4,0,0)
 	ground = sgd_CreateModel(mesh)
 	
-	model = sgd_LoadBonedModel(myAscii("..\assets\models\cesiumman.glb"), #True)
+	model = sgd_LoadBonedModel("..\assets\models\cesiumman.glb", #True)
 	sgd_SetMeshShadowsEnabled (sgd_GetModelMesh(model),#True)
 
 EndProcedure
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 58
-; FirstLine = 10
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 4
 ; Folding = -
 ; EnableAsm
 ; EnableXP

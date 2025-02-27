@@ -8,15 +8,6 @@ XIncludeFile "sgd.pb"
 
 XIncludeFile "sgd_dynamic.pbi"
 
-Procedure.s myAscii(string1$)
- ; Umwandlung Text in ASCII Code
- Static myString.s
- myString.s = Space(256)
- PokeS (@myString.s, string1$, -1, #PB_Ascii)
-  
- ProcedureReturn myString
-EndProcedure
-
 Global player
 Global player_rvx.f,player_rvy.f
 Global player_vx.f,player_vy,player_vz.f
@@ -154,8 +145,8 @@ Procedure PlayerFly2(speed.f,maxSpeed.f,minSpeed.f)
 	sgd_MoveEntity (player,player_vx,0,0)
 
 EndProcedure
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 9
 ; Folding = -
 ; EnableAsm
 ; EnableXP

@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -11,9 +13,9 @@ XIncludeFile  "start.pb"
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Picture"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Picture", #WINDOW_FLAGS_CENTERED)
 
-mat = sgd_LoadEmissiveMaterial(myAscii("..\assets\misc\StillLife.exr"))
+mat = sgd_LoadEmissiveMaterial("..\assets\misc\StillLife.exr")
 sgd_SetMaterialBlendMode (mat, #BLEND_MODE_ALPHA_BLEND)
 
 sgd_Set2DFillMaterial (mat)
@@ -39,16 +41,16 @@ While (sgd_PollEvents() And 1) <> 1
 	sgd_Clear2D()
 	
 	sgd_Draw2DRect (0,0,sgd_GetWindowWidth(),sgd_GetWindowHeight())
-	sgd_Draw2DText (myAscii("Bloom enabled (space): " + sgd_IsRenderEffectEnabled(bloom)),0,0)
-	sgd_Draw2DText (myAscii("Bloom Radius (up/down): " + sgd_GetBloomEffectRadius(bloom)),0,16)
+	sgd_Draw2DText ("Bloom enabled (space): " + sgd_IsRenderEffectEnabled(bloom),0,0)
+	sgd_Draw2DText ("Bloom Radius (up/down): " + sgd_GetBloomEffectRadius(bloom),0,16)
 	
 	sgd_RenderScene()
 	
 	sgd_Present()
 Wend
 
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 15
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 44
 ; EnableAsm
 ; EnableXP
 ; DPIAware

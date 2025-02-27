@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -34,7 +36,7 @@ Declare.i CreateBlocks()
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("25000 Blocks"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "25000 Blocks", #WINDOW_FLAGS_CENTERED)
 
 CreateScene()
 
@@ -51,7 +53,7 @@ While Not (sgd_PollEvents() And #EVENT_MASK_CLOSE_CLICKED)
 	UpdateBlocks()
 	
 	sgd_Clear2D()
-	sgd_Draw2DText (myAscii("FPS:"+StrF(sgd_GetFPS(),1)),0,0)
+	sgd_Draw2DText ("FPS:"+StrF(sgd_GetFPS(),1),0,0)
 	sgd_RenderScene()
 	
 	sgd_Present()
@@ -66,12 +68,12 @@ Procedure CreateScene()
 
 	sgd_ResetScene (#True)
 	
-	env =  sgd_LoadCubeTexture(myAscii("..\assets\envmaps\stormy-cube.jpg"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+	env =  sgd_LoadCubeTexture("..\assets\envmaps\stormy-cube.jpg", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 	sgd_SetEnvTexture (env)
 	
 	skybox = sgd_CreateSkybox(env)
 	
-	bulletImage = sgd_LoadImage(myAscii("..\assets\misc\light.png"))
+	bulletImage = sgd_LoadImage("..\assets\misc\light.png")
 
 	light = sgd_CreateDirectionalLight()
 	sgd_SetLightColor (light,1,1,1,0.2)
@@ -80,17 +82,17 @@ Procedure CreateScene()
 	CreatePlayer(0)
 	sgd_MoveEntity (player,0,50,-100)
 
-	sgd_SetEntityName (player,myAscii("Player"))
+	sgd_SetEntityName (player,"Player")
 	
 	;DebugLog player
-	;DebugLog FindEntityChild(0,myAscii("Player"))
+	;DebugLog FindEntityChild(0,"Player")
 	
 	light = sgd_CreateSpotLight()
 	sgd_SetEntityParent (light,player)
 	sgd_SetLightColor (light,1,1,1,1)
 	sgd_SetLightRange (light,50)
 	
-	slimeball=sgd_LoadSound(myAscii("..\assets\audio\slimeball.wav"))
+	slimeball=sgd_LoadSound("..\assets\audio\slimeball.wav")
 	
 	CreateGround()
 
@@ -158,7 +160,7 @@ EndProcedure
 
 Procedure CreateGround()
 Static material,mesh,model
-	material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Gravel023_1K-JPG"))
+	material = sgd_LoadPBRMaterial("..\assets\materials\Gravel023_1K-JPG")
 
         mesh = sgd_CreateBoxMesh(-#WORLD_SIZE * 2,-1,-#WORLD_SIZE*2,#WORLD_SIZE*2,0,#WORLD_SIZE*2,material)
 	sgd_TransformTexCoords (mesh,100,100,0,0)
@@ -169,7 +171,7 @@ EndProcedure
 
 Procedure CreateBlocks()
   Static material , mesh
-  material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric048_1K-JPG"))
+  material = sgd_LoadPBRMaterial("..\assets\materials\Fabric048_1K-JPG")
   mesh = sgd_CreateBoxMesh(-1,-1,-1,1,1,1,material)
 	sgd_SetMeshShadowsEnabled (mesh,#True)
 	
@@ -185,8 +187,9 @@ Procedure CreateBlocks()
 	Next
 	
 EndProcedure
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 2
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 173
+; FirstLine = 131
 ; Folding = -
 ; EnableAsm
 ; EnableXP

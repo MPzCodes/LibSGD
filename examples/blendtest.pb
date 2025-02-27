@@ -1,24 +1,26 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Blend test"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Blend test", #WINDOW_FLAGS_CENTERED)
 
 
 sgd_SetAmbientLightColor (1,1,1,0.2)
 
-env =  sgd_LoadCubeTexture(myAscii("..\assets\envmaps\stormy-cube.jpg"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+env =  sgd_LoadCubeTexture("..\assets\envmaps\stormy-cube.jpg", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 sgd_CreateSkybox (env)
 
 light = sgd_CreateDirectionalLight()
 sgd_SetEntityRotation (light,-45,-45,0)
 
-mesh = sgd_LoadMesh(myAscii("..\assets\models\blendtest.glb"))
+mesh = sgd_LoadMesh("..\assets\models\blendtest.glb")
 sgd_FitMesh (mesh,-0.5,-0.5,-0.5,0.5,0.5,0.5,#True)
 
 cells = 5
@@ -58,8 +60,8 @@ While Not (sgd_PollEvents() And #EVENT_MASK_CLOSE_CLICKED)
 	sgd_Present()
 
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 22
 ; EnableAsm
 ; EnableXP
 ; DPIAware

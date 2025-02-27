@@ -1,21 +1,23 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Primitives"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Primitives", #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture("..\assets\envmaps\sunnysky-cube.png",#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 
 skybox = sgd_CreateSkybox(env)
 sgd_SetSkyboxRoughness (skybox, 0.3)
 
-sgd_SetConfigVar (myAscii("psm.textureSize"), myAscii(Str(4096)))
-sgd_SetConfigVar (myAscii("psm.maxLights"), myAscii(Str(6)))
+sgd_SetConfigVar ("psm.textureSize", Str(4096))
+sgd_SetConfigVar ("psm.maxLights", Str(6))
 sgd_UpdateShadowMappingConfig()
 
 light0 = sgd_CreatePointLight()
@@ -24,7 +26,7 @@ sgd_SetLightRange (light0, 10)
 sgd_SetLightShadowsEnabled (light0,#True)
 
 groundMaterial = sgd_CreatePBRMaterial()
-SGD_SetMaterialColor (groundMaterial,myAscii("albedo"),1,0.75,0,1)
+SGD_SetMaterialColor (groundMaterial,"albedo",1,0.75,0,1)
 ;SGD_SetMaterialColor (groundMaterial,"albedo",1,0.75,0,1)
 
 groundMesh = sgd_CreateBoxMesh(-5,-0.1,-5,5,0,5,groundMaterial)
@@ -32,7 +34,7 @@ sgd_SetMeshShadowsEnabled (groundMesh, #True)
 
 groundModel = sgd_CreateModel(groundMesh)
 
-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Fabric050_1K-JPG"))
+material = sgd_LoadPBRMaterial("..\assets\materials\Fabric050_1K-JPG")
 
 r.f = 0.5
 y.f = 1.5
@@ -97,7 +99,7 @@ While (sgd_PollEvents() And 1) <> 1
 	collider = sgd_CameraPick(camera,sgd_GetMouseX(),sgd_GetMouseY(),1)
 	
 	sgd_Clear2D()
-	sgd_Draw2DText (myAscii("Picked collider:" + collider),0,0)
+	sgd_Draw2DText ("Picked collider:" + collider,0,0)
 	
 	sgd_CameraUnproject (camera, sgd_GetMouseX(), sgd_GetMouseY(), 1)
 	sgd_SetEntityPosition (cursor, sgd_GetUnprojectedX(), sgd_GetUnprojectedY(), sgd_GetUnprojectedZ())
@@ -105,8 +107,8 @@ While (sgd_PollEvents() And 1) <> 1
 	sgd_RenderScene()
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 34
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 4
 ; EnableAsm
 ; EnableXP
 ; DPIAware

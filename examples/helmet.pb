@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile "start.pb"
 
@@ -9,9 +11,9 @@ Pfad.s = "..\assets\envmaps\sunnysky-cube.png"
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii(Titel), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , Titel, #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii(Pfad),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture(Pfad,#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 
 sgd_SetEnvTexture(env)
 
@@ -21,13 +23,13 @@ sgd_SetSkyboxRoughness (skybox, 0.3)
 light = sgd_CreateDirectionalLight()
 sgd_TurnEntity (light,-45,0,0	) ; Tilt light down 45 degrees 
 
-material = sgd_LoadPBRMaterial(myAscii("..\assets\materials\Tiles019_1K-JPG"))
+material = sgd_LoadPBRMaterial("..\assets\materials\Tiles019_1K-JPG")
 
 mesh = sgd_CreateBoxMesh(-10,-3,-10,10,-2,10,material)
 sgd_TransformTexCoords (mesh,3,3,0,0)
 ground = sgd_CreateModel(mesh)
 
-mesh = sgd_LoadMesh(myAscii("sgd://models/helmet.glb"))
+mesh = sgd_LoadMesh("..\assets\models\helmet.glb")
 model=sgd_CreateModel(mesh)
 sgd_MoveEntity (model,0,0,3)
 
@@ -50,8 +52,8 @@ While Not sgd_PollEvents()
 	sgd_Present()
 	
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 6
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 4
 ; EnableAsm
 ; EnableXP
 ; DPIAware

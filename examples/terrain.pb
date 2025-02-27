@@ -1,14 +1,16 @@
 
 ; File for libsgd Version 0.18 Dec 2024 ; new terrain collision
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Canyon!"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Canyon!", #WINDOW_FLAGS_CENTERED)
 
-sgd_SetEnvTexture (sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT))
+sgd_SetEnvTexture (sgd_LoadCubeTexture("..\assets\envmaps\sunnysky-cube.png",#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT))
 
 
 sgd_SetAmbientLightColor (1,0.9,0.8,0.1)
@@ -22,16 +24,16 @@ sgd_SetFogEffectColor (fog,0.5,0.8,1,1)
 sgd_SetFogEffectRange (fog,0.2,2000)
 sgd_SetFogEffectPower (fog,2.5)
 
-heightTexture = sgd_Load2DTexture(myAscii("..\assets\terrains\canyon\height.exr"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
-normalTexture = sgd_Load2DTexture(myAscii("..\assets\terrains\canyon\normal.png"), #TEXTURE_FORMAT_RGBA8, #TEXTURE_FLAGS_DEFAULT)
-albedoTexture = sgd_Load2DTexture(myAscii("..\assets\terrains\canyon\albedo.png"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+heightTexture = sgd_Load2DTexture("..\assets\terrains\canyon\height.exr", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+normalTexture = sgd_Load2DTexture("..\assets\terrains\canyon\normal.png", #TEXTURE_FORMAT_RGBA8, #TEXTURE_FLAGS_DEFAULT)
+albedoTexture = sgd_Load2DTexture("..\assets\terrains\canyon\albedo.png", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 
 ;Local heightTexture = Load2DTexture("~/Desktop/rocky/height.exr", TEXTURE_FORMAT_ANY, TEXTURE_FLAGS_IMAGE)
 ;Local normalTexture = Load2DTexture("~/Desktop/rocky/normal.png", TEXTURE_FORMAT_RGBA8, TEXTURE_FLAGS_IMAGE)
 ;Local albedoTexture = Load2DTexture("~/Desktop/rocky/albedo.png", TEXTURE_FORMAT_ANY, TEXTURE_FLAGS_IMAGE)
 
 material=sgd_CreatePBRMaterial()
-sgd_SetMaterialTexture (material,myAscii("albedo"),albedoTexture)
+sgd_SetMaterialTexture (material,"albedo",albedoTexture)
 
 terrain = sgd_CreateTerrain()
 sgd_SetEntityScale (terrain,1,512,1)
@@ -69,17 +71,16 @@ While (sgd_PollEvents() And 1)<>1
 	EndIf
 	
 	sgd_Clear2D()
-	sgd_Draw2DText (myAscii("Camera: "+sgd_GetEntityX(camera)+","+sgd_GetEntityY(camera)+","+sgd_GetEntityZ(camera)),0,0)
-	sgd_Draw2DText (myAscii("Debug (space to toggle): "+De_bug),0,16)
-	sgd_Draw2DText (myAscii("FPS:"+StrF(sgd_GetFPS(),1)),0,32)
-	;sgd_Draw2DText "FPS: "+GetFPS(),0,32
+	sgd_Draw2DText ("Camera: "+sgd_GetEntityX(camera)+","+sgd_GetEntityY(camera)+","+sgd_GetEntityZ(camera),0,0)
+	sgd_Draw2DText ("Debug (space to toggle): "+De_bug,0,16)
+	sgd_Draw2DText ("FPS:"+StrF(sgd_GetFPS(),1),0,32)
 	
 	sgd_RenderScene()
 	
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 4
 ; EnableAsm
 ; EnableXP
 ; DPIAware

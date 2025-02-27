@@ -1,5 +1,7 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
+;
+; Version 0.1, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -67,9 +69,9 @@ Procedure sgd_CreateSphere(radius.f, xSegs, ySegs, material)
 EndProcedure
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("Custom mesh demo"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "Custom mesh demo", #WINDOW_FLAGS_CENTERED)
 
-env = sgd_LoadCubeTexture(myAscii("..\assets\envmaps\sunnysky-cube.png"), #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
+env = sgd_LoadCubeTexture("..\assets\envmaps\sunnysky-cube.png", #TEXTURE_FORMAT_ANY, #TEXTURE_FLAGS_DEFAULT)
 
 sgd_SetEnvTexture (env)
 
@@ -79,8 +81,8 @@ sgd_SetSkyboxRoughness (skybox, 0.3)
 light = sgd_CreateDirectionalLight()
 sgd_TurnEntity (light,-45,0,0)	; Tilt light down 45 degrees 
 
-material = sgd_LoadPBRMaterial(myAscii("..\assets\misc\test-texture.png"))
-sgd_SetMaterialFloat (material, myAscii("roughness"), 0.5)
+material = sgd_LoadPBRMaterial("..\assets\misc\test-texture.png")
+sgd_SetMaterialFloat (material, "roughness", 0.5)
 
 ;mesh = sgd_CreateSphere(1,96,48,material)  ; buggy sgd_CreateSphere
 mesh = sgd_CreateSphereMesh(1,96,48,material)
@@ -108,8 +110,9 @@ While Not sgd_PollEvents()
 	
 Wend
 
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 83
+; FirstLine = 54
 ; Folding = -
 ; EnableAsm
 ; EnableXP

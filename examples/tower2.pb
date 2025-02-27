@@ -6,7 +6,7 @@ XIncludeFile  "start.pb"
 sgd_init()
 
 ExamineDesktops()
-sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , myAscii("La Tour Eiffel!"), #WINDOW_FLAGS_CENTERED)
+sgd_CreateWindow (DesktopWidth(0)/2 , DesktopHeight(0)/2 , "La Tour Eiffel!", #WINDOW_FLAGS_CENTERED)
 
 ;Local light = CreateDirectionalLight()
 ;SetLightShadowMappingEnabled light,True
@@ -29,20 +29,20 @@ sgd_SetLightColor (rgb_light (0), 255, 0, 0, 1)
 sgd_SetLightColor (rgb_light (1), 0, 255, 0, 1)
 sgd_SetLightColor (rgb_light (2), 0, 0, 255, 1)
 
-env =  sgd_LoadCubeTexture(myAscii("..\assets\envmaps\nightsky-cube.png"),#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
+env =  sgd_LoadCubeTexture("..\assets\envmaps\nightsky-cube.png",#TEXTURE_FORMAT_ANY,#TEXTURE_FLAGS_DEFAULT)
 sgd_SetEnvTexture (env)
 
 skybox = sgd_CreateSkybox(env)
 
 sz.f=1000
-groundMaterial = sgd_LoadPBRMaterial(myAscii("..\assets\misc\brownish-grass.jpg"))
+groundMaterial = sgd_LoadPBRMaterial("..\assets\misc\brownish-grass.jpg")
 groundMesh = sgd_CreateBoxMesh(-sz/2,-1,-sz/2,sz/2,0,sz/2,groundMaterial)
 sgd_TransformTexCoords (groundMesh,sz,sz,0,0)
 ground = sgd_CreateModel(groundMesh)
 sgd_CreateMeshCollider(ground, 0, 0)
 
 sz=330
-towerMesh = sgd_LoadMesh(myAscii("..\assets\models\eiffel_tower.glb"))
+towerMesh = sgd_LoadMesh("..\assets\models\eiffel_tower.glb")
 sgd_SetMeshShadowsEnabled (towerMesh,#True)
 sgd_FitMesh(towerMesh,-sz/2,0,-sz/2,sz/2,sz,sz/2,#True)
 tower = sgd_CreateModel(towerMesh)
@@ -67,11 +67,12 @@ While (sgd_PollEvents() And 1)<>1
 	
 	sgd_Clear2D()
 	;Draw2DText "FPS:"+GetFPS(),0,0
-	sgd_Draw2DText (myAscii("FPS:"+StrF(sgd_GetFPS(),1)),0,0)
+	sgd_Draw2DText ("FPS:"+StrF(sgd_GetFPS(),1),0,0)
 	sgd_Present()
 Wend
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 69
+; FirstLine = 14
 ; EnableAsm
 ; EnableXP
 ; DPIAware
