@@ -2,6 +2,9 @@
 ; Libname: sgd_dynamic.lib
 ; created: 2024/12/15  15:51
 ; translated MPz Version for Version 0.18 alpha
+;
+; V 0.01
+
 
  Macro SGD_String
     s
@@ -20,6 +23,15 @@
    i
  EndMacro
  
+ Procedure.s myAscii(string1$)
+ ; Umwandlung Text in ASCII Code
+ Static myString.s
+ myString.s = Space(256)
+ PokeS (@myString.s, string1$, -1, #PB_Ascii)
+  
+ ProcedureReturn myString
+EndProcedure
+
 ;Import "libsgd.lib"
 Import "sgd_dynamic.lib"
   
@@ -42,7 +54,7 @@ Import "sgd_dynamic.lib"
   sgd_Init() As "sgd_Init";
   ; ! Get current Runtime LibSGD version.
   ; ! Returns the value of SGD_VERSION Macro at the time the Runtime was built.
-  sgd_GetVersion() As "sgd_GetVersion";
+  sgd_GetVersion_x() As "sgd_GetVersion";
   ; ! Shut down libsgd.
   sgd_Terminate() As "sgd_Terminate";
 
@@ -60,9 +72,9 @@ Import "sgd_dynamic.lib"
   ; ! render.opaquePassEnabled  | "1"     | Enables opaque rendering.
   ; ! render.blendPassEnabled   | "1"     | Enables blended rendering.
   ; ! render.effectPassEnabled  | "1"     | Enables effects rendering.
-  sgd_SetConfigVar(name.SGD_String , value.SGD_String ) As "sgd_SetConfigVar";
+  sgd_SetConfigVar_x(name.SGD_String , value.SGD_String ) As "sgd_SetConfigVar";
   ; ! Set Global configuration variable. The returned value is valid Until the Next CALL To sgd_GetConfigVar.
-  sgd_GetConfigVar(name.SGD_String ) As "sgd_GetConfigVar";
+  sgd_GetConfigVar_x(name.SGD_String ) As "sgd_GetConfigVar";
   ; ! Set error handler callback.
   ;SGD_API void SGD_DECL sgd_SetErrorHandler(void(SGD_DECL* handler)(SGD_String error, void* context), void* context); Weis nicht wie man das übersetzen soll
   ; ! Generate Runtime error.
@@ -70,7 +82,7 @@ Import "sgd_dynamic.lib"
   ; ! Generate modal alert dialog.
   sgd_Alert(message.SGD_String ) As "sgd_Alert";
   ; ! Write line of text To log.
-  sgd_Log(line.SGD_String ) As "sgd_Log";
+  sgd_Log_x(line.SGD_String ) As "sgd_Log";
   ; ! Return width of desktop IN pixels.
   sgd_GetDesktopWidth() As "sgd_GetDesktopWidth";
   ; ! Return height of desktop IN pixels.
@@ -112,7 +124,7 @@ Import "sgd_dynamic.lib"
   ; ! @}
   ;-! @defgroup Window Window
   ; ! Create a new window. See @ref SGD_WindowFlags for possible values for `flags`.
-  sgd_CreateWindow(width.i, height.i, title.SGD_String, flags.i) As "sgd_CreateWindow"
+  sgd_CreateWindow_x(width.i, height.i, title.SGD_String, flags.i) As "sgd_CreateWindow"
   ; ! Destroy window.
   sgd_DestroyWindow() As "sgd_DestroyWindow"
   ; ! Set window position.
@@ -128,7 +140,7 @@ Import "sgd_dynamic.lib"
   ; ! Get window height.
   sgd_GetWindowHeight() As "sgd_GetWindowHeight"
   ; ! Set window title.
-  sgd_SetWindowTitle( title.SGD_String) As "sgd_SetWindowTitle"
+  sgd_SetWindowTitle_x( title.SGD_String) As "sgd_SetWindowTitle"
   ; ! Get window title. The returned string will be valid until the next call to sgd_GetWindowTitle().
   sgd_GetWindowTitle() As "sgd_GetWindowTitle"
   ; ! Set fullscreen mode.
@@ -245,11 +257,11 @@ Import "sgd_dynamic.lib"
    ; ! @param path is the file path of the texture To load.
    ; ! @param format is a SGD_TextureFormat constant.
    ; ! @param flags is a valid combination of SGD_TextureFlags values.
-   sgd_Load2DTexture( path.SGD_String, format.i, flags.i) As "sgd_Load2DTexture"
+   sgd_Load2DTexture_x( path.SGD_String, format.i, flags.i) As "sgd_Load2DTexture"
    ; ! Load a new cube texture. See also @ref SGD_TextureFlags.
-   sgd_LoadCubeTexture(path.SGD_String, format.i, flags.i) As "sgd_LoadCubeTexture"
+   sgd_LoadCubeTexture_x(path.SGD_String, format.i, flags.i) As "sgd_LoadCubeTexture"
    ; ! Load a new Array texture. See also @ref SGD_TextureFlags.
-   sgd_LoadArrayTexture(path.SGD_String, format.i, flags.i) As "sgd_LoadArrayTexture"
+   sgd_LoadArrayTexture_x(path.SGD_String, format.i, flags.i) As "sgd_LoadArrayTexture"
    ; ! Create a new 2D texture. See also @ref SGD_TextureFlags.
    sgd_Create2DTexture(width.i, height.i, format.i, flags.i) As "sgd_Create2DTexture"
    ; ! Create a new cube texture. See also @ref SGD_TextureFlags.
@@ -308,15 +320,15 @@ Import "sgd_dynamic.lib"
    ;-! @defgroup Material Material
   
    ; ! Load a new material from an '.sgd' material file.
-   sgd_LoadMaterial(path.SGD_String) As "sgd_LoadMaterial"
+   sgd_LoadMaterial_x(path.SGD_String) As "sgd_LoadMaterial"
    ; ! Create a new PBR material.
    sgd_CreatePBRMaterial() As "sgd_CreatePBRMaterial"
    ; ! Load a new PBR material.
-   sgd_LoadPBRMaterial(path.SGD_String) As "sgd_LoadPBRMaterial"
+   sgd_LoadPBRMaterial_x(path.SGD_String) As "sgd_LoadPBRMaterial"
    ; ! Create a new emissive material.
    sgd_CreateEmissiveMaterial() As "sgd_CreateEmissiveMaterial"
    ; ! Load a new emissive material from an image file.
-   sgd_LoadEmissiveMaterial(path.SGD_String) As "sgd_LoadEmissiveMaterial"
+   sgd_LoadEmissiveMaterial_x(path.SGD_String) As "sgd_LoadEmissiveMaterial"
    ; ! Set material blend mode.
    sgd_SetMaterialBlendMode(material.i, blendMode.i) As "sgd_SetMaterialBlendMode"
    ; ! Set material depth comparison function.
@@ -324,20 +336,20 @@ Import "sgd_dynamic.lib"
    ; ! Set material cull mode.
    sgd_SetMaterialCullMode(material.i, cullMode.i) As "sgd_SetMaterialCullMode"
    ; ! Set material texture property.
-   sgd_SetMaterialTexture(material.i,  parameter.SGD_String, texture.i) As "sgd_SetMaterialTexture"
+   sgd_SetMaterialTexture_x(material.i,  parameter.SGD_String, texture.i) As "sgd_SetMaterialTexture"
    ; ! @}
 
    ; ! Set material color property.
    ; ! The color components should be IN non-linear color space, And should Not be premultiplied by alpha.
-   sgd_SetMaterialColor(material.i, property.SGD_String , red.f, green.f, blue.f,alpha.f) As "sgd_SetMaterialColor"
+   sgd_SetMaterialColor_x(material.i, property.SGD_String , red.f, green.f, blue.f,alpha.f) As "sgd_SetMaterialColor"
    ; ! Set material vec4f property.
-   sgd_SetMaterialVec4f(material.i, property.SGD_String , x.f,  y.f, z.f, w.f) As "sgd_SetMaterialVec4f"
+   sgd_SetMaterialVec4f_x(material.i, property.SGD_String , x.f,  y.f, z.f, w.f) As "sgd_SetMaterialVec4f"
    ; ! Set material vec3f property.
-   sgd_SetMaterialVec3f(material.i, property.SGD_String , x.f,  y.f, z.f) As "sgd_SetMaterialVec3f"
+   sgd_SetMaterialVec3f_x(material.i, property.SGD_String , x.f,  y.f, z.f) As "sgd_SetMaterialVec3f"
    ; ! Set material vec2f property.
-   sgd_SetMaterialVec2f(material.i, property.SGD_String , x.f,  y.f) As "sgd_SetMaterialVec2f"
+   sgd_SetMaterialVec2f_x(material.i, property.SGD_String , x.f,  y.f) As "sgd_SetMaterialVec2f"
    ; ! Set material float property.
-   sgd_SetMaterialFloat(material.i, property.SGD_String , value.f) As "sgd_SetMaterialFloat"
+   sgd_SetMaterialFloat_x(material.i, property.SGD_String , value.f) As "sgd_SetMaterialFloat"
    ; ! @}
     
    ;-! @defgroup Mesh Mesh
@@ -350,7 +362,7 @@ Import "sgd_dynamic.lib"
    EndEnumeration
 
    ; ! Load a new mesh.
-   sgd_LoadMesh(path.SGD_String) As "sgd_LoadMesh"
+   sgd_LoadMesh_x(path.SGD_String) As "sgd_LoadMesh"
    ; ! Copy mesh.
    sgd_CopyMesh(mesh.i) As "sgd_CopyMesh"
    ; ! Create a new box mesh.
@@ -464,17 +476,17 @@ Import "sgd_dynamic.lib"
     
     ;-! @defgroup Font Font
     ; ! Load a new font.
-    sgd_LoadFont(path.SGD_String, height.f) As "sgd_LoadFont";
+    sgd_LoadFont_x(path.SGD_String, height.f) As "sgd_LoadFont";
     ; ! Get width of text.
-    sgd_GetTextWidth.f(font.i, text.SGD_String) As "sgd_GetTextWidth";
+    sgd_GetTextWidth_x.f(font.i, text.SGD_String) As "sgd_GetTextWidth";
     ; ! get height of font.
     sgd_GetFontHeight.f(font.i) As "sgd_GetFontHeight";
 
     ;-! @defgroup Image Image
     ; ! Load an image For use With 3D sprites Or Draw2DImage.
-    sgd_LoadImage(path.SGD_String) As "sgd_LoadImage";
+    sgd_LoadImage_x(path.SGD_String) As "sgd_LoadImage";
     ; ! Load an Array image For use With 3D sprites Or Draw2DImage.
-    sgd_LoadArrayImage(path.SGD_String , frameCount.i, framesX.i, framesY.i, frameSpacing.i) As "sgd_LoadArrayImage";
+    sgd_LoadArrayImage_x(path.SGD_String , frameCount.i, framesX.i, framesY.i, frameSpacing.i) As "sgd_LoadArrayImage";
     ; ! Create an image With an existing texture.
     sgd_CreateImage(texture.i ) As "sgd_CreateImage";
     
@@ -516,7 +528,7 @@ Import "sgd_dynamic.lib"
     ; ! Set current text color.
     sgd_Set2DTextColor(red.f, green.f, blue.f, alpha.f) As "sgd_Set2DTextColor";
     ; ! Get width of 2d text IN the current 2D font.
-    sgd_Get2DTextWidth.f(text.SGD_String) As "sgd_Get2DTextWidth";
+    sgd_Get2DTextWidth_x.f(text.SGD_String) As "sgd_Get2DTextWidth";
     ; ! Get height of current 2d font.
     sgd_Get2DFontHeight() As "sgd_Get2DFontHeight";
     ; ! Clear the current 2d overlay.
@@ -536,7 +548,7 @@ Import "sgd_dynamic.lib"
     ; ! Draw oval using current fill And outline colors.
     sgd_Draw2DOval(minX.f, minY.f, maxX.f, maxY.f) As "sgd_Draw2DOval";
     ; ! Draw text using current text color.
-    sgd_Draw2DText(text.SGD_String, x.f, y.f) As "sgd_Draw2DText";
+    sgd_Draw2DText_x(text.SGD_String, x.f, y.f) As "sgd_Draw2DText";
     
     ;-! @defgroup Scene Scene
     ; ! Destroy all active entities.
@@ -546,9 +558,9 @@ Import "sgd_dynamic.lib"
     ; ! If the release all handles argument is true, sgd_ReleaseAllHandles is also called, allowing
     sgd_ResetScene(releaseAllHandles.i) As "sgd_ResetScene";
     ; ! Experimental JSON loader!
-    sgd_LoadScene( path.SGD_String) As "sgd_LoadScene";
+    sgd_LoadScene_x( path.SGD_String) As "sgd_LoadScene";
     ; ! Experimental JSON saver!
-    sgd_SaveScene( path.SGD_String) As "sgd_SaveScene";
+    sgd_SaveScene_x( path.SGD_String) As "sgd_SaveScene";
     ; ! Set scene ambient light color.
     sgd_SetAmbientLightColor(red.f,green.f, blue.f, alpha.f) As "sgd_SetAmbientLightColor";
     ; ! Set scene clear color.
@@ -602,9 +614,9 @@ Import "sgd_dynamic.lib"
     ; ! Copy entity And children recursively.
     sgd_CopyEntity(entity.i) As "sgd_CopyEntity";
     ; ! Set entity name
-    sgd_SetEntityName(entity.i, name.SGD_String) As "sgd_SetEntityName";
+    sgd_SetEntityName_x(entity.i, name.SGD_String) As "sgd_SetEntityName";
     ; ! Get entity name. The returned string will remain valid Until the Next CALL To sgd_GetEntityName.
-    sgd_GetEntityName(entity.i) As "sgd_GetEntityName";
+    sgd_GetEntityName_x(entity.i) As "sgd_GetEntityName";
     ; ! Set entity's parent.
     sgd_SetEntityParent(entity.i, parent.i) As "sgd_SetEntityParent";
     ; ! Get entity's parent.
@@ -614,7 +626,7 @@ Import "sgd_dynamic.lib"
     ; ! Get entity child by index. childIndex must be >= 0 And < sgd_GetEntityChildCount(entity)
     sgd_GetEntityChild(entity.i, childIndex.i) As "sgd_GetEntityChild";
     ; ! Recursively search For an entity by name. If parent is 0, the entire scene is searched.
-    sgd_FindEntityChild(entity.i, childName.SGD_String) As "sgd_FindEntityChild";
+    sgd_FindEntityChild_x(entity.i, childName.SGD_String) As "sgd_FindEntityChild";
     ; ! Set entity's world space position.
     sgd_SetEntityPosition(entity.i, tx.SGD_Real, ty.SGD_Real, tz.SGD_Real ) As "sgd_SetEntityPosition";
     ; ! Set entity's world space rotation.
@@ -781,9 +793,9 @@ Import "sgd_dynamic.lib"
     
     ;-! @defgroup Model Model
     ; ! Load a model.
-    sgd_LoadModel(path.SGD_String ) As "sgd_LoadModel";
+    sgd_LoadModel_x(path.SGD_String ) As "sgd_LoadModel";
     ; ! Load a boned model.
-    sgd_LoadBonedModel(path.SGD_String , skinned.i) As "sgd_LoadBonedModel";
+    sgd_LoadBonedModel_x(path.SGD_String , skinned.i) As "sgd_LoadBonedModel";
     ; ! Create a new model.
     sgd_CreateModel(mesh.i) As "sgd_CreateModel";
     ; ! Set model mesh.
@@ -797,7 +809,7 @@ Import "sgd_dynamic.lib"
     
     ;-! @defgroup Skybox Skybox
     ; ! Load a skybox.
-    sgd_LoadSkybox(path.SGD_String, roughness.f) As "sgd_LoadSkybox";
+    sgd_LoadSkybox_x(path.SGD_String, roughness.f) As "sgd_LoadSkybox";
     ; ! Create a new skybox.
     sgd_CreateSkybox(texture.i) As "sgd_CreateSkybox";
     ; ! Set skybox texture.
@@ -954,7 +966,7 @@ Import "sgd_dynamic.lib"
 
     ;-! @defgroup Audio Audio
     ; ! Load a new sound.
-    sgd_LoadSound(path.SGD_String ) As "sgd_LoadSound";
+    sgd_LoadSound_x(path.SGD_String ) As "sgd_LoadSound";
     ; ! Play a sound, returning an audio stream..
     sgd_PlaySound(sound.i) As "sgd_PlaySound";
     ; ! Cue a sound. The returned audio stream must be unpaused before it will start.
@@ -989,12 +1001,173 @@ Import "sgd_dynamic.lib"
     
   
   EndImport
-
-; IDE Options = PureBasic 6.20 Beta 1 (Windows - x64)
-; CursorPosition = 1
-; FirstLine = 186
-; Folding = -
-; Markers = 985
+  
+  ; Comandconvert ASCII To Unicode for Purebasic Translation
+  ;- System System translation
+  Procedure.s sgd_GetVersion()
+    ProcedureReturn PeekS(sgd_GetVersion_x(),-1 ,#PB_Ascii)
+  EndProcedure
+    
+  Procedure.s sgd_GetConfigVar(name.SGD_String)
+    ProcedureReturn PeekS(sgd_GetConfigVar_x(myAscii(name.SGD_String)),-1,#PB_Ascii)
+  EndProcedure
+    
+  Procedure sgd_SetConfigVar(name.SGD_String , value.SGD_String )
+    ProcedureReturn sgd_setConfigVar_x(myAscii(name.SGD_String),myAscii(value.SGD_String))
+  EndProcedure
+  
+  Procedure sgd_Log(line.SGD_String )
+    ProcedureReturn sgd_Log_x(myAscii(line.SGD_String) ) 
+  EndProcedure
+  
+  ;- Window translation
+  Procedure sgd_CreateWindow (width.i, height.i, title.SGD_String, flags.i) 
+    ProcedureReturn sgd_CreateWindow_x (width.i, height.i,  myAscii(title.SGD_String), flags.i) 
+  EndProcedure
+  
+  Procedure sgd_SetWindowTitle (title.SGD_String) 
+    ProcedureReturn sgd_SetWindowTitle_x(myAscii(title.SGD_String)) 
+  EndProcedure
+  
+  ;- texture translation
+  Procedure sgd_Load2DTexture(path.SGD_String, format.i, flags.i)
+    ProcedureReturn sgd_Load2DTexture_x(myAscii(path.SGD_String), format.i, flags.i)
+  EndProcedure
+  
+  Procedure sgd_LoadCubeTexture(path.SGD_String, format.i, flags.i)
+    ProcedureReturn sgd_LoadCubeTexture_x(myAscii(path.SGD_String), format.i, flags.i)
+  EndProcedure
+  
+  Procedure sgd_LoadArrayTexture(path.SGD_String, format.i, flags.i)
+   ProcedureReturn sgd_LoadArrayTexture_x(myAscii(path.SGD_String), format.i, flags.i)
+  EndProcedure
+    
+  ;- Material translation
+  Procedure sgd_LoadMaterial(path.SGD_String) 
+    ProcedureReturn sgd_LoadMaterial_x(myAscii(path.SGD_String))
+  EndProcedure
+    
+  Procedure sgd_LoadPBRMaterial(path.SGD_String) 
+    ProcedureReturn sgd_LoadPBRMaterial_x (myAscii(path.SGD_String)) 
+  EndProcedure
+  
+  Procedure sgd_LoadEmissiveMaterial(path.SGD_String) 
+    ProcedureReturn sgd_LoadEmissiveMaterial_x(myAscii(path.SGD_String))
+  EndProcedure
+  
+  Procedure sgd_SetMaterialTexture(material.i,  parameter.SGD_String, texture.i) 
+    ProcedureReturn sgd_SetMaterialTexture_x(material.i,  myAscii(parameter.SGD_String), texture.i) 
+  EndProcedure
+  
+  Procedure sgd_SetMaterialColor(material.i, property.SGD_String , red.f, green.f, blue.f,alpha.f) 
+    ProcedureReturn sgd_SetMaterialColor_x (material.i, myAscii(property.SGD_String ), red.f, green.f, blue.f,alpha.f) 
+  EndProcedure
+  
+  Procedure sgd_SetMaterialVec4f(material.i, property.SGD_String , x.f,  y.f, z.f, w.f)
+    ProcedureReturn sgd_SetMaterialVec4f_x(material.i, myAscii(property.SGD_String) , x.f,  y.f, z.f, w.f)
+  EndProcedure
+  
+  Procedure sgd_SetMaterialVec3f(material.i, property.SGD_String , x.f,  y.f, z.f)
+    ProcedureReturn sgd_SetMaterialVec3f_x(material.i, myAscii(property.SGD_String) , x.f,  y.f, z.f)
+  EndProcedure
+  
+  Procedure sgd_SetMaterialVec2f(material.i, property.SGD_String , x.f,  y.f) 
+    ProcedureReturn sgd_SetMaterialVec2f_x(material.i, myAscii(property.SGD_String) , x.f,  y.f) 
+  EndProcedure
+  
+  Procedure sgd_SetMaterialFloat(material.i, property.SGD_String , value.f)
+    ProcedureReturn sgd_SetMaterialFloat_x(material.i, myAscii(property.SGD_String ), value.f)
+  EndProcedure  
+    
+  ;- Mesh translation
+   Procedure sgd_LoadMesh(path.SGD_String) 
+     ProcedureReturn sgd_LoadMesh_x(myAscii(path.SGD_String)) 
+   EndProcedure
+   
+  ;- font translation 
+   Procedure sgd_LoadFont(path.SGD_String, height.f)
+     ProcedureReturn sgd_LoadFont_x(myAscii(path.SGD_String), height.f)
+   EndProcedure
+   
+   Procedure.f sgd_GetTextWidth (font.i, text.SGD_String)
+     ProcedureReturn sgd_GetTextWidth_x(font.i, myAscii(text.SGD_String))
+   EndProcedure
+   
+   ;- Image translation
+   Procedure sgd_LoadImage(path.SGD_String) 
+      ProcedureReturn sgd_LoadImage_x(myAscii(path.SGD_String)) 
+   EndProcedure
+   
+   Procedure sgd_LoadArrayImage(path.SGD_String , frameCount.i, framesX.i, framesY.i, frameSpacing.i)
+      ProcedureReturn sgd_LoadArrayImage_x(myAscii(path.SGD_String) , frameCount.i, framesX.i, framesY.i, frameSpacing.i)
+   EndProcedure
+   
+   ;- Overlay translation
+    Procedure.f sgd_Get2DTextWidth(text.SGD_String)
+        ProcedureReturn sgd_Get2DTextWidth_x(myAscii(text.SGD_String))
+    EndProcedure
+    
+    Procedure sgd_Draw2DText(text.SGD_String, x.f, y.f)
+        ProcedureReturn sgd_Draw2DText_x(myAscii(text.SGD_String), x.f, y.f)
+    EndProcedure
+    
+   ;- Scene translation
+   Procedure sgd_LoadScene( path.SGD_String)
+      ProcedureReturn sgd_LoadScene_x(myAscii(path.SGD_String)) 
+   EndProcedure
+   
+   Procedure sgd_SaveScene( path.SGD_String) 
+      ProcedureReturn sgd_SaveScene_x(myAscii (path.SGD_String)) 
+   EndProcedure
+    
+    ;- Entity translation
+    Procedure sgd_SetEntityName(entity.i, name.SGD_String)
+      ProcedureReturn sgd_SetEntityName_x(entity.i, myAscii(name.SGD_String))
+    EndProcedure
+    
+    Procedure.s sgd_GetEntityName(entity.i)
+        ProcedureReturn PeekS(sgd_GetEntityName_x(entity.i),-1,#PB_Ascii )
+    EndProcedure
+    
+    Procedure sgd_FindEntityChild(entity.i, childName.SGD_String) 
+        ProcedureReturn sgd_FindEntityChild_x(entity.i, myAscii(childName.SGD_String)) 
+    EndProcedure
+    
+   ;- Model translation
+    Procedure sgd_LoadModel(path.SGD_String )
+       ProcedureReturn sgd_LoadModel_x(myAscii(path.SGD_String ))
+    EndProcedure
+     
+    Procedure sgd_LoadBonedModel(path.SGD_String , skinned.i)
+       ProcedureReturn sgd_LoadBonedModel_x(myAscii(path.SGD_String) , skinned.i)
+     EndProcedure
+     
+    ;- Skybox translation
+    Procedure sgd_LoadSkybox(path.SGD_String, roughness.f) 
+       ProcedureReturn sgd_LoadSkybox_x(myAscii(path.SGD_String), roughness.f) 
+    EndProcedure
+    
+    ;- Audio  translation
+    Procedure sgd_LoadSound(path.SGD_String ) 
+        ProcedureReturn sgd_LoadSound_x(myAscii(path.SGD_String) ) 
+    EndProcedure
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+; IDE Options = PureBasic 6.12 LTS (Windows - x64)
+; CursorPosition = 1149
+; FirstLine = 1104
+; Folding = -------
+; Markers = 997
 ; EnableAsm
 ; EnableXP
 ; DPIAware
