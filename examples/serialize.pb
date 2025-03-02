@@ -1,7 +1,7 @@
 
-; File for libsgd Version 0.17 Dec 2024 
+; File for libsgd Version 0.18 Dec 2024 
 ;
-; Version 0.1, customisation to ASCII Code
+; Version 0.2, customisation to ASCII Code
 
 XIncludeFile  "start.pb"
 
@@ -34,7 +34,6 @@ For i=1 To n
 	sgd_MoveEntity (treeModel,Random(2*sz,0)-sz,0,Random(2*sz,0)-sz)
 Next
 
-
 createPlayer(0)
 sgd_MoveEntity (player,0,10,0)
 sgd_SetEntityName (player,"Player")
@@ -44,18 +43,16 @@ sgd_SetEntityName (camera,"Camera")
 sgd_SaveScene ("~/Desktop/test-scene.json")
 
 
-; The purpose of the programme is to delete the Scene with sgd_ResetScene and then load it again with sgd_LoadScene. I am looking for a solution MPz...
+; The purpose of the programme is to delete the Scene with sgd_ResetScene and then load it again with sgd_LoadScene.
 
-;- here it crashes, problem will solved
 ;Destroy scene
-; sgd_ResetScene (#True) 
+ sgd_ResetScene (#True) 
 
 ;Load scene from desktop!
-; sgd_LoadScene ("~/Desktop/test-scene2.json")
-;- end of here
+ sgd_LoadScene ("~/Desktop/test-scene.json")
 
-;createPlayer(0)
-;MoveEntity player,0,10,0
+createPlayer(0)
+sgd_MoveEntity (player,0,10,0)
 player=sgd_FindEntityChild(0,"Player")
 camera=sgd_FindEntityChild(0,"Camera")
 
@@ -73,7 +70,7 @@ Wend
 ; EnableXP
 ; DPIAware
 ; IDE Options = PureBasic 6.20 (Windows - x64)
-; CursorPosition = 7
+; CursorPosition = 1
 ; EnableAsm
 ; EnableXP
 ; DPIAware
