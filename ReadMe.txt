@@ -1,7 +1,20 @@
-Hello, bad news. I sadly have to announce that Mark Sibly has died after an illness in December 2024, rest in peace...
+changings
+
+09.March.2025
+i have actualized the dll file, solved the RenderEffect problem
+
+01.March.2025
+i have actualized the dll file, in the german program the serialize function doesnt work. the float has in german an "," instead of ".". i changed the "json" output for the german version to "." too
+
+27.Feb.2025
+actualised the sgd_dynamic.pbi file, now you can use strings normal in Purebasich (its a ascii/unicode problem of the lib)
 
 16.Dec.2024
 i have actualized the demos and put a download link for the assets files in the assets folder
+
+
+
+Hello, bad news. I sadly have to announce that Mark Sibly has died after an illness in December 2024, rest in peace...
 
 
 Welcome to LibSGD
