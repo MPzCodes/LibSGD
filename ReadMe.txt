@@ -1,7 +1,7 @@
 changings
 
 10.March.2025
-rename too version 0.18.1
+rename version to number 0.18.1
 
 09.March.2025
 i have actualized the dll file, solved the RenderEffect problem
