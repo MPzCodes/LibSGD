@@ -1,33 +1,28 @@
 
 ; File for libsgd Version 0.18 Dec 2024 
 ;
-; Version 0.1, customisation to ASCII Code
+; Version 0.2, customisation to ASCII Code
+; solved a sgd_CreateSphere() problem
+
 
 XIncludeFile  "start.pb"
 
 sgd_init()
 
-; Test sgd_CreateSphere is a little buggy, i doesnt find the probblem...
-
 Procedure sgd_CreateSphere(radius.f, xSegs, ySegs, material)
-
-	mesh = sgd_CreateMesh(0,0)
-	
-	TWO_PI.f=6.28318530718
-  HALF_PI.f= 1.5707963268
-	
-	Debug "1"
+  
+	mesh = sgd_CreateMesh(0,1)
 	
 	fxSegs.f = 1/xSegs : fySegs.f = 1/ySegs
 	
 	For i=0 To xSegs-1
 		sgd_AddVertex (mesh, 0, radius, 0, 0, 1, 0, (i + 0.5) * 2 * fxSegs, 0)
 	Next
-	
+
 	For j = 1 To ySegs-1
-		pitch.f = HALF_PI - j * 3.141 * fySegs;
-		For i = 0 To xSegs
-			yaw.f = i * TWO_PI / fxSegs;
+	  pitch.f = Radian(90 - j * fySegs * 180) ;
+	  For i = 0 To xSegs
+			yaw.f = Radian(i * fxSegs * 360)
 			r.f = Cos(pitch);
 			y.f = Sin(pitch);
 			x.f = Cos(yaw) * r;
@@ -35,20 +30,16 @@ Procedure sgd_CreateSphere(radius.f, xSegs, ySegs, material)
 			sgd_AddVertex (mesh, x * radius, y * radius, z * radius, x, y, z, i * 2 * fxSegs, j * fySegs)
 		Next
 	Next
+	
 	For i = 0 To xSegs-1
 		sgd_AddVertex (mesh, 0, -radius, 0, 0, -1, 0, (i + 0.5) * 2 * fxSegs, 1)
 	Next
-	Debug "1"
 	
 	surf = sgd_CreateSurface(mesh, material,0);
-	
-	Debug "1"
-	
 	
 	For i = 0 To xSegs-1
 		sgd_AddTriangle (surf, i, i + xSegs, i + xSegs + 1)
 	Next
-	Debug "1"
 	
 	For j = 1 To ySegs-2
 		For i = 0 To xSegs-1
@@ -62,8 +53,9 @@ Procedure sgd_CreateSphere(radius.f, xSegs, ySegs, material)
 		v0 = (xSegs + 1) * (ySegs - 1) + i - 1
 		sgd_AddTriangle (surf, v0, v0 + xSegs + 1, v0 + 1)
 	Next
-	Debug "1"
 	
+	sgd_UpdateMeshTangents(mesh)
+
 	ProcedureReturn mesh
 	
 EndProcedure
@@ -84,8 +76,8 @@ sgd_TurnEntity (light,-45,0,0)	; Tilt light down 45 degrees
 material = sgd_LoadPBRMaterial("..\assets\misc\test-texture.png")
 sgd_SetMaterialFloat (material, "roughness", 0.5)
 
-;mesh = sgd_CreateSphere(1,96,48,material)  ; buggy sgd_CreateSphere
-mesh = sgd_CreateSphereMesh(1,96,48,material)
+mesh = sgd_CreateSphere(1,96,48,material) 
+;mesh = sgd_CreateSphereMesh(1,96,48,material)
 
 model=sgd_CreateModel(mesh)
 sgd_MoveEntity (model,0,0,3)
@@ -111,8 +103,7 @@ While Not sgd_PollEvents()
 Wend
 
 ; IDE Options = PureBasic 6.12 LTS (Windows - x64)
-; CursorPosition = 83
-; FirstLine = 54
+; CursorPosition = 10
 ; Folding = -
 ; EnableAsm
 ; EnableXP
